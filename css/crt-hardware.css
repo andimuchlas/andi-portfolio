@@ -1,0 +1,110 @@
+/* css/crt-hardware.css */
+
+.screen-glass {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Videomator exact background */
+    background-color: black;
+    background-image: radial-gradient(200% 250% at center, rgba(0, 50, 50, 0.75), black 100%);
+    background-clip: padding-box;
+    animation: flicker 4s infinite linear;
+}
+
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.98; }
+}
+
+/* Background noise */
+.dirt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/img/background-noise.png');
+    background-size: cover;
+    mix-blend-mode: overlay; /* or screen/multiply depending on the noise image */
+    opacity: 0.15;
+    z-index: 45;
+    pointer-events: none;
+}
+
+/* Videomator exact cristal effect */
+.cristal {
+    pointer-events: none;	
+    overflow: hidden;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 3px, 2px 100%;
+    z-index: 50;
+}
+
+/* Videomator exact scanlines */
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 51;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.2) 10%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+    pointer-events: none;	
+}
+
+.scanline1 {
+    width: 100%;
+    height: 100px;
+    z-index: 52;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.2) 10%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 4s linear infinite;
+    pointer-events: none;	
+}
+
+@keyframes scanline {
+    0% { bottom: 100%; }
+    80% { bottom: 100%; }
+    100% { bottom: 0%; }
+}
+
+#wipe-transition-layer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    /* Simulate barrel distortion with a stronger CSS perspective to make it feel convex */
+    transform: perspective(800px) rotateX(1.5deg) scale(0.98);
+    transform-style: preserve-3d;
+}
+
+/* Shutdown animation */
+body.power-off #wipe-transition-layer {
+    animation: shutdown 0.4s ease-in forwards;
+}
+
+@keyframes shutdown {
+    0% { transform: scale(1, 1); filter: brightness(1); }
+    40% { transform: scale(1, 0.005); filter: brightness(2); }
+    70% { transform: scale(0.005, 0.005); filter: brightness(3); opacity: 1; }
+    100% { transform: scale(0, 0); filter: brightness(0); opacity: 0; }
+}

@@ -1,0 +1,187 @@
+/* css/dos-ui.css */
+
+#terminal-content {
+    font-size: 3.5vmin; /* Huge font size like Videomator */
+    line-height: 1.15;
+    white-space: pre-wrap; /* Allow flowing text */
+    height: 100%;
+    width: 100%;
+    /* Increase padding to ensure content fits inside the bezel of frame-monitor.png */
+    padding: 8vmin 12vmin 12vmin 12vmin; 
+    overflow-y: auto; /* Enable scrolling */
+    overflow-x: hidden;
+    user-select: none;
+    display: block; /* Remove flex centering so it flows from top */
+    box-sizing: border-box; /* Ensure padding doesn't push width out */
+}
+
+/* Custom scrollbar for retro feel */
+#terminal-content::-webkit-scrollbar {
+    width: 2vmin;
+}
+#terminal-content::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+#terminal-content::-webkit-scrollbar-thumb {
+    background: #FFB000;
+    border: 2px solid #0a0a0a;
+}
+
+/* Inverse highlight for solid Videomator-style top bars */
+.phosphor-highlight-inverse {
+    background-color: #FFB000;
+    color: #050505;
+    -webkit-text-fill-color: #050505;
+    text-shadow: none;
+    display: block;
+    width: 100%;
+    padding: 1vmin 2vmin;
+    box-sizing: border-box;
+}
+
+.retro-footer {
+    color: #FFB000;
+    opacity: 0.7;
+    margin-top: 4vmin;
+    font-size: 0.8em;
+}
+
+/* Utility classes for text layout */
+.center {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.menu-item {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0 L0 24 L6 18 L12 30 L16 28 L10 16 L18 16 Z' fill='%23FFB000' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 0 0, auto !important;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Force retro cursor on all pointer elements */
+[style*="cursor: pointer"], [style*="cursor:pointer"], a, button {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0 L0 24 L6 18 L12 30 L16 28 L10 16 L18 16 Z' fill='%23FFB000' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 0 0, auto !important;
+}
+
+.menu-item .selector {
+    display: inline-block;
+    width: 2ch; 
+    /* The block cursor */
+    color: #FFB000;
+}
+
+/* When highlighted via keyboard or tap */
+@keyframes menuActiveBlink {
+    0%, 49% { background-color: rgba(0, 0, 0, 0.2); color: #050505; }
+    50%, 100% { background-color: transparent; color: #050505; }
+}
+
+.menu-active-blink {
+    animation: menuActiveBlink 0.8s infinite step-start;
+}
+
+/* REMOVED: modern smooth hover effects. Interaction is driven by discrete selection. */
+
+/* Box Drawing specific styling if needed */
+.box-border {
+    /* Ensure the line height doesn't break vertical box drawing chars */
+    line-height: 1; 
+}
+
+/* Animations for specific ASCII diagrams */
+.data-packet {
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF;
+    /* We will move this using JS for precise routing along the ASCII lines */
+    position: absolute;
+    font-weight: bold;
+}
+
+/* Progress bar styling */
+.progress-bar-container {
+    display: inline-block;
+}
+
+/* Tooltip for ASCII nodes */
+.ascii-tooltip {
+    position: absolute;
+    background-color: #FFB000;
+    color: #000;
+    padding: 4px 8px;
+    font-size: 14px;
+    border: 1px solid #FFF;
+    text-shadow: none;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-family: inherit;
+    white-space: normal;
+    width: max-content;
+    max-width: 250px;
+}
+
+.ascii-node {
+    cursor: help;
+    display: inline-block;
+    position: relative;
+}
+
+.ascii-node:hover {
+    color: #FFF;
+    text-shadow: 0 0 5px #FFF, 0 0 15px #FFB000;
+}
+
+/* Crash Screen */
+.crash-screen {
+    background-color: #AA0000 !important;
+    color: #FFFFFF !important;
+    text-shadow: none !important;
+    animation: crtCrash 0.5s infinite;
+}
+
+@keyframes crtCrash {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+/* Animations for ASCII Art Glitch */
+@keyframes amrGlitch {
+    0%, 90% { transform: translate(0); filter: brightness(1); }
+    92% { transform: translate(-4px, 2px); filter: brightness(1.8); }
+    94% { transform: translate(4px, -2px); filter: brightness(0.8); }
+    96% { transform: translate(-2px, -2px); filter: brightness(1.5); }
+    100% { transform: translate(0); filter: brightness(1); }
+}
+
+@keyframes eyesFlicker {
+    0%, 100% { opacity: 1; filter: contrast(1); }
+    50% { opacity: 0.85; filter: contrast(1.2); }
+    52% { opacity: 0.4; }
+    54% { opacity: 0.9; }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { transform: scale(1); filter: brightness(1) blur(0px); }
+    50% { transform: scale(1.05); filter: brightness(1.4) blur(1px); }
+    55% { transform: scale(0.95); filter: brightness(0.8); }
+}
+
+.anim-amr { animation: amrGlitch 3s infinite; }
+.anim-eyes { animation: eyesFlicker 0.15s infinite; }
+.anim-star { animation: starTwinkle 2s infinite ease-in-out; }
+
+.phosphor-glow-bright {
+    color: #FFB000;
+    text-shadow: 0 0 15px #FFB000, 0 0 25px rgba(255,176,0,0.6);
+    filter: brightness(1.2);
+}
