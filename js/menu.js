@@ -34,7 +34,7 @@ class MainMenuManager {
     async showMenu(playSound = true) {
         this.state = 'menu';
         const menuHTML = this.generateMenuHTML();
-        
+
         // Reset scroll to top
         const content = document.getElementById('terminal-content');
         if (content) content.scrollTop = 0;
@@ -220,7 +220,6 @@ Software engineer with a Computer Science background and 2 years experience acro
             }
         });
 
-        // Add a subtle flicker to the screen to simulate hardware strain when selection changes
         const glass = document.querySelector('.screen-glass');
         if (glass) {
             glass.style.filter = 'brightness(0.8)';
@@ -245,10 +244,8 @@ Software engineer with a Computer Science background and 2 years experience acro
     }
 
     handleKeydown(e) {
-        // Init Audio Context on first keypress if not already
         window.Audio.init();
 
-        // Mute toggle globally
         if (e.key.toLowerCase() === 'm') {
             window.Audio.toggleMute();
             return;
@@ -268,7 +265,6 @@ Software engineer with a Computer Science background and 2 years experience acro
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 window.Audio.playEnter();
-                // Add artificial hardware delay
                 setTimeout(() => {
                     this.menuItems[this.activeIndex - 1].handler();
                 }, 120);
@@ -290,12 +286,10 @@ Software engineer with a Computer Science background and 2 years experience acro
                 window.Audio.playKeystroke();
                 this.showMenu();
             }
-            // Let the specific section handle other keys (like Enter for expanding)
         } else if (this.state === 'subsection') {
             if (e.key === 'Escape') {
                 e.preventDefault();
                 window.Audio.playKeystroke();
-                // Subsections go back to their parent section, managed by the section logic
             }
         }
     }

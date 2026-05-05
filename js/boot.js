@@ -10,6 +10,7 @@ class BootSequenceManager {
             "OSRM routing engine......... v5.27.1         OK",
             "Mounting /projects.......... 6 items found   OK",
             "NATS message bus............ :4222           OK",
+            "Unity ...................... 2025            OK",
             "gRPC services............... :50051          OK\n",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         ];
@@ -18,7 +19,7 @@ class BootSequenceManager {
     async start() {
         // We ensure Audio init is possible via a click anywhere
         const container = document.getElementById('terminal-content');
-        
+
         // Show animated static first (Old TV effect)
         const staticDiv = document.createElement('div');
         staticDiv.style.cssText = `
@@ -32,7 +33,7 @@ class BootSequenceManager {
             z-index: 999;
             animation: staticScroll 0.15s linear infinite;
         `;
-        
+
         const style = document.createElement('style');
         style.innerHTML = `
             @keyframes staticScroll {
@@ -42,15 +43,15 @@ class BootSequenceManager {
         `;
         document.head.appendChild(style);
         container.appendChild(staticDiv);
-        
+
         window.Audio.playStaticNoise(1.8);
         await new Promise(r => setTimeout(r, 1600));
-        
+
         // Smooth transition: Fade out static
         staticDiv.style.transition = 'opacity 0.3s ease-out';
         staticDiv.style.opacity = '0';
         await new Promise(r => setTimeout(r, 300));
-        
+
         staticDiv.remove();
         style.remove();
         container.innerHTML = '';
@@ -60,7 +61,7 @@ class BootSequenceManager {
         await new Promise(r => setTimeout(r, 50));
         document.body.style.filter = '';
         await new Promise(r => setTimeout(r, 200));
-        
+
         // Disable keyboard capture during boot
         document.getElementById('keyboard-capture').disabled = true;
 
@@ -68,17 +69,17 @@ class BootSequenceManager {
             const line = this.bootText[i];
             const div = document.createElement('div');
             container.appendChild(div);
-            
+
             // Type the line character by character
             for (let j = 0; j < line.length; j++) {
                 const char = line[j];
                 div.innerHTML += char === ' ' ? '&nbsp;' : char;
-                
+
                 // Play keystroke sound occasionally or for specific chars
                 if (char !== ' ' && char !== '\n' && j % 2 === 0) {
                     window.Audio.playKeystroke();
                 }
-                
+
                 // 20% faster than original (~80% of original delay)
                 const delay = line.includes('━') ? 1 : 8 + Math.random() * 12;
                 await new Promise(r => setTimeout(r, delay));

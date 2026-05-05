@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,29 +10,31 @@
     <link rel="stylesheet" href="css/crt-hardware.css">
     <link rel="stylesheet" href="css/crt-phosphor.css">
     <link rel="stylesheet" href="css/dos-ui.css">
+    <link rel="icon" type="image/png" href="assets/img/logo/web-logo.png">
 </head>
+
 <body>
     <div id="room">
         <div id="monitor-assembly">
-            <!-- Frame Overlay (uses image) -->
             <div class="monitor-frame-overlay"></div>
 
             <div class="screen-container">
                 <div class="screen-glass">
-                    <!-- Screen framing: Glow from screen to bezel -->
                     <div class="screen-glow-to-bezel"></div>
-                    
-                    <!-- CRT Hardware effects exactly like Videomator -->
+
                     <div class="cristal"></div>
                     <div class="scanline"></div>
                     <div class="scanline1"></div>
                     <div class="dirt-overlay"></div>
-                    
-                    <!-- Content Area -->
+
                     <div id="wipe-transition-layer">
                         <div id="terminal-content" class="phosphor-amber">
-                            <div id="splash-screen" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                <div id="power-btn" style="padding: 2vmin 4vmin; border: 2px solid #FFB000; cursor: pointer; font-size: 2vmin; transition: all 0.2s; background: rgba(0,0,0,0.5);">
+                            <div id="splash-screen"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 6vmin;">
+                                <img src="assets/img/logo/web-logo.png" alt="Logo"
+                                    style="width: 40vmin; height: auto; opacity: 0.9; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(3) brightness(1.2);">
+                                <div id="power-btn"
+                                    style="padding: 1vmin 6vmin; border: 3px solid #FFB000; cursor: pointer; font-size: 3vmin; transition: all 0.2s; background: rgba(0,0,0,0.9); text-align: center; width: 60vmin; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                                     [ POWER ON ]
                                 </div>
                             </div>
@@ -42,10 +45,9 @@
         </div>
     </div>
 
-    <!-- Hidden input to capture keyboard events consistently -->
-    <input type="text" id="keyboard-capture" autocomplete="off" spellcheck="false" style="position: absolute; opacity: 0; top: -1000px;">
+    <input type="text" id="keyboard-capture" autocomplete="off" spellcheck="false"
+        style="position: absolute; opacity: 0; top: -1000px;">
 
-    <!-- Application Logic -->
     <script src="js/audio.js"></script>
     <script src="js/renderer.js"></script>
     <script src="js/sections/profile.js"></script>
@@ -59,9 +61,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             const powerBtn = document.getElementById('power-btn');
             const splash = document.getElementById('splash-screen');
-            
+
             powerBtn.addEventListener('click', () => {
-                window.Audio.init(); // Initialize audio context on click
+                window.Audio.init();
                 splash.style.display = 'none';
                 document.getElementById('keyboard-capture').focus();
                 window.BootManager.start();
@@ -73,4 +75,5 @@
         });
     </script>
 </body>
+
 </html>
