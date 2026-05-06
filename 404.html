@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - SECTOR NOT FOUND</title>
+    <style>
+        body {
+            background: #000;
+            color: #FFB000;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .error-code {
+            font-size: 8vmin;
+            margin-bottom: 2vmin;
+            text-shadow: 0 0 10px #FFB000;
+        }
+        .message {
+            font-size: 2vmin;
+            margin-bottom: 4vmin;
+            opacity: 0.8;
+        }
+        a {
+            color: #FFB000;
+            text-decoration: none;
+            border: 1px solid #FFB000;
+            padding: 1vmin 3vmin;
+            transition: all 0.3s;
+        }
+        a:hover {
+            background: #FFB000;
+            color: #000;
+        }
+        .scanline {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 3px, 2px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="error-code">ERROR 404</div>
+    <div class="message">CRITICAL SYSTEM FAILURE: SECTOR NOT FOUND IN MEMORY BANKS.</div>
+    <a href="/">[ RETURN TO SYSTEM ]</a>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andi-portfolio-nine.vercel.app/sitemap.xml
