@@ -15,7 +15,7 @@
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: radial-gradient(200% 250% at center, rgba(0, 70, 70, 0.85), black 100%);
     opacity: 0;
-    transition: opacity 2.5s ease-in;
+    transition: opacity 4s ease-in;
     pointer-events: none;
     z-index: 1;
 }
@@ -111,14 +111,13 @@ body.power-on .screen-glass::before {
 
 /* Startup animation */
 body.power-on #wipe-transition-layer {
-    animation: startup 0.8s ease-out forwards;
+    animation: startup 1.5s ease-out forwards;
 }
 
 @keyframes startup {
     0% { transform: scale(0.005, 0.005); filter: brightness(3); opacity: 0; }
     30% { transform: scale(1, 0.005); filter: brightness(2); opacity: 1; }
-    100% { transform: scale(0.98, 1.5deg); /* Match the original transform in #wipe-transition-layer */
-           transform: perspective(800px) rotateX(1.5deg) scale(0.98); 
+    100% { transform: perspective(800px) rotateX(1.5deg) scale(0.98); 
            filter: brightness(1); opacity: 1; }
 }
 

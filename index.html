@@ -68,14 +68,17 @@
                                     [ POWER ON ]
                                 </div>
                             </div>
-                            <!-- Hardware Buttons -->
-                            <div id="btn-mute" 
-                                 title="Mute/Unmute (M)"
-                                 style="position: absolute; bottom: 3vmin; right: 20vmin; width: 4vmin; height: 4vmin; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transition: transform 0.1s;">
-                                <div style="width: 1.5vmin; height: 1.5vmin; background: #FFB000; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 5px #FFB000;"></div>
-                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <!-- Hardware Buttons on Bezel -->
+            <div id="btn-mute-container" style="position: absolute; bottom: 5vmin; right: 8vmin; display: flex; flex-direction: column; align-items: center; gap: 1vmin; z-index: 1100;">
+                <span style="color: #444; font-size: 1.2vmin; font-family: monospace; font-weight: bold; letter-spacing: 0.2vmin; text-shadow: 0 1px 0 rgba(255,255,255,0.1);">MUTE</span>
+                <div id="btn-mute" 
+                     title="Mute/Unmute (M)"
+                     style="width: 5vmin; height: 5vmin; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transition: transform 0.1s;">
+                    <div style="width: 2vmin; height: 2vmin; background: #FFB000; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 8px #FFB000;"></div>
                 </div>
             </div>
         </div>

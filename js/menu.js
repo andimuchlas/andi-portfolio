@@ -18,17 +18,6 @@ class MainMenuManager {
 
     init() {
         document.addEventListener('keydown', this.keyboardHandler);
-
-        // Setup hardware buttons
-        document.getElementById('btn-mute').addEventListener('click', () => {
-            const muted = window.Audio.toggleMute();
-            console.log("Audio muted: " + muted);
-        });
-
-        document.getElementById('btn-power').addEventListener('click', (e) => {
-            document.body.classList.toggle('power-off');
-            e.target.classList.toggle('off');
-        });
     }
 
     async showMenu(playSound = true) {

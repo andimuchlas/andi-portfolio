@@ -191,5 +191,5 @@
     50%, 100% { opacity: 0; }
 }
 .retro-blink {
-    animation: retroBlink 0.6s infinite step-start;
+    animation: retroBlink 1.0s infinite step-start;
 }
