@@ -69,7 +69,7 @@ class SectionProfile {
         <!-- CONTACT -->
         <div style="flex: 1; font-size: 0.95em;">
             <div style="display:flex; margin-bottom: 0.5vmin;"><span style="width:10ch; opacity: 0.6;">Email:</span> <span id="profile-email" style="cursor:pointer; border-bottom: 1px dashed #FFB000;">andimuchlas156@gmail.com</span></div>
-            <div style="display:flex; margin-bottom: 0.5vmin;"><span style="width:10ch; opacity: 0.6;">LinkedIn:</span> <span style="cursor:pointer; border-bottom: 1px dashed #FFB000;" onclick="window.open('https://linkedin.com/in/andimuchlas', '_blank')">linkedin.com/in/andimuchlas</span></div>
+            <div style="display:flex; margin-bottom: 0.5vmin;"><span style="width:10ch; opacity: 0.6;">LinkedIn:</span> <span style="cursor:pointer; border-bottom: 1px dashed #FFB000;" onclick="window.open('https://www.linkedin.com/in/andi-m-489b61248/', '_blank')">linkedin.com/in/andimuchlas</span></div>
             <div style="display:flex;"><span style="width:10ch; opacity: 0.6;">GitHub:</span> <span style="cursor:pointer; border-bottom: 1px dashed #FFB000;" onclick="window.open('https://github.com/andimuchlas', '_blank')">github.com/andimuchlas</span></div>
             <div id="profile-status-msg" style="margin-top: 1.5vmin; font-size: 0.8em; opacity: 0.5; height: 1.2em;">[ Click email to copy / links to open ]</div>
         </div>
