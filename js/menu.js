@@ -191,10 +191,10 @@ class MainMenuManager {
     <pre class="anim-eyes phosphor-glow-bright" style="position: absolute; bottom: 2vmin; left: 50%; transform: translateX(-50%); font-size: 0.45vmin; line-height: 1; color: #FFB000; opacity: 0.15; margin: 0; pointer-events: none; width: 100%; text-align: center;">${asciiHorizontal}</pre>
 
     <!-- CENTER CONTENT: AMR & BIO -->
-    <div style="position: relative; margin-top: ${isMobile ? '4vmin' : '12%'} ; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <pre class="phosphor-glow-bright" style="font-size: ${isMobile ? '1.8vmin' : '1.4vmin'}; line-height: 1; color: #FFB000; margin-bottom: 4vmin; opacity: 0.9; max-width: 100%; overflow: hidden;">${asciiAMR.trim()}</pre>
         
-        <div style="font-size: ${bioFontSize}; line-height: 1.5; max-width: ${isMobile ? '90%' : '65ch'}; opacity: 0.9; text-align: justify; margin: 0 auto;">
+        <div style="font-size: ${bioFontSize}; line-height: 1.4; max-width: ${isMobile ? '90%' : '65ch'}; opacity: 0.9; text-align: justify; margin: 0 auto;">
 Software engineer with a Computer Science background and 2 years experience across backend systems and Unity. I build scalable services using <span class="phosphor-amber">Go, OSRM, and PostGIS</span> for routing and spatial computation, and develop real-time simulations in <span class="phosphor-amber">Unity (C#)</span> for visualization. Experienced with <span class="phosphor-amber">gRPC, Redis</span>, and event-driven systems, focusing on performance, efficiency, and practical system design.
         </div>
 
