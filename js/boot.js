@@ -2,65 +2,83 @@
 
 class BootSequenceManager {
     constructor() {
+        this.asciiBootLogo = `
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡟⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡯⣝⠼⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⣱⢮⣙⠾⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⢳⢱⡎⡎⣷⢹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⡳⢎⡳⢎⣝⡲⢭⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢭⡛⡼⣍⠶⣍⡳⣜⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡷⣄⡀⠪⣶⣩⠞⣥⠳⣎⢵⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⢿⡱⢫⡝⡶⠄⠹⠿⣎⡳⢭⡲⢣⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⢯⢧⣙⢧⣹⢚⡝⢦⠐⣲⢭⠳⣍⡏⣞⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠿⣩⠶⣩⢖⣣⢏⡞⡵⣚⠵⣪⢛⡴⡹⢆⡳⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣏⢻⠴⣫⠵⢮⡱⢞⡼⡱⡭⢞⣱⢫⣜⠳⣭⠳⣍⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡳⢎⡝⡮⣕⢫⠮⣕⣫⡶⠟⠷⢯⣜⣣⢞⣹⠲⡝⣎⡳⣻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡱⣍⠯⡼⣱⢎⣏⣳⡞⠁⠀⠀⠀⠀⠙⣾⣜⢲⢫⠵⣎⡵⢣⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢷⣱⢎⡹⡶⢇⡾⣆⡿⠀⠀⠀⠀⠀⠀⠀⠸⣇⡏⣇⠿⡰⣉⠏⣎⣹⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣏⡳⡜⢮⠵⣍⡏⢶⣽⠇⠀⠀⠀⠀⠀⠀⠀⠀⢿⡜⣎⡳⡕⣤⡈⠊⡵⡻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡗⢮⣱⢫⡝⡺⣜⠼⣣⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣝⣲⡝⡼⣩⢟⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡻⣜⠳⣬⢓⡞⡵⣪⢝⣲⣿⡤⠀⠀⠀⠀⠀⠀⠀⠀⣼⣞⡴⡹⣜⢣⡞⢦⢫⢟⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⢭⠳⣜⢫⢖⣫⣼⡵⠟⠛⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠓⠯⢾⣼⣩⢳⣚⡴⢫⢷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡾⡝⢮⣝⡮⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠓⠷⣮⣏⢮⢽⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣟⡧⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢮⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀   ⣀⣀⣤⠀⠀⠀⠀⠀⠀⠀⠀    ⣠⠀⠀ ⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀   ⣿⠀⠀ ⠻⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣠⣶⣶⣦⣶⣦⣄⠀⠀⣦⣶⡆⣠⣴⣶⡗⠀⣠⣴⣶⣶⣦⣤⠀⠀⣿⣿⡿⣤⣤⣤⣤⣄⡀⠀⠀⠀ ⣿⠀⠀⣰⠀⠀⣠⡀⠀⣠⣤⣤⣄⠀⠀⠀⣠⡄⠀⠀⠀⠀⢠⡄⠀⣠⡀⠀⠀⠀⠀⣀⠀⠀
+⠀⣰⡿⠿⠟⠿⢿⣿⣿⡄⠀⣽⣿⣿⣿⣿⠟⠀⣼⣿⣿⣿⣿⣿⣿⣿⠀⣿⣿⣿⣿⣿⡿⣿⣿⣿⣇⠀⠀⣿⠀⠀⣿⠀⠀⣿⣧⡶⠛⠛⠛⠿⣧⡀⣿⡇⠀⠀⠀⠀ ⢸⡇⠀⠻⣧⠀⠀⠀⣠⣿⠃⠀
+⠀⣰⣶⣿⣿⣷⣶⣼⣿⡇⠀⢿⣿⡿⠁⠀⠀⣾⣿⡟⠁⠀⠀⠈⠛⠁⠀⣿⣿⣿⠀⠀⠀⠀⢻⣿⣿⠀⠀ ⣿⠀⠀⣿⠀⠀⣿⡏⠀⠀⠀⠀⠀⣿⡇⠀⣿⡇⠀⠀⠀⠀⠀⢸⡇⠀⠀⠙⢷⣄⣼⡿⠁⠀⠀
+⣿⣿⡿⠋⠉⠉⢻⣿⣿⡇⠀⢿⣿⣗⠀⠀⠀⢻⣿⡄⠀⠀⠀⠀⠀⠀⠀ ⣿⣿⣿⠀⠀⠀⠀⣿⣿⣿⠀⠀ ⣿⠀⠀⣿⠀⠀⣿⡇⠀⠀⠀⠀⠀⣿⡇⠀⣿⡇⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⣿⣯⠀⠀⠀⠀
+⢿⣿⣷⣀⣀⣀⣼⣿⣿⡇⠀⣾⣿⣯⠀⠀⠀⢿⣿⣷⣄⣀⣀⣀⣴⣆⠀⣿⣿⣿⠀⠀⠀⠀⢽⣿⣿⠀⠀ ⣿⠀⠀⣿⠀⠀⣿⡇⠀⠀⠀⠀⠀⣿⡇⠀⣿⡇⠀⠀⠀⠀⠀⣾⡇⠀⠀⣴⡿⠃⠙⣷⡀⠀⠀
+⠀⠻⣿⣿⣿⣿⡿⣫⣿⡇⠀⣿⣿⡷⠀⠀⠀⠀⠻⢿⣿⣿⣿⣿⡿⠋⠀⣿⣿⣿⠀⠀⠀⠀⣻⣿⣿⠀⠀ ⣿⠀⠀⣿⠀⠀⣿⡇⠀⠀⠀⠀⠀⣿⡇⠀⠙⣿⣦⣤⣤⣴⠟⢹⡇⠀⣼⡏⠀⠀⠀⠀⢿⡆⠀`;
+
         this.bootText = [
             "AMRSYS MODEL 9400 — BIOS v2.4.1",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n",
             "Detecting CPU............... Intel Core i7   OK",
-            "PostGIS spatial drivers..... v3.3.2          OK",
-            "OSRM routing engine......... v5.27.1         OK",
             "Mounting /projects.......... 6 items found   OK",
-            "NATS message bus............ :4222           OK",
-            "Unity ...................... 2025            OK",
-            "gRPC services............... :50051          OK\n",
+            "NATS message bus............ :4222           OK\n",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         ];
     }
 
     async start() {
-        // We ensure Audio init is possible via a click anywhere
         const container = document.getElementById('terminal-content');
+        document.body.classList.add('power-on');
 
-        // Show animated static first (Old TV effect)
-        const staticDiv = document.createElement('div');
-        staticDiv.style.cssText = `
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('assets/img/static-before-boot.png');
-            background-size: cover;
-            background-repeat: repeat;
-            opacity: 0.7;
-            mix-blend-mode: screen;
-            z-index: 999;
-            animation: staticScroll 0.15s linear infinite;
-        `;
-
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes staticScroll {
-                from { background-position-y: 0; }
-                to { background-position-y: 512px; }
-            }
-        `;
-        document.head.appendChild(style);
-        container.appendChild(staticDiv);
-
-        window.Audio.playStaticNoise(1.8);
-        await new Promise(r => setTimeout(r, 1600));
-
-        // Smooth transition: Fade out static
-        staticDiv.style.transition = 'opacity 0.3s ease-out';
-        staticDiv.style.opacity = '0';
-        await new Promise(r => setTimeout(r, 300));
-
-        staticDiv.remove();
-        style.remove();
+        // Initial darkness
         container.innerHTML = '';
+        container.style.opacity = '0';
 
-        // Brief "flicker" before boot starts
-        document.body.style.filter = 'brightness(2) contrast(1.5)';
-        await new Promise(r => setTimeout(r, 50));
-        document.body.style.filter = '';
-        await new Promise(r => setTimeout(r, 200));
+        // Create Logo Container
+        const logoDiv = document.createElement('div');
+        logoDiv.style.cssText = `
+            font-size: 0.6vmin;
+            line-height: 1;
+            text-align: center;
+            width: 100%;
+            margin-top: 5vmin;
+            margin-bottom: 5vmin;
+            color: #FFB000;
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        `;
+        logoDiv.innerHTML = this.asciiBootLogo;
+        container.appendChild(logoDiv);
+
+        // Start Sound and Fade In Logo
+        window.Audio.playBoot();
+
+        // First, fade the whole container slightly
+        container.style.transition = 'opacity 1s ease-in';
+        container.style.opacity = '1';
+
+        // Then fade the logo specifically
+        await new Promise(r => setTimeout(r, 500));
+        logoDiv.style.opacity = '1';
+
+        await new Promise(r => setTimeout(r, 2500));
 
         // Disable keyboard capture during boot
         document.getElementById('keyboard-capture').disabled = true;
@@ -75,20 +93,25 @@ class BootSequenceManager {
                 const char = line[j];
                 div.innerHTML += char === ' ' ? '&nbsp;' : char;
 
-                // Play keystroke sound occasionally or for specific chars
                 if (char !== ' ' && char !== '\n' && j % 2 === 0) {
                     window.Audio.playKeystroke();
                 }
 
-                // 20% faster than original (~80% of original delay)
                 const delay = line.includes('━') ? 1 : 8 + Math.random() * 12;
                 await new Promise(r => setTimeout(r, delay));
             }
 
             if (line.trim() !== "" && !line.includes('━')) {
+                // Add blinking cursor while "processing" line
+                const cursor = document.createElement('span');
+                cursor.className = 'retro-blink';
+                cursor.innerHTML = '_';
+                div.appendChild(cursor);
+
                 window.Audio.playBootBeep();
-                // 20% faster than original (~80% of original delay)
-                await new Promise(r => setTimeout(r, 160 + Math.random() * 320));
+                await new Promise(r => setTimeout(r, 400 + Math.random() * 600));
+
+                cursor.remove();
             } else {
                 await new Promise(r => setTimeout(r, 40));
             }
@@ -118,12 +141,11 @@ class BootSequenceManager {
             str += `] ${pct}%`;
             pbContainer.innerHTML = str;
 
-            // Play a sound every 2 steps during loading for more density
             if (i % 2 === 0) window.Audio.playBootBeep();
         }
 
         await new Promise(r => setTimeout(r, 500));
-        window.Renderer.appendHTML(`<br><div class="phosphor-fade-in" style="cursor:pointer;">System ready. Press any key or click to continue...</div>`);
+        window.Renderer.appendHTML(`<br><div class="phosphor-fade-in retro-blink" style="cursor:pointer;">System ready. Press any key or click to continue...</div>`);
 
         // Wait for any key or click
         document.getElementById('keyboard-capture').disabled = false;

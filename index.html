@@ -68,6 +68,12 @@
                                     [ POWER ON ]
                                 </div>
                             </div>
+                            <!-- Hardware Buttons -->
+                            <div id="btn-mute" 
+                                 title="Mute/Unmute (M)"
+                                 style="position: absolute; bottom: 3vmin; right: 20vmin; width: 4vmin; height: 4vmin; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transition: transform 0.1s;">
+                                <div style="width: 1.5vmin; height: 1.5vmin; background: #FFB000; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 5px #FFB000;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,17 +108,20 @@
             continueBtn.addEventListener('click', () => {
                 mobileNotice.style.display = 'none';
                 splash.style.display = 'flex';
-                window.Audio.playKeystroke();
+                window.Audio.init();
+                window.Audio.playClick();
             });
 
             document.getElementById('compact-btn').addEventListener('click', () => {
                 mobileNotice.style.display = 'none';
                 splash.style.display = 'flex';
-                window.Audio.playKeystroke();
+                window.Audio.init();
+                window.Audio.playClick();
             });
 
-            powerBtn.addEventListener('click', () => {
-                window.Audio.init();
+            powerBtn.addEventListener('click', async () => {
+                await window.Audio.init();
+                window.Audio.playBoot();
                 splash.style.display = 'none';
                 if (window.innerWidth >= 768) {
                     document.getElementById('keyboard-capture').focus();
@@ -123,6 +132,20 @@
             document.body.addEventListener('click', () => {
                 if (window.innerWidth >= 768) {
                     document.getElementById('keyboard-capture').focus();
+                }
+            });
+
+            const btnMute = document.getElementById('btn-mute');
+            btnMute.addEventListener('click', () => {
+                const muted = window.Audio.toggleMute();
+                btnMute.style.transform = "scale(0.9)";
+                setTimeout(() => btnMute.style.transform = "scale(1)", 100);
+                console.log("Audio Muted: " + muted);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key.toLowerCase() === 'm') {
+                    btnMute.click();
                 }
             });
         });
