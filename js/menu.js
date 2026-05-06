@@ -45,14 +45,22 @@ class MainMenuManager {
     }
 
     generateMenuHTML() {
-        let itemsHTML = '<div style="display: flex; gap: 1.5vmin; justify-content: center; align-items: center; width: 100%; overflow: hidden;">\n';
+        const isMobile = window.innerWidth < 768;
+        const itemsGap = isMobile ? '1vmin' : '1.5vmin';
+        const itemsFontSize = isMobile ? '0.7em' : '0.9em';
+        const asciiVisibility = isMobile ? 'display: none;' : '';
+        const bioWidth = isMobile ? '90%' : '75%';
+        const bioFontSize = isMobile ? '0.9em' : '1.05em';
+        const bioGap = isMobile ? '2vmin' : '4vmin';
+
+        let itemsHTML = `<div style="display: flex; gap: ${itemsGap}; justify-content: center; align-items: center; width: 100%; overflow: hidden; ${isMobile ? 'flex-wrap: wrap; padding: 1vmin 0;' : ''}">\n`;
         this.menuItems.forEach((item, index) => {
             const isActive = this.activeIndex === item.id;
             const selector = isActive ? '▶' : ' ';
             const activeClass = isActive ? 'menu-active-blink' : '';
             const fg = '#050505';
-            itemsHTML += `<div class="menu-item ${activeClass}" data-id="${item.id}" style="font-size: 0.9em; cursor: default; color: ${fg}; padding: 0.2vmin 0.5vmin; display: inline-flex; align-items: center; white-space: nowrap;"><span class="selector" style="color: ${fg}; margin-right: 0.5vmin;">${selector}</span>${item.text}</div>\n`;
-            if (index < this.menuItems.length - 1) {
+            itemsHTML += `<div class="menu-item ${activeClass}" data-id="${item.id}" style="font-size: ${itemsFontSize}; cursor: default; color: ${fg}; padding: 0.2vmin 0.5vmin; display: inline-flex; align-items: center; white-space: nowrap;"><span class="selector" style="color: ${fg}; margin-right: 0.5vmin;">${selector}</span>${item.text}</div>\n`;
+            if (index < this.menuItems.length - 1 && !isMobile) {
                 itemsHTML += `<span style="color: ${fg}; font-weight: bold;">|</span>\n`;
             }
         });
@@ -169,12 +177,12 @@ class MainMenuManager {
 
 
         return `
-<div class="phosphor-highlight-inverse" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5vmin 1vmin;">
+<div class="phosphor-highlight-inverse" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5vmin 1vmin; min-height: 4vmin;">
     ${itemsHTML}
-    <span id="real-time-clock" style="white-space: nowrap; font-size: 1.1em; font-weight: normal; margin-left: 2vmin;">--:--:--</span>
+    <span id="real-time-clock" style="white-space: nowrap; font-size: 1.1em; font-weight: normal; margin-left: 2vmin; ${isMobile ? 'display: none;' : ''}">--:--:--</span>
 </div>
 
-<div style="position: relative; width: 100%; height: 75vmin; overflow: hidden; padding: 2vmin;">
+<div style="position: relative; width: 100%; min-height: 75vmin; overflow: hidden; padding: 2vmin;">
     <!-- SCATTERED ASCII ART -->
     <pre class="anim-eyes phosphor-glow-bright" style="position: absolute; top: 2vmin; left: 5vmin; font-size: 0.7vmin; line-height: 1; color: #FFB000; opacity: 0.4; margin: 0;">${asciiStackOverflow}</pre>
     <pre class="anim-star phosphor-glow-bright" style="position: absolute; bottom: 8vmin; left: 8vmin; font-size: 0.5vmin; line-height: 1; color: #FFB000; opacity: 0.3; margin: 0;">${asciiDocker}</pre>
@@ -183,14 +191,14 @@ class MainMenuManager {
     <pre class="anim-eyes phosphor-glow-bright" style="position: absolute; bottom: 2vmin; left: 50%; transform: translateX(-50%); font-size: 0.45vmin; line-height: 1; color: #FFB000; opacity: 0.15; margin: 0; pointer-events: none; width: 100%; text-align: center;">${asciiHorizontal}</pre>
 
     <!-- CENTER CONTENT: AMR & BIO -->
-    <div style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); width: 75%; display: flex; flex-direction: column; align-items: center; text-align: center;">
-        <pre class="phosphor-glow-bright" style="font-size: 1.4vmin; line-height: 1; color: #FFB000; margin-bottom: 4vmin; opacity: 0.9;">${asciiAMR.trim()}</pre>
+    <div style="position: relative; margin-top: ${isMobile ? '4vmin' : '12%'} ; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <pre class="phosphor-glow-bright" style="font-size: ${isMobile ? '1.8vmin' : '1.4vmin'}; line-height: 1; color: #FFB000; margin-bottom: 4vmin; opacity: 0.9; max-width: 100%; overflow: hidden;">${asciiAMR.trim()}</pre>
         
-        <div style="font-size: 1.05em; line-height: 1.4; max-width: 65ch; opacity: 0.9; text-align: justify;">
+        <div style="font-size: ${bioFontSize}; line-height: 1.5; max-width: ${isMobile ? '90%' : '65ch'}; opacity: 0.9; text-align: justify; margin: 0 auto;">
 Software engineer with a Computer Science background and 2 years experience across backend systems and Unity. I build scalable services using <span class="phosphor-amber">Go, OSRM, and PostGIS</span> for routing and spatial computation, and develop real-time simulations in <span class="phosphor-amber">Unity (C#)</span> for visualization. Experienced with <span class="phosphor-amber">gRPC, Redis</span>, and event-driven systems, focusing on performance, efficiency, and practical system design.
         </div>
 
-        <div style="border-bottom: 1px solid #FFB000; opacity: 0.2; margin-top: 4vmin; width: 100%;"></div>
+        <div style="border-bottom: 1px solid #FFB000; opacity: 0.2; margin-top: ${bioGap}; width: ${bioWidth};"></div>
     </div>
 </div>
 

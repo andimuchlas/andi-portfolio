@@ -33,22 +33,23 @@ class SectionExperience {
             }
         ];
 
-        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 1.5vmin; margin-top: 1.5vmin;">\n`;
+        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 1.5vmin; margin-top: 1.5vmin; width: 100%;">\n`;
 
         jobs.forEach(job => {
             const isExpanded = this.expandedId === job.id;
             const marker = isExpanded ? '▼' : '▶';
             const titleCls = isExpanded ? 'phosphor-highlight' : 'phosphor-amber';
+            const isMobile = window.innerWidth < 768;
 
-            contentHTML += `<div class="exp-item" data-id="${job.id}" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start;">`;
+            contentHTML += `<div class="exp-item" data-id="${job.id}" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start; width: 100%; overflow: hidden;">`;
 
-            contentHTML += `<div style="width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
+            contentHTML += `<div style="width: 8vmin; min-width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
                 <img src="${job.logo}" alt="${job.title} logo" style="max-width: 100%; max-height: 8vmin; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5) brightness(0.8);" />
             </div>`;
 
-            contentHTML += `<div style="flex: 1; display:flex; flex-direction:column;">`;
-            contentHTML += `<div class="${titleCls}" style="font-size: 1.1em; display: inline-block; align-self: flex-start; padding-right: 1vmin;">${marker} ${job.title}</div>`;
-            contentHTML += `<div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin;">${job.role}</div>`;
+            contentHTML += `<div style="flex: 1; display:flex; flex-direction:column; min-width: 0;">`;
+            contentHTML += `<div class="${titleCls}" style="font-size: ${isMobile ? '0.9em' : '1.1em'}; display: block; padding-right: 1vmin; word-break: keep-all; line-height: 1.2;">${marker} ${job.title}</div>`;
+            contentHTML += `<div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin; line-height: 1.2;">${job.role}</div>`;
 
             if (isExpanded) {
                 contentHTML += `<div class="phosphor-fade-in" style="margin-left: 2vmin; margin-top: 1vmin; border-left: 2px solid #FFB000; padding-left: 1.5vmin; font-size: 0.85em; line-height: 1.4;">${job.desc}</div>`;
@@ -58,7 +59,7 @@ class SectionExperience {
 
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "Click or [1-4] to expand, [ESC] back");
+        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "Click to expand");
 
         if (!this.expandedId) {
             await window.Renderer.screenWipe(fullHTML);

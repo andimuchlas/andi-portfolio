@@ -65,9 +65,12 @@ class Renderer {
     }
 
     createDOSBox(title, contentHTML, instructionsHTML = "Press [ESC] to back") {
-        return `<div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; margin-bottom: 0.5vmin;">
-    <span style="font-weight:bold; letter-spacing: 2px;">${title}</span>
-    <span>${instructionsHTML}</span>
+        const isMobile = window.innerWidth < 768;
+        const backBtn = isMobile ? `<span class="back-btn-mobile" onclick="window.MenuManager.showMenu()" style="cursor:pointer; border: 1px solid #FFB000; padding: 0 1.5vmin; background: transparent; color: #FFB000; font-weight: bold; margin-left: 2vmin; font-size: 0.8em;">BACK</span>` : "";
+        
+        return `<div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.2vmin 1vmin; min-height: 3.5vmin;">
+    <span style="font-weight:bold; letter-spacing: 2px; white-space: nowrap; margin-right: 2vmin;">${title}</span>
+    <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em;">${instructionsHTML}${backBtn}</span>
 </div><div style="font-size: 1.2em;">${contentHTML.trimStart()}</div>`;
     }
 }

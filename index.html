@@ -30,24 +30,32 @@
                     <div id="wipe-transition-layer">
                         <div id="terminal-content" class="phosphor-amber">
                             <!-- Mobile Notice -->
-                            <div id="mobile-notice"
-                                style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; z-index: 101; background: #000; padding: 4vmin; text-align: center;">
-                                <div
-                                    style="color: #FFB000; font-size: 1.2em; margin-bottom: 2vmin; text-shadow: 0 0 5px #FFB000;">
-                                    SYSTEM NOTICE:</div>
-                                <div style="font-size: 0.9em; line-height: 1.5; margin-bottom: 4vmin; opacity: 0.8;">
-                                    This interface is optimized for desktop environments.<br>
-                                    For full experience, access via larger display.
-                                </div>
-                                <div id="continue-btn"
-                                    style="padding: 1.5vmin 3vmin; border: 2px solid #FFB000; cursor: pointer; font-size: 0.8em; transition: all 0.2s; background: rgba(0,0,0,0.9);">
-                                    [ CONTINUE ANYWAY ]
+                            <div id="mobile-notice" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; z-index: 101; background: #000; padding: 2vmin; text-align: center;">
+                                <pre style="font-size: 2.5vmin; line-height: 1.2; color: #FFB000; margin-bottom: 3vmin; pointer-events: none; white-space: pre; text-align: left; display: inline-block;">
+╔════════════════════════════╗
+║   AMRSYS/9400  WARNING     ║
+╠════════════════════════════╣
+║                            ║
+║  Display resolution        ║
+║  below minimum threshold.  ║
+║                            ║
+║  Recommended: 1024x768     ║
+║  Current: mobile viewport  ║
+║                            ║
+╚════════════════════════════╝</pre>
+                                <div style="display: flex; flex-direction: column; gap: 3vmin; align-items: center; width: 100%;">
+                                    <div id="continue-btn" style="padding: 1.5vmin 0; border: 2px solid #FFB000; cursor: pointer; font-size: 0.9em; transition: all 0.2s; background: rgba(0,0,0,0.9); width: 70vmin; display: flex; justify-content: center; align-items: center; white-space: nowrap;">
+                                        [ CONTINUE ANYWAY ]
+                                    </div>
+                                    <div id="compact-btn" style="padding: 1.5vmin 0; border: 2px solid #FFB000; cursor: pointer; font-size: 0.9em; transition: all 0.2s; background: rgba(0,0,0,0.9); opacity: 0.6; width: 70vmin; display: flex; justify-content: center; align-items: center; white-space: nowrap;">
+                                        [ VIEW COMPACT MODE ]
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Desktop/Splash Screen -->
                             <div id="splash-screen"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 6vmin;">
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 6vmin; background: #000;">
                                 <img src="assets/img/logo/web-logo.png" alt="Logo"
                                     style="width: 40vmin; height: auto; opacity: 0.9; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(3) brightness(1.2);">
                                 <div id="power-btn"
@@ -87,6 +95,12 @@
             }
 
             continueBtn.addEventListener('click', () => {
+                mobileNotice.style.display = 'none';
+                splash.style.display = 'flex';
+                window.Audio.playKeystroke();
+            });
+
+            document.getElementById('compact-btn').addEventListener('click', () => {
                 mobileNotice.style.display = 'none';
                 splash.style.display = 'flex';
                 window.Audio.playKeystroke();
