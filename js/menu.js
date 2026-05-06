@@ -243,11 +243,6 @@ Software engineer with a Computer Science background and 2 years experience acro
     handleKeydown(e) {
         window.Audio.init();
 
-        if (e.key.toLowerCase() === 'm') {
-            window.Audio.toggleMute();
-            return;
-        }
-
         if (this.state === 'menu') {
             if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
                 e.preventDefault();

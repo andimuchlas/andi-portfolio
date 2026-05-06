@@ -142,8 +142,21 @@
             });
 
             const btnMute = document.getElementById('btn-mute');
+            const muteIndicator = btnMute.querySelector('div');
+            
+            const updateMuteUI = (isMuted) => {
+                if (isMuted) {
+                    muteIndicator.style.background = '#ff0000';
+                    muteIndicator.style.boxShadow = '0 0 8px #ff0000';
+                } else {
+                    muteIndicator.style.background = '#FFB000';
+                    muteIndicator.style.boxShadow = '0 0 8px #FFB000';
+                }
+            };
+
             btnMute.addEventListener('click', () => {
                 const muted = window.Audio.toggleMute();
+                updateMuteUI(muted);
                 btnMute.style.transform = "scale(0.9)";
                 setTimeout(() => btnMute.style.transform = "scale(1)", 100);
                 console.log("Audio Muted: " + muted);
@@ -151,7 +164,10 @@
 
             document.addEventListener('keydown', (e) => {
                 if (e.key.toLowerCase() === 'm') {
-                    btnMute.click();
+                    // Check if focus is in an input to allow typing 'm' if needed
+                    if (document.activeElement.tagName !== 'INPUT' || document.activeElement.id === 'keyboard-capture') {
+                        btnMute.click();
+                    }
                 }
             });
         });
