@@ -5,11 +5,11 @@ class MainMenuManager {
         this.state = 'boot'; // boot, menu, section, subsection
         this.activeIndex = 1; // 1 to 5
         this.menuItems = [
-            { id: 1, text: "PROFILE", handler: () => window.SectionProfile.render() },
-            { id: 2, text: "EXPERIENCE", handler: () => window.SectionExperience.render() },
-            { id: 3, text: "PROJECTS", handler: () => window.SectionProjects.render() },
-            { id: 4, text: "SKILLS", handler: () => window.SectionSkills.render() },
-            { id: 5, text: "CERTIFICATION", handler: () => window.SectionCertification.render() }
+            { id: 1, text: "PROFILE", route: "/profile", handler: () => window.SectionProfile.render() },
+            { id: 2, text: "EXPERIENCE", route: "/experience", handler: () => window.SectionExperience.render() },
+            { id: 3, text: "PROJECTS", route: "/projects", handler: () => window.SectionProjects.render() },
+            { id: 4, text: "SKILLS", route: "/skills", handler: () => window.SectionSkills.render() },
+            { id: 5, text: "CERTIFICATION", route: "/certification", handler: () => window.SectionCertification.render() }
         ];
 
         this.keyboardHandler = this.handleKeydown.bind(this);
@@ -20,8 +20,16 @@ class MainMenuManager {
         document.addEventListener('keydown', this.keyboardHandler);
     }
 
+    trackPageView(path) {
+        if (window.va) {
+            window.va('track', 'pageview', { url: path });
+            console.log(`Analytics: Tracked pageview to ${path}`);
+        }
+    }
+
     async showMenu(playSound = true) {
         this.state = 'menu';
+        this.trackPageView('/');
         const menuHTML = this.generateMenuHTML();
 
         // Reset scroll to top
@@ -240,6 +248,15 @@ Software engineer with a Computer Science background and 2 years experience acro
         this.clockInterval = setInterval(updateClock, 1000);
     }
 
+    navigateToSection(id) {
+        const item = this.menuItems.find(m => m.id === id);
+        if (item) {
+            this.state = 'section';
+            this.trackPageView(item.route);
+            item.handler();
+        }
+    }
+
     handleKeydown(e) {
         window.Audio.init();
 
@@ -258,7 +275,7 @@ Software engineer with a Computer Science background and 2 years experience acro
                 e.preventDefault();
                 window.Audio.playEnter();
                 setTimeout(() => {
-                    this.menuItems[this.activeIndex - 1].handler();
+                    this.navigateToSection(this.activeIndex);
                 }, 120);
             } else if (['1', '2', '3', '4', '5'].includes(e.key)) {
                 e.preventDefault();
@@ -268,7 +285,7 @@ Software engineer with a Computer Science background and 2 years experience acro
                 setTimeout(() => {
                     window.Audio.playEnter();
                     setTimeout(() => {
-                        this.menuItems[this.activeIndex - 1].handler();
+                        this.navigateToSection(this.activeIndex);
                     }, 120);
                 }, 80);
             }
@@ -295,7 +312,7 @@ Software engineer with a Computer Science background and 2 years experience acro
                 this.updateMenuRender();
                 setTimeout(() => {
                     window.Audio.playEnter();
-                    this.menuItems[this.activeIndex - 1].handler();
+                    this.navigateToSection(this.activeIndex);
                 }, 100);
             });
         });
