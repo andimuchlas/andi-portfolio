@@ -68,7 +68,7 @@ class BootSequenceManager {
         // Create Logo Container
         const logoDiv = document.createElement('div');
         logoDiv.style.cssText = `
-            font-size: 0.4vmin;
+            font-size: 0.8vmin;
             line-height: 1;
             text-align: center;
             width: 100%;
@@ -82,18 +82,18 @@ class BootSequenceManager {
         `;
         logoDiv.innerHTML = this.asciiBootLogo;
         container.appendChild(logoDiv);
-        
+
         // Start Sound and Fade In Logo
         window.Audio.playBoot();
-        
+
         // First, fade the whole container slightly
         container.style.transition = 'opacity 2s ease-in';
         container.style.opacity = '1';
-        
+
         // Then fade the logo specifically
         await new Promise(r => setTimeout(r, 1000));
         logoDiv.style.opacity = '1';
-        
+
         await new Promise(r => setTimeout(r, 5000));
 
         // Disable keyboard capture during boot

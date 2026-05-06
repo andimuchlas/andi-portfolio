@@ -99,6 +99,43 @@ body.power-on .screen-glass::before {
     100% { bottom: 0%; }
 }
 
+/* Occasional Glitch Distortion */
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 60;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.glitch-bar {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.5);
+    opacity: 0;
+    z-index: 61;
+}
+
+@keyframes glitchMove {
+    0% { top: -10%; opacity: 0; transform: scaleY(1) skewX(0deg); }
+    2% { opacity: 0.8; transform: scaleY(10) skewX(20deg); }
+    5% { opacity: 0.5; transform: scaleY(2) skewX(-20deg); }
+    8% { top: 110%; opacity: 0; transform: scaleY(1) skewX(0deg); }
+    100% { top: 110%; opacity: 0; }
+}
+
+.glitch-active {
+    animation: glitchMove 6s infinite linear;
+    /* We'll trigger this infrequently via a longer duration or JS */
+    animation-delay: 5s; 
+    animation-duration: 20s; 
+}
+
 #wipe-transition-layer {
     width: 100%;
     height: 100%;
@@ -107,6 +144,17 @@ body.power-on .screen-glass::before {
     /* Simulate barrel distortion with a stronger CSS perspective to make it feel convex */
     transform: perspective(800px) rotateX(1.5deg) scale(0.98);
     transform-style: preserve-3d;
+    
+    /* Occasional Glitch */
+    animation: contentGlitch 25s infinite linear;
+}
+
+@keyframes contentGlitch {
+    0%, 90%, 100% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(0); filter: none; }
+    92% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(-10px, 2px); filter: hue-rotate(90deg) brightness(1.5); }
+    94% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(10px, -2px); filter: hue-rotate(-90deg) brightness(1.2); }
+    96% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(-5px, 1px); filter: contrast(2) brightness(2); }
+    98% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(0); filter: none; }
 }
 
 /* Startup animation */
