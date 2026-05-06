@@ -1,0 +1,17 @@
+# Andi Muchlas Ramadani - Software Engineer Portfolio
+
+A retro terminal-themed portfolio showcasing expertise in backend development and real-time simulations.
+
+## Technical Skills
+- Backend: Go (Golang), gRPC, Redis, PostgreSQL
+- Spatial: OSRM, PostGIS, Routing Algorithms
+- Visualization: Unity (C#), Simulation systems
+- UI/UX: Terminal User Interfaces (TUI), Retro CRT aesthetics
+
+## Experience Summary
+Software engineer with 2 years of experience in backend microservices and Unity simulations. Focuses on performance, spatial computation, and event-driven architectures.
+
+## Links
+- Website: https://andi-portfolio-nine.vercel.app/
+- LinkedIn: https://linkedin.com/in/andimuchlas
+- GitHub: https://github.com/andimuchlas

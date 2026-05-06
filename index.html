@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMRSYS 9400 - Andi Muchlas Ramadani</title>
+    <title>Andi Muchlas Ramadani | Software Engineer Portfolio | AMRSYS 9400 Retro Terminal</title>
+    <link rel="canonical" href="https://andi-portfolio-nine.vercel.app/">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/monitor.css">
     <link rel="stylesheet" href="css/crt-hardware.css">
     <link rel="stylesheet" href="css/crt-phosphor.css">
     <link rel="stylesheet" href="css/dos-ui.css">
     <link rel="icon" type="image/png" href="assets/img/logo/web-logo.png">
-    <meta name="description" content="Andi Muchlas Ramadani - Software Engineer Portfolio. Exploring backend systems, Unity simulations, and retro-tech aesthetics.">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <meta name="description" content="Official portfolio of Andi Muchlas Ramadani, a Software Engineer specializing in Go backend systems, Unity simulations, and high-performance computing. Experience the unique AMRSYS 9400 terminal interface.">
     <meta name="keywords" content="Andi Muchlas Ramadani, Software Engineer, Portfolio, Backend, Unity, Go, gRPC, Redis, TUI, Retro Portfolio">
     <meta name="author" content="Andi Muchlas Ramadani">
 
@@ -59,9 +61,27 @@
 </head>
 
 <body>
-    <!-- Hidden SEO Content -->
-    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Andi Muchlas Ramadani - Software Engineer Portfolio</h1>
-    <h2 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Retro Terminal TUI Portfolio - Experience in Go, Unity, and Backend Systems</h2>
+    <!-- Hidden SEO Content for Indexing -->
+    <section style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">
+        <h1>Andi Muchlas Ramadani - Software Engineer Portfolio</h1>
+        <h2>Retro Terminal TUI Portfolio - Experience in Go, Unity, and Backend Systems</h2>
+        <p>I am a Software Engineer with a Computer Science background and 2 years of experience building backend systems and Unity simulations. My expertise includes Go, OSRM, PostGIS, gRPC, Redis, and event-driven architectures.</p>
+        
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>Backend Development: Go, gRPC, Redis, SQL, PostgreSQL</li>
+            <li>Spatial Computing: OSRM, PostGIS, Routing Engines</li>
+            <li>Game Development & Simulation: Unity, C#, Real-time Visualization</li>
+            <li>DevOps & Tools: Docker, Git, Terminal User Interfaces (TUI)</li>
+        </ul>
+
+        <h3>Professional Experience</h3>
+        <p>Experienced in developing scalable microservices for routing and spatial computation. Developed real-time visualization systems using Unity for complex data simulations.</p>
+        
+        <h3>Links</h3>
+        <a href="https://linkedin.com/in/andimuchlas">LinkedIn Profile</a>
+        <a href="https://github.com/andimuchlas">GitHub Repositories</a>
+    </section>
     
     <div id="room">
         <div id="monitor-assembly">
@@ -134,15 +154,15 @@
     <input type="text" id="keyboard-capture" autocomplete="off" spellcheck="false"
         style="position: absolute; opacity: 0; top: -1000px;">
 
-    <script src="js/audio.js"></script>
-    <script src="js/renderer.js"></script>
-    <script src="js/sections/profile.js"></script>
-    <script src="js/sections/experience.js"></script>
-    <script src="js/sections/projects.js"></script>
-    <script src="js/sections/skills.js"></script>
-    <script src="js/sections/contact.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/boot.js"></script>
+    <script defer src="js/audio.js"></script>
+    <script defer src="js/renderer.js"></script>
+    <script defer src="js/sections/profile.js"></script>
+    <script defer src="js/sections/experience.js"></script>
+    <script defer src="js/sections/projects.js"></script>
+    <script defer src="js/sections/skills.js"></script>
+    <script defer src="js/sections/contact.js"></script>
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/boot.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const powerBtn = document.getElementById('power-btn');
