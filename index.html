@@ -114,7 +114,9 @@
             });
 
             document.body.addEventListener('click', () => {
-                document.getElementById('keyboard-capture').focus();
+                if (window.innerWidth >= 768) {
+                    document.getElementById('keyboard-capture').focus();
+                }
             });
         });
     </script>
