@@ -45,7 +45,7 @@ class BootSequenceManager {
  ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝ ╚═╝`;
 
         this.bootText = [
-            "AMRSYS v2024.1 — KERNEL 6.5.0-KALI1-AMD64",
+            "AMRSYS v2026.1 — KERNEL 6.5.0-KALI1-AMD64",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n",
             "[  OK  ] Started LVM2 metadata daemon.",
             "[  OK  ] Started Network Time Synchronization.",
