@@ -2,7 +2,7 @@
 
 Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as a retro, CRT-based Terminal User Interface (TUI) / DOS-like environment. This project aims to showcase my background in backend systems, Go, and Unity through a unique and nostalgic interactive experience.
 
-## 🌟 Features
+## Features
 
 - **Retro Aesthetic**: Authentic CRT monitor effects including scanlines, phosphor glow, curvature, and subtle glitch animations.
 - **Interactive Terminal**: Navigate through different sections using an interactive boot sequence and terminal-like menu.
@@ -10,7 +10,7 @@ Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as
 - **Responsive Design**: Adapts gracefully to different screen sizes, with a dedicated notice and compact mode fallback for smaller mobile displays.
 - **Hidden SEO Optimization**: Retains semantic HTML content for search engine crawlers without compromising the retro visual style.
 
-## 🚀 Sections Included
+## Sections Included
 
 - **Profile**: Overview of my background as a Software Engineer.
 - **Experience**: Timeline of my professional roles and achievements.
@@ -18,13 +18,13 @@ Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as
 - **Skills**: Technical proficiencies (Go, gRPC, Redis, PostgreSQL, OSRM, Unity, Docker).
 - **Contact**: Links to my LinkedIn, GitHub, and email.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **HTML5**: Semantic structure and hidden content for SEO.
 - **CSS3**: Extensive use of CSS animations, filters, and pseudo-elements to create the CRT monitor, scanlines, and glow effects.
 - **Vanilla JavaScript**: Handles boot sequence, audio playback, keystroke capturing, and view rendering.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── assets/         # Images, fonts, and audio files
@@ -44,7 +44,7 @@ Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as
 └── README.md       # Project documentation (this file)
 ```
 
-## 💻 How to Run Locally
+## How to Run Locally
 
 Since this is a static website, you can run it using any simple local web server. 
 
@@ -60,7 +60,7 @@ npx http-server -p 8000
 
 Then, open your browser and navigate to `http://localhost:8000`.
 
-## 👨‍💻 About Me
+## About Me
 
 I am Andi Muchlas Ramadani, a Software Engineer with a Computer Science background. I have a strong focus on building scalable backend microservices (Go, gRPC, Redis, event-driven architectures) and developing spatial computations and real-time visualization systems (Unity, OSRM, PostGIS).
 
