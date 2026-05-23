@@ -105,7 +105,7 @@ class SectionProfile {
 </div>
 `;
 
-        const fullHTML = window.Renderer.createDOSBox("PROFILE", contentHTML, "[ESC]← Back");
+        const fullHTML = window.Renderer.createDOSBox("PROFILE", contentHTML);
         await window.Renderer.screenWipe(fullHTML);
 
         // Re-attach email copy handler

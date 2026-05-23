@@ -55,9 +55,13 @@ class BootSequenceManager {
             "[  OK  ] Started User Login Management.\n",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         ];
+        this.started = false;
     }
 
     async start() {
+        if (this.started) return;
+        this.started = true;
+
         const container = document.getElementById('terminal-content');
         document.body.classList.add('power-on');
 

@@ -64,7 +64,7 @@ class Renderer {
         });
     }
 
-    createDOSBox(title, contentHTML, instructionsHTML = "Press [ESC] to back") {
+    createDOSBox(title, contentHTML, instructionsHTML = "ESC: Back") {
         const isMobile = window.innerWidth < 768;
         const backBtn = isMobile ? `<span class="back-btn-mobile" onclick="window.MenuManager.showMenu()" style="cursor:pointer; border: 1px solid #FFB000; padding: 0 1.5vmin; background: transparent; color: #FFB000; font-weight: bold; margin-left: 2vmin; font-size: 0.8em;">BACK</span>` : "";
         

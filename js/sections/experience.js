@@ -59,7 +59,7 @@ class SectionExperience {
 
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "Click to expand");
+        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "1-4: Expand, ESC: Back");
 
         if (!this.expandedId) {
             await window.Renderer.screenWipe(fullHTML);

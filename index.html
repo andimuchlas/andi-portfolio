@@ -30,13 +30,6 @@
     <meta property="twitter:title" content="AMRSYS 9400 - Andi Muchlas Ramadani">
     <meta property="twitter:description" content="Software Engineer Portfolio with a retro TUI interface. Experience in Go, Backend Systems, and Unity.">
     <meta property="twitter:image" content="https://andi.is-a.dev/assets/img/logo/web-logo.png">
-
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/monitor.css">
-    <link rel="stylesheet" href="css/crt-hardware.css">
-    <link rel="stylesheet" href="css/crt-phosphor.css">
-    <link rel="stylesheet" href="css/dos-ui.css">
-    <link rel="icon" type="image/png" href="assets/img/logo/web-logo.png">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -190,8 +183,8 @@
             });
 
             powerBtn.addEventListener('click', async () => {
+                powerBtn.style.pointerEvents = 'none';
                 await window.Audio.init();
-                window.Audio.playBoot();
                 splash.style.display = 'none';
                 if (window.innerWidth >= 768) {
                     document.getElementById('keyboard-capture').focus();
