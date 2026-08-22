@@ -6,11 +6,14 @@ class SectionProjects {
         this.activeIndex = 0;
         this.projects = [
             { id: 'A', name: 'RAJADEREK' },
-            { id: 'B', name: 'GEPHYRION' },
-            { id: 'C', name: 'DISASTER ROOM GAMIFICATION' },
-            { id: 'D', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'E', name: 'CHATVIBES' },
-            { id: 'F', name: 'HAUNTED MANSION' }
+            { id: 'B', name: 'CASANELA VILLA API' },
+            { id: 'C', name: 'GENSET MANAGEMENT API' },
+            { id: 'D', name: 'DYNAMIC PDF ENGINE' },
+            { id: 'E', name: 'GEPHYRION' },
+            { id: 'F', name: 'DISASTER ROOM GAMIFICATION' },
+            { id: 'G', name: 'THE SEARCH OF ELDORIA' },
+            { id: 'H', name: 'CHATVIBES' },
+            { id: 'I', name: 'HAUNTED MANSION' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
     }
@@ -24,16 +27,16 @@ class SectionProjects {
     }
 
     async drawList(forceWipe = true) {
-        let contentHTML = `<div style="font-size: 1.5em; margin-bottom: 4vmin;">SELECT PROJECT:</div>\n<div style="display:flex; flex-direction:column; gap: 2vmin;">\n`;
+        let contentHTML = `<div style="font-size: 1.4em; margin-bottom: 2.5vmin;">SELECT PROJECT:</div>\n<div style="display:flex; flex-direction:column; gap: 1.2vmin;">\n`;
         this.projects.forEach((proj, idx) => {
             const isSelected = this.activeIndex === idx;
             const cls = isSelected ? 'phosphor-highlight' : 'phosphor-amber';
             const selector = isSelected ? '▶' : '&nbsp;';
-            contentHTML += `<div class="menu-item ${cls}" data-id="${proj.id}" data-idx="${idx}" style="font-size: 1.1em; cursor:pointer; border-radius: 2px; padding: 0.5vmin;">${selector} [ ${proj.id} ] ${proj.name}</div>\n`;
+            contentHTML += `<div class="menu-item ${cls}" data-id="${proj.id}" data-idx="${idx}" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">${selector} [ ${proj.id} ] ${proj.name}</div>\n`;
         });
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-F: Select, ENTER: Open, ESC: Back");
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-I: Select, ENTER: Open, ESC: Back");
 
         if (forceWipe) {
             await window.Renderer.screenWipe(fullHTML);
@@ -58,11 +61,14 @@ class SectionProjects {
         window.Audio.playEnter();
 
         if (id === 'A') await this.drawRajaderek();
-        else if (id === 'B') await this.drawGephyrion();
-        else if (id === 'C') await this.drawDisasterRoom();
-        else if (id === 'D') await this.drawEldoria();
-        else if (id === 'E') await this.drawChatvibes();
-        else if (id === 'F') await this.drawHauntedMansion();
+        else if (id === 'B') await this.drawCasanela();
+        else if (id === 'C') await this.drawGenset();
+        else if (id === 'D') await this.drawPdfEngine();
+        else if (id === 'E') await this.drawGephyrion();
+        else if (id === 'F') await this.drawDisasterRoom();
+        else if (id === 'G') await this.drawEldoria();
+        else if (id === 'H') await this.drawChatvibes();
+        else if (id === 'I') await this.drawHauntedMansion();
     }
 
     async drawRajaderek() {
@@ -91,6 +97,102 @@ class SectionProjects {
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > RAJADEREK", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawCasanela() {
+        const diagram = `
+<span class="ascii-node" title="Web Client & OTA Platforms">CLIENT / OTA</span>        <span class="ascii-node" title="Hono.js + Bun High-Speed Gateway">HONO / BUN API</span>        <span class="ascii-node" title="Redis & BullMQ Background Workers">BULLMQ WORKERS</span>
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│ Web / OTA    │──HTTP▶│  Hono Router │──Job─▶│ Expire Queue │
+│ (HotelMu)    │◀─JSON─│  RBAC & Auth │       │ Sync Channel │
+└──────────────┘       └──────┬───────┘       └──────────────┘
+                              │
+                 ┌────────────┴────────────┐
+                 ▼                         ▼
+           ┌───────────┐             ┌───────────┐
+           │PostgreSQL │             │ AWS S3 /  │
+           │Drizzle ORM│             │   MinIO   │
+           └───────────┘             └───────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">CASANELA VILLA API — Reservation & Channel Backend</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    High-performance backend service for villa reservations, dynamic pricing engine (vouchers/add-ons), and real-time availability.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Background Workers:</span> BullMQ & Redis for async OTA sync (HotelMu), booking expiry, and transactional emails.<br>
+    • <span class="phosphor-amber">Security & Storage:</span> Granular RBAC, JWT / Firebase Auth, and S3 Presigned URLs for media assets.<br>
+    • <span class="phosphor-amber">Document Generation:</span> Automated PDF invoices (jsPDF) and Excel financial reports (ExcelJS).<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Bun, TypeScript, Hono.js, PostgreSQL 18, Drizzle ORM, Redis, BullMQ, AWS S3/MinIO, Docker.
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > CASANELA VILLA", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawGenset() {
+        const diagram = `
+<span class="ascii-node" title="Admin Web & Driver Mobile App">FIELD / WEB</span>         <span class="ascii-node" title="Hono + Dependency Injection (tsyringe)">CLEAN ARCH API</span>        <span class="ascii-node" title="BullMQ Distributed Workers">JOB PIPELINE</span>
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│ Admin Web /  │──HTTP▶│ Use Cases /  │──Job─▶│ Push (FCM)   │
+│ Driver App   │◀─JSON─│ Domain Layer │       │ PDF/XLSX Gen │
+└──────────────┘       └──────┬───────┘       └──────────────┘
+                              │
+                 ┌────────────┴────────────┐
+                 ▼                         ▼
+           ┌───────────┐             ┌───────────┐
+           │PostgreSQL │             │  AWS S3   │
+           │Drizzle ORM│             │Presigned  │
+           └───────────┘             └───────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">ENTERPRISE GENSET MANAGEMENT — Backend & Worker System</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    Enterprise rental and field maintenance system built with Clean/Hexagonal Architecture in an NX Monorepo.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Core Workflows:</span> Real-time order dispatch, delivery tracking, hour-meter/fuel logging, and digital BAST with e-signatures.<br>
+    • <span class="phosphor-amber">Distributed Workers:</span> BullMQ & Redis for decoupled FCM push alerts, email notifications, and automated reporting.<br>
+    • <span class="phosphor-amber">Type-Safe & Docs:</span> End-to-end validation with shared Zod schemas, Better-Auth RBAC, and OpenAPI/Scalar API docs.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Node.js, TypeScript, Hono.js, Drizzle ORM, PostgreSQL, Redis, BullMQ, AWS S3, Better-Auth, NX.
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > GENSET MANAGEMENT", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawPdfEngine() {
+        const diagram = `
+<span class="ascii-node" title="Salesforce / Backend JSON Payload">DATA PAYLOAD</span>        <span class="ascii-node" title="Abstract Base & Client Sub-Templates">OOP PDF ENGINE</span>        <span class="ascii-node" title="Rendered PDF Output with Security">OUTPUT DOC</span>
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│  Salesforce  │──JSON▶│BaseQuotation │──Gen─▶│ Dynamic Table│
+│  / REST API  │       │Template (OOP)│       │ QR + E-Sign  │
+└──────────────┘       └──────┬───────┘       └──────────────┘
+                              │
+                 ┌────────────┴────────────┐
+                 ▼                         ▼
+           ┌───────────┐             ┌───────────┐
+           │Multi-Tenant│            │   FAST    │
+           │Client Mods│             │Compression│
+           └───────────┘             └───────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">DYNAMIC PDF ENGINE — Quotation & Contract Generator</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    Scalable Object-Oriented PDF generation engine for enterprise Quotations, MAP proposals, and LCC contracts.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">OOP Template Hierarchy:</span> Base template encapsulating A4 pagination, custom font injection, and digital signature alignment.<br>
+    • <span class="phosphor-amber">Multi-Tenant Customization:</span> Client-specific sub-templates (Djarum, Gudang Garam, BJB, Mobiletron) with custom layouts and rules.<br>
+    • <span class="phosphor-amber">Dynamic Rendering & Assets:</span> Responsive jsPDF-autotable tables, terbilang currency formatting, dynamic QR verification, and asset compression.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> TypeScript, Node.js, jsPDF, jspdf-autotable, qrcode, OOP Architecture.
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > PDF ENGINE", contentHTML);
         await window.Renderer.screenWipe(fullHTML, false);
         this.attachTooltips();
     }
@@ -240,7 +342,7 @@ Haunted Mansion is a prototype horror game made using the Unity engine.<div styl
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 this.showDetail(this.projects[this.activeIndex].id);
-            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'a', 'b', 'c', 'd', 'e', 'f'].includes(e.key)) {
+            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'].includes(e.key)) {
                 e.preventDefault();
                 const key = e.key.toUpperCase();
                 this.activeIndex = this.projects.findIndex(p => p.id === key);

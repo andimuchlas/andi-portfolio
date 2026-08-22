@@ -7,24 +7,27 @@ class SectionSkills {
         const skillsData = [
             { cat: "PROGRAMMING LANGUAGES", skills: [
                 { name: "C#", pct: 85 },
+                { name: "TypeScript", pct: 85 },
                 { name: "Golang", pct: 80 },
-                { name: "TypeScript", pct: 75 },
                 { name: "Python", pct: 60 }
             ]},
-            { cat: "FRAMEWORKS & TECHNOLOGIES", skills: [
+            { cat: "FRAMEWORKS & RUNTIMES", skills: [
                 { name: "Unity", pct: 85 },
-                { name: "Laravel", pct: 70 },
-                { name: "Flutter", pct: 65 },
-                { name: "gRPC/REST", pct: 75 }
+                { name: "Hono / Bun", pct: 85 },
+                { name: "Node.js", pct: 85 },
+                { name: "gRPC/REST", pct: 80 }
             ]},
-            { cat: "DATABASES", skills: [
-                { name: "PostgreSQL", pct: 80 },
+            { cat: "DATABASES & QUEUES", skills: [
+                { name: "PostgreSQL", pct: 85 },
+                { name: "Redis/BullMQ", pct: 80 },
                 { name: "MySQL", pct: 75 },
                 { name: "Firebase", pct: 65 }
             ]},
-            { cat: "TOOLS & PLATFORMS", skills: [
+            { cat: "TOOLS & ARCHITECTURE", skills: [
                 { name: "Git", pct: 85 },
-                { name: "Docker/K8s", pct: 58 }
+                { name: "Clean Arch", pct: 80 },
+                { name: "Docker", pct: 75 },
+                { name: "AWS S3", pct: 75 }
             ]}
         ];
 
