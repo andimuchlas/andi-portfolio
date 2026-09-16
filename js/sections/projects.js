@@ -79,27 +79,33 @@ class SectionProjects {
 
     async drawRajaderek() {
         const diagram = `
-<span class="ascii-node" title="Web Client / Mobile App">CLIENT</span>          <span class="ascii-node" title="TypeScript Gateway routing requests">GATEWAY (TS)</span>       <span class="ascii-node" title="Go-based core logic and services">CORE ENGINE (Go)</span>
-┌──────┐         ┌──────────────┐      ┌──────────────┐
-│      │──HTTP─▶│              │─gRPC▶│              │
-│ Web  │         │  TypeScript  │      │   Go Logic   │
-│ App  │◀─JSON──│              │◀gRPC─│              │
-└──────┘         └──────────────┘      └──────┬───────┘
-                                             │
-                       ┌─────────────┬───────┴───────┬─────────────┐
-                       ▼             ▼               ▼             ▼
-                 ┌───────────┐ ┌───────────┐   ┌───────────┐ ┌───────────┐
-                 │   Redis   │ │  PostGIS  │   │   OSRM    │ │   NATS    │
-                 │   Cache   │ │ Spatial DB│   │  Routing  │ │Messaging  │
-                 └───────────┘ └───────────┘   └───────────┘ └───────────┘`;
+<span class="ascii-node" title="Web / Mobile Clients">CLIENT APPS</span>        <span class="ascii-node" title="TypeScript Gateway (Auth & Aggregation)">API GATEWAY (TS)</span>      <span class="ascii-node" title="Go Map & Core Engine (High-throughput)">CORE ENGINE (Go)</span>      <span class="ascii-node" title="Automated Data Ingestion">SCRAPY ETL</span>
+┌────────────┐       ┌──────────────┐      ┌──────────────┐      ┌────────────┐
+│ Web / App  │──HTTP▶│  TypeScript  │─gRPC▶│ Go Engine    │◀───-─│ ~2.8M POIs │
+│  Dispatch  │◀─JSON─│  Auth/Aggreg │◀gRPC─│ Heavy Graph  │      │ Overture/  │
+└────────────┘       └──────────────┘      └──────┬───────┘      │ OSM / BIG  │
+                                                  │              └────────────┘
+         ┌───────────────────┬────────────────────┼───────────────────┐
+         ▼                   ▼                    ▼                   ▼
+   ┌───────────┐       ┌───────────┐        ┌───────────┐       ┌───────────┐
+   │ Typesense │       │  Uber H3  │        │   OSRM    │       │ PostGIS / │
+   │ Search/Geo│       │ Hex Index │        │ MLD Tolls │       │ Redis/NATS│
+   │  &lt;200ms   │       │ O(1) Match│        │ GC Tuned  │       │ Fallback  │
+   └───────────┘       └───────────┘        └───────────┘       └───────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.5em; margin-bottom: 2vmin;">RAJADEREK — High-Performance Logistics Routing</div>
-<div style="border-bottom: 2px solid #FFB000; margin-bottom: 4vmin; opacity: 0.5;"></div>
-<div style="font-size: 0.8em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
-<div style="font-size: 1.1em; line-height: 1.5; opacity: 0.9; text-align: left;">
-    Developed the backend of Rajaderek using Go, TypeScript, and OSRM to power a high-performance, low-latency routing and spatial processing system for logistics.<div style="height: 1vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Go, TypeScript, OSRM, PostgreSQL/PostGIS, gRPC, Redis, NATS, Docker, Kubernetes.
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">RAJADEREK — Real-Time Spatial Routing & Logistics</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend & Spatial Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.7em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
+<div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
+    Real-time dispatching and routing platform managing on-demand vehicle towing operations.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Service Decomposition:</span> Decoupled into a TypeScript Gateway (auth & aggregation) and a standalone Go Core Engine via gRPC to isolate heavy graph computations from business logic.<br>
+    • <span class="phosphor-amber">Data Ingestion (~2.8M Records):</span> Built automated Scrapy ETL pipelines scaling POI datasets from ~1.5M to ~2.8M records and ~70K administrative boundaries (Overture Maps, Overpass/OSM, BIG, Pertamina).<br>
+    • <span class="phosphor-amber">Low-Latency Search & Autocomplete (Typesense):</span> Migrated bottlenecked spatial SQL queries (degraded from ~1s to 3–5s as data doubled) to Typesense, slashing latency to &lt;200ms (p95) using tiered multi-search queries (45 km geofenced local priority, typo tolerance), protected by a Go-native circuit breaker with PostGIS GiST fallback.<br>
+    • <span class="phosphor-amber">Proximity Indexing (Uber H3):</span> Replaced slow polygon intersection queries with Uber H3 hexagonal indexing (O(1) cell lookup) for instant driver-to-job proximity matching.<br>
+    • <span class="phosphor-amber">Dynamic Routing & GC Tuning:</span> Configured OSRM with Multi-Level Dijkstra (MLD) for dynamic toll-road weighting; reused memory buffers to minimize Go GC pressure under high dispatch throughput.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Go, TypeScript, Python (Scrapy), Typesense, OSRM, Uber H3, PostgreSQL/PostGIS, gRPC, Redis, NATS, Kubernetes.
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > RAJADEREK", contentHTML);

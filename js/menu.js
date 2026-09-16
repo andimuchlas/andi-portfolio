@@ -9,7 +9,8 @@ class MainMenuManager {
             { id: 2, text: "EXPERIENCE", route: "/experience", handler: () => window.SectionExperience.render() },
             { id: 3, text: "PROJECTS", route: "/projects", handler: () => window.SectionProjects.render() },
             { id: 4, text: "SKILLS", route: "/skills", handler: () => window.SectionSkills.render() },
-            { id: 5, text: "CERTIFICATION", route: "/certification", handler: () => window.SectionCertification.render() }
+            { id: 5, text: "CERTIFICATION", route: "/certification", handler: () => window.SectionCertification.render() },
+            { id: 6, text: "MODERN UI ↗", route: "https://landing-page-porfolio-one.vercel.app/", handler: () => window.open("https://landing-page-porfolio-one.vercel.app/", "_blank") }
         ];
 
         this.keyboardHandler = this.handleKeydown.bind(this);
@@ -200,7 +201,7 @@ Software engineer with a Computer Science background and 2 years experience acro
 </div>
 
 <div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
-    <span>[1-5] Select   [M] Mute   [ESC] Back</span>
+    <span>[1-6] Select   [M] Mute   [ESC] Back</span>
     <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
     <span>Bandung, ID - 2026</span>
 </div>`;
@@ -252,6 +253,12 @@ Software engineer with a Computer Science background and 2 years experience acro
     navigateToSection(id) {
         const item = this.menuItems.find(m => m.id === id);
         if (item) {
+            if (id === 6) {
+                // External link: keep menu state active
+                this.trackPageView(item.route);
+                item.handler();
+                return;
+            }
             this.state = 'section';
             this.trackPageView(item.route);
             item.handler();
@@ -262,14 +269,15 @@ Software engineer with a Computer Science background and 2 years experience acro
         window.Audio.init();
 
         if (this.state === 'menu') {
+            const maxItems = this.menuItems.length;
             if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
                 e.preventDefault();
-                this.activeIndex = this.activeIndex < 5 ? this.activeIndex + 1 : 1;
+                this.activeIndex = this.activeIndex < maxItems ? this.activeIndex + 1 : 1;
                 window.Audio.playKeystroke();
                 this.updateMenuRender();
             } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
                 e.preventDefault();
-                this.activeIndex = this.activeIndex > 1 ? this.activeIndex - 1 : 5;
+                this.activeIndex = this.activeIndex > 1 ? this.activeIndex - 1 : maxItems;
                 window.Audio.playKeystroke();
                 this.updateMenuRender();
             } else if (e.key === 'Enter') {
@@ -278,7 +286,7 @@ Software engineer with a Computer Science background and 2 years experience acro
                 setTimeout(() => {
                     this.navigateToSection(this.activeIndex);
                 }, 120);
-            } else if (['1', '2', '3', '4', '5'].includes(e.key)) {
+            } else if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
                 e.preventDefault();
                 this.activeIndex = parseInt(e.key);
                 window.Audio.playKeystroke();
