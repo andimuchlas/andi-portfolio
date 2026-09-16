@@ -6,28 +6,28 @@ class SectionSkills {
         
         const skillsData = [
             { cat: "PROGRAMMING LANGUAGES", skills: [
-                { name: "C#", pct: 85 },
+                { name: "Golang", pct: 85 },
                 { name: "TypeScript", pct: 85 },
-                { name: "Golang", pct: 80 },
-                { name: "Python", pct: 60 }
+                { name: "C#", pct: 85 },
+                { name: "Python", pct: 75 }
             ]},
-            { cat: "FRAMEWORKS & RUNTIMES", skills: [
-                { name: "Unity", pct: 85 },
+            { cat: "SPATIAL & ARCHITECTURE", skills: [
+                { name: "PostGIS", pct: 85 },
+                { name: "OSRM", pct: 85 },
+                { name: "Uber H3", pct: 80 },
+                { name: "Clean Arch", pct: 85 }
+            ]},
+            { cat: "BACKEND & DISTRIBUTED", skills: [
                 { name: "Hono / Bun", pct: 85 },
-                { name: "Node.js", pct: 85 },
-                { name: "gRPC/REST", pct: 80 }
-            ]},
-            { cat: "DATABASES & QUEUES", skills: [
+                { name: "gRPC / NATS", pct: 80 },
                 { name: "PostgreSQL", pct: 85 },
-                { name: "Redis/BullMQ", pct: 80 },
-                { name: "MySQL", pct: 75 },
-                { name: "Firebase", pct: 65 }
+                { name: "Redis / BullMQ", pct: 85 }
             ]},
-            { cat: "TOOLS & ARCHITECTURE", skills: [
-                { name: "Git", pct: 85 },
-                { name: "Clean Arch", pct: 80 },
-                { name: "Docker", pct: 75 },
-                { name: "AWS S3", pct: 75 }
+            { cat: "SIMULATION & CLOUD", skills: [
+                { name: "Unity", pct: 85 },
+                { name: "LiDAR / XR", pct: 80 },
+                { name: "Docker / K8s", pct: 80 },
+                { name: "PyTorch / ML", pct: 70 }
             ]}
         ];
 

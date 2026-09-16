@@ -18,7 +18,8 @@ class SectionCertification {
             { id: 13, title: 'Level 2: Modern Application Deployment', type: 'img', url: 'assets/img/modern-app-deployment.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17214897' },
             { id: 14, title: 'Skills Boost Arcade Certification July 2025', type: 'img', url: 'assets/img/july-certification.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17255023' },
             { id: 15, title: 'Level 1: Core Infrastructure and Security', type: 'img', url: 'assets/img/infrastucture-and-security.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17156466' },
-            { id: 16, title: 'Asisten PBO', url: 'https://drive.google.com/file/d/15vhjDiam0VjkAbXjhOlbRkWxCNCavMmX/preview' }
+            { id: 16, title: 'Asisten PBO', url: 'https://drive.google.com/file/d/15vhjDiam0VjkAbXjhOlbRkWxCNCavMmX/preview' },
+            { id: 17, title: 'Kubernetes on Google Cloud', type: 'img', url: 'https://images.credly.com/size/340x340/images/670ec7bf-3fdc-4e4c-bd24-0aa304ffadf2/image.png', link: 'https://www.credly.com/badges/670ec7bf-3fdc-4e4c-bd24-0aa304ffadf2' }
         ];
         this.activeIndex = 0;
         this.keydownHandler = this.handleKeydown.bind(this);

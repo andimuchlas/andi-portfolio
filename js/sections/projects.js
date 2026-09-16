@@ -6,14 +6,16 @@ class SectionProjects {
         this.activeIndex = 0;
         this.projects = [
             { id: 'A', name: 'RAJADEREK' },
-            { id: 'B', name: 'CASANELA VILLA API' },
-            { id: 'C', name: 'GENSET MANAGEMENT API' },
-            { id: 'D', name: 'DYNAMIC PDF ENGINE' },
-            { id: 'E', name: 'GEPHYRION' },
-            { id: 'F', name: 'DISASTER ROOM GAMIFICATION' },
-            { id: 'G', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'H', name: 'CHATVIBES' },
-            { id: 'I', name: 'HAUNTED MANSION' }
+            { id: 'B', name: 'GENSET MANAGEMENT API' },
+            { id: 'C', name: 'CASANELA VILLA API' },
+            { id: 'D', name: 'LLM INTENT ROUTER' },
+            { id: 'E', name: 'DYNAMIC PDF ENGINE' },
+            { id: 'F', name: 'GEPHYRION' },
+            { id: 'G', name: 'DISASTER ROOM GAMIFICATION' },
+            { id: 'H', name: 'THE SEARCH OF ELDORIA' },
+            { id: 'I', name: 'CHATVIBES' },
+            { id: 'J', name: 'AI AVATAR UNITY' },
+            { id: 'K', name: 'DIGITAL LEARN' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
     }
@@ -36,7 +38,7 @@ class SectionProjects {
         });
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-I: Select, ENTER: Open, ESC: Back");
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-K: Select, ENTER: Open, ESC: Back");
 
         if (forceWipe) {
             await window.Renderer.screenWipe(fullHTML);
@@ -61,14 +63,16 @@ class SectionProjects {
         window.Audio.playEnter();
 
         if (id === 'A') await this.drawRajaderek();
-        else if (id === 'B') await this.drawCasanela();
-        else if (id === 'C') await this.drawGenset();
-        else if (id === 'D') await this.drawPdfEngine();
-        else if (id === 'E') await this.drawGephyrion();
-        else if (id === 'F') await this.drawDisasterRoom();
-        else if (id === 'G') await this.drawEldoria();
-        else if (id === 'H') await this.drawChatvibes();
-        else if (id === 'I') await this.drawHauntedMansion();
+        else if (id === 'B') await this.drawGenset();
+        else if (id === 'C') await this.drawCasanela();
+        else if (id === 'D') await this.drawLlmRouter();
+        else if (id === 'E') await this.drawPdfEngine();
+        else if (id === 'F') await this.drawGephyrion();
+        else if (id === 'G') await this.drawDisasterRoom();
+        else if (id === 'H') await this.drawEldoria();
+        else if (id === 'I') await this.drawChatvibes();
+        else if (id === 'J') await this.drawAiAvatar();
+        else if (id === 'K') await this.drawDigitalLearn();
     }
 
     async drawRajaderek() {
@@ -161,6 +165,38 @@ class SectionProjects {
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > GENSET MANAGEMENT", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawLlmRouter() {
+        const diagram = `
+<span class="ascii-node" title="User / System Prompt Query">QUERY INGEST</span>        <span class="ascii-node" title="DistilBERT Classifier (5 Dimensions)">INTENT CLASSIFIER</span>     <span class="ascii-node" title="Cost-Latency Aware Router">ROUTING ENGINE</span>
+┌──────────────┐       ┌──────────────────┐    ┌──────────────────┐
+│ Client Prompt│──Text▶│ DistilBERT Mini  │───▶│ Model Router     │
+│ Query Stream │       │ (5 Dims Classif) │    │ Fallback State-M │
+└──────────────┘       └──────────────────┘    └────────┬─────────┘
+                                                        │
+                         ┌──────────────────────────────┼──────────────────────────────┐
+                         ▼                              ▼                              ▼
+                 ┌───────────────┐              ┌───────────────┐              ┌───────────────┐
+                 │ Cheap Models  │              │   Mid-Tier    │              │ Frontier LLMs │
+                 │  (68% Traffic)│              │  (22% Traffic)│              │  (10% Traffic)│
+                 └───────────────┘              └───────────────┘              └───────────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">LLM INTENT ROUTER — Intelligent Model Orchestration</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    Intelligent model orchestration layer balancing latency and inference cost through semantic intent classification.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Semantic Intent Classifier:</span> DistilBERT model classifying prompts across 5 dimensions with multilingual coverage.<br>
+    • <span class="phosphor-amber">Dynamic Cost Optimization:</span> Routes 68% to low-cost models, 22% mid-tier, and 10% frontier LLMs — slashing API spend by ~72%.<br>
+    • <span class="phosphor-amber">Fault Tolerance:</span> Automated fallback state machine guaranteeing high availability during upstream rate-limits or outages.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Python, PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Redis.
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > LLM INTENT ROUTER", contentHTML);
         await window.Renderer.screenWipe(fullHTML, false);
         this.attachTooltips();
     }
@@ -268,20 +304,71 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
         await window.Renderer.screenWipe(fullHTML, false);
     }
 
-    async drawHauntedMansion() {
-        const contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.8em; margin-bottom: 2vmin;">HAUNTED MANSION</div>
-<div style="font-size: 1.1em; max-width: 90%; line-height: 1.5; margin-bottom: 2vmin; text-align: left;">
-Haunted Mansion is a prototype horror game made using the Unity engine.<div style="height: 1vmin;"></div>
-<span style="opacity: 0.7;">Tech Stack:</span> Unity, C#
-</div>
-<div style="margin-top: 2vmin; display: flex; gap: 2vmin; overflow-x: auto; padding-bottom: 1vmin;">
-    <img src="assets/img/hauted-house/footage-1.png" style="height: 25vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
-    <img src="assets/img/hauted-house/footage-2.png" style="height: 25vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
-    <img src="assets/img/hauted-house/footage-3.png" style="height: 25vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
+    async drawAiAvatar() {
+        const diagram = `
+<span class="ascii-node" title="User Microphone Input">VOICE IN</span>         <span class="ascii-node" title="Speech-to-Text (piper1-gpl)">STT PIPELINE</span>         <span class="ascii-node" title="DeepSeek LLM Reasoning">AI CORE</span>
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│ User Voice   │──WSS─▶│ piper1-gpl   │──Txt─▶│ DeepSeek LLM │
+│ Mic Capture  │       │ STT Docker   │       │ Gen Response │
+└──────────────┘       └──────────────┘       └──────┬───────┘
+                                                     │
+                         ┌───────────────────────────┴───────────────────────────┐
+                         ▼                                                       ▼
+                  ┌──────────────┐                                        ┌──────────────┐
+                  │ faster-      │                                        │ MetaPerson   │
+                  │ whisper-tiny │───Audio Sync (Visemes)────────────────▶│ 3D Avatar    │
+                  │ TTS Docker   │                                        │ Oculus Lipsyn│
+                  └──────────────┘                                        └──────────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">AI AVATAR UNITY — Real-Time Voice Conversation & Lip-Sync</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    Interactive 3D conversational AI avatar in Unity featuring real-time natural voice dialogue and accurate facial lip-syncing.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">End-to-End Voice Pipeline:</span> Mic Capture → STT (piper1-gpl) → DeepSeek LLM → TTS (faster-whisper-tiny) → Audio Playback.<br>
+    • <span class="phosphor-amber">Real-Time Facial Animation:</span> MetaPerson 3D avatar integrated with Meta Oculus Lipsync (viseme-based mouth tracking).<br>
+    • <span class="phosphor-amber">Decoupled Architecture:</span> Low-latency WebSocket streaming connecting Unity client with backend Dockerized inference services.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Unity, C#, MetaPerson SDK, Oculus Lipsync, DeepSeek LLM, STT/TTS Docker Containers, WebSockets.<br>
+    <span style="opacity: 0.7;">GitHub:</span> <a href="https://github.com/andimuchlas/AI-Avatar-Unity" target="_blank" style="color: #FFB000; text-decoration: underline;">github.com/andimuchlas/AI-Avatar-Unity ↗</a>
 </div>`;
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS > HAUNTED MANSION", contentHTML);
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > AI AVATAR UNITY", contentHTML);
         await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawDigitalLearn() {
+        const diagram = `
+<span class="ascii-node" title="Student & Host Browsers">PLAYERS / HOST</span>      <span class="ascii-node" title="Next.js 16 App Router (Vercel)">VERCEL SERVERLESS</span>     <span class="ascii-node" title="Socket.io Standalone Server (Render)">REALTIME WEBSOCKET</span>
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│ Mobile / Web │──HTTP▶│ Next.js 16   │       │ Socket.io    │
+│ Client Apps  │◀─WSS──┤ UI & Admin   │       │ State/Timer  │
+└──────────────┘       └──────┬───────┘       └──────┬───────┘
+                              │                      │
+                 ┌────────────┴──────────────────────┴────────────┐
+                 ▼                                                ▼
+           ┌───────────┐                                    ┌───────────┐
+           │Supabase DB│                                    │GSAP Board │
+           │PostgreSQL │                                    │25 Petak   │
+           └───────────┘                                    └───────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">DIGITAL LEARN — Real-Time Multiplayer Board Quiz Platform</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
+<div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
+    Interactive multiplayer synchronous education platform combining live competitive trivia with a 25-tile Serpentine race track (Zero RNG, Pure Knowledge).<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Decoupled Architecture:</span> Next.js 16 on Vercel paired with a standalone Dockerized Socket.io state server on Render & Supabase PostgreSQL.<br>
+    • <span class="phosphor-amber">Synchronous Game Loop:</span> Real-time question dispatch, room management, reconnect tolerance, interactive timer bars, and GSAP animated tokens.<br>
+    • <span class="phosphor-amber">Zero-Asset Audio:</span> Embedded Web Audio API procedural sound synthesizer (sound effects & win fanfare) without external audio file latency.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Next.js 16, React 19, Bun, TypeScript, Socket.io, Drizzle ORM, Supabase/PostgreSQL, Tailwind CSS v4, GSAP.<br>
+    <span style="opacity: 0.7;">GitHub:</span> <a href="https://github.com/andimuchlas/Digital-Learn" target="_blank" style="color: #FFB000; text-decoration: underline;">github.com/andimuchlas/Digital-Learn ↗</a>
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > DIGITAL LEARN", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
     }
 
     async drawDhweb() {
@@ -342,7 +429,7 @@ Haunted Mansion is a prototype horror game made using the Unity engine.<div styl
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 this.showDetail(this.projects[this.activeIndex].id);
-            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'].includes(e.key)) {
+            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'].includes(e.key)) {
                 e.preventDefault();
                 const key = e.key.toUpperCase();
                 this.activeIndex = this.projects.findIndex(p => p.id === key);

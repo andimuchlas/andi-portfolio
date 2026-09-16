@@ -199,8 +199,9 @@ Software engineer with a Computer Science background and 2 years experience acro
     </div>
 </div>
 
-<div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.4;">
+<div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
     <span>[1-5] Select   [M] Mute   [ESC] Back</span>
+    <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
     <span>Bandung, ID - 2026</span>
 </div>`;
     }
