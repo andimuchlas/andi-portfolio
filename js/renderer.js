@@ -66,11 +66,19 @@ class Renderer {
 
     createDOSBox(title, contentHTML, instructionsHTML = "ESC: Back") {
         const isMobile = window.innerWidth < 768;
-        const backBtn = isMobile ? `<span class="back-btn-mobile" onclick="window.MenuManager.showMenu()" style="cursor:pointer; border: 1px solid #FFB000; padding: 0 1.5vmin; background: transparent; color: #FFB000; font-weight: bold; margin-left: 2vmin; font-size: 0.8em;">BACK</span>` : "";
+        const isSubsection = window.MenuManager && window.MenuManager.state === 'subsection';
+        const backAction = isSubsection ? "window.SectionProjects.drawList(true)" : "window.MenuManager.showMenu()";
+        const backLabel = isSubsection ? "◀ PROJECTS" : "◀ MENU";
         
-        return `<div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.2vmin 1vmin; min-height: 3.5vmin;">
-    <span style="font-weight:bold; letter-spacing: 2px; white-space: nowrap; margin-right: 2vmin;">${title}</span>
-    <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em;">${instructionsHTML}${backBtn}</span>
+        // Touch-friendly responsive Back button always available
+        const backBtn = `<button type="button" class="back-btn-dos" onclick="${backAction}; window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: ${isMobile ? '0.75em' : '0.85em'}; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">${backLabel}</button>`;
+        
+        return `<div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;">
+    <span style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: ${isMobile ? '0.9em' : '1em'}; overflow: hidden; text-overflow: ellipsis;">${title}</span>
+    <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;">
+        <span class="dos-instructions" style="${isMobile ? 'display:none;' : ''}">${instructionsHTML}</span>
+        ${backBtn}
+    </span>
 </div><div style="font-size: 1.2em;">${contentHTML.trimStart()}</div>`;
     }
 }

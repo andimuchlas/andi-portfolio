@@ -29,6 +29,8 @@ class SectionProjects {
     }
 
     async drawList(forceWipe = true) {
+        this.state = 'list';
+        if (window.MenuManager) window.MenuManager.state = 'section';
         let contentHTML = `<div style="font-size: 1.4em; margin-bottom: 2.5vmin;">SELECT PROJECT:</div>\n<div style="display:flex; flex-direction:column; gap: 1.2vmin;">\n`;
         this.projects.forEach((proj, idx) => {
             const isSelected = this.activeIndex === idx;

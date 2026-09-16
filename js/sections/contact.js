@@ -68,15 +68,16 @@ class SectionCertification {
 </div>`;
         }
 
+        const isMobile = window.innerWidth < 768;
         const contentHTML = `<style>
 .cert-scroll-container::-webkit-scrollbar { width: 8px; }
 .cert-scroll-container::-webkit-scrollbar-track { background: transparent; }
 .cert-scroll-container::-webkit-scrollbar-thumb { background: #FFB000; opacity: 0.5; }
-</style><div style="display:flex; flex-direction:row; height: 74vmin; width: 100%;">
-    <div class="cert-scroll-container" style="flex: 1; overflow-y: auto; border-right: 2px solid #FFB000; padding-right: 2vmin; display:flex; flex-direction:column;">
+</style><div style="display:flex; flex-direction:${isMobile ? 'column' : 'row'}; height: ${isMobile ? 'auto' : '74vmin'}; width: 100%; gap: 1.5vmin;">
+    <div class="cert-scroll-container" style="${isMobile ? 'max-height: 25vmin; border-bottom: 1px dashed #FFB000; padding-bottom: 1vmin;' : 'flex: 1; border-right: 2px solid #FFB000; padding-right: 2vmin;'} overflow-y: auto; display:flex; flex-direction:column;">
         ${listHTML}
     </div>
-    <div style="flex: 2; padding: 0 1vmin; display: flex; align-items: stretch; justify-content: center;">
+    <div style="flex: ${isMobile ? 'none' : '2'}; min-height: ${isMobile ? '40vmin' : 'auto'}; padding: 0 1vmin; display: flex; align-items: stretch; justify-content: center;">
         ${displayHTML}
     </div>
 </div>`;

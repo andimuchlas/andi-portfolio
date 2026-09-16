@@ -193,3 +193,24 @@
 .retro-blink {
     animation: retroBlink 1.0s infinite step-start;
 }
+
+/* Mobile & Touch Responsiveness */
+.back-btn-dos:hover, .back-btn-dos:active {
+    background: #050505 !important;
+    color: #FFB000 !important;
+    transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+    #terminal-content {
+        font-size: 3.8vmin;
+        padding: 6vmin 6vmin 8vmin 6vmin;
+    }
+    .dos-instructions {
+        display: none !important;
+    }
+    .back-btn-dos {
+        padding: 0.5vmin 2vmin !important;
+        font-size: 0.85em !important;
+    }
+}
