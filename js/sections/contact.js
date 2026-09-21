@@ -6,18 +6,20 @@ class SectionCertification {
             { id: 1, title: 'AWS Certified Cloud Practitioner (CLF-C02)', type: 'img', url: 'assets/img/aws-cloud-practitioner.png', link: 'https://www.credly.com/badges/55f7f23f-acc6-40f1-a0cd-a3cb70e5db8e/public_url' },
             { id: 2, title: 'AWS re/Start Graduate', type: 'img', url: 'assets/img/aws-restart.png', link: 'https://www.credly.com/badges/210e19f0-0fb8-4055-b241-20978744c489/public_url' },
             { id: 3, title: 'Deploying to Kubernetes in Google Cloud', type: 'img', url: 'https://images.credly.com/size/340x340/images/670ec7bf-3fdc-4e4c-bd24-0aa304ffadf2/image.png', link: 'https://www.credly.com/badges/670ec7bf-3fdc-4e4c-bd24-0aa304ffadf2' },
-            { id: 4, title: 'Unity Certified Associate: Game Developer', url: 'https://drive.google.com/file/d/1WEm9poxaDCFBn58CmfnDWVoc4LfDf-gJ/preview' },
-            { id: 5, title: 'Machine Learning Terminology and Process', url: 'https://drive.google.com/file/d/1u5fq3eVU0_nh5FONoHzm6Cr_Tw2IhzT6/preview' },
-            { id: 6, title: 'Fundamentals of Machine Learning & AI', url: 'https://drive.google.com/file/d/1U2bKCxNZ11TE13CRJmRKNh6Ucdm7KFJE/preview' },
+            { id: 4, title: 'Manage Kubernetes in Google Cloud', type: 'img', url: 'assets/img/manage-kubernetes.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/28042361' },
+            { id: 5, title: 'Unity Certified Associate: Game Developer', url: 'https://drive.google.com/file/d/1WEm9poxaDCFBn58CmfnDWVoc4LfDf-gJ/preview' },
+            { id: 6, title: 'Analyze Speech and Language with Google APIs', type: 'img', url: 'assets/img/analyze-speech.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/28050377' },
             { id: 7, title: 'Analyze Sentiment with Natural Language API', type: 'img', url: 'assets/img/analyze-sentiment.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/18365515' },
-            { id: 8, title: 'App Building with AppSheet', type: 'img', url: 'assets/img/app-building-sheet.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/18360946' },
-            { id: 9, title: 'Analyze Images with the Cloud Vision API', type: 'img', url: 'assets/img/cloud-vision.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/18364106' },
+            { id: 8, title: 'Analyze Images with the Cloud Vision API', type: 'img', url: 'assets/img/cloud-vision.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/18364106' },
+            { id: 9, title: 'App Building with AppSheet', type: 'img', url: 'assets/img/app-building-sheet.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/18360946' },
             { id: 10, title: 'Level 3: Terraform Essentials', type: 'img', url: 'assets/img/terraform-essential.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17939079' },
             { id: 11, title: 'Level 3: Advanced App Operations', type: 'img', url: 'assets/img/advance-app-operation.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17157037' },
             { id: 12, title: 'Level 2: Modern Application Deployment', type: 'img', url: 'assets/img/modern-app-deployment.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17214897' },
             { id: 13, title: 'Level 1: Core Infrastructure and Security', type: 'img', url: 'assets/img/infrastucture-and-security.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17156466' },
             { id: 14, title: 'Skills Boost Arcade Certification July 2025', type: 'img', url: 'assets/img/july-certification.png', link: 'https://www.skills.google/public_profiles/104038eb-cdaa-4a54-8bf4-4d575ae2c783/badges/17255023' },
-            { id: 15, title: 'Game Seed', type: 'img', url: 'assets/img/game-seed.png' }
+            { id: 15, title: 'Machine Learning Terminology and Process', url: 'https://drive.google.com/file/d/1u5fq3eVU0_nh5FONoHzm6Cr_Tw2IhzT6/preview' },
+            { id: 16, title: 'Fundamentals of Machine Learning & AI', url: 'https://drive.google.com/file/d/1U2bKCxNZ11TE13CRJmRKNh6Ucdm7KFJE/preview' },
+            { id: 17, title: 'Game Seed', type: 'img', url: 'assets/img/game-seed.png' }
         ];
         this.activeIndex = 0;
         this.keydownHandler = this.handleKeydown.bind(this);

@@ -10,7 +10,7 @@ class MainMenuManager {
             { id: 3, text: "PROJECTS", route: "/projects", handler: () => window.SectionProjects.render() },
             { id: 4, text: "SKILLS", route: "/skills", handler: () => window.SectionSkills.render() },
             { id: 5, text: "CERTIFICATION", route: "/certification", handler: () => window.SectionCertification.render() },
-            { id: 6, text: "MODERN UI ↗", route: "https://landing-page-porfolio-one.vercel.app/", handler: () => window.open("https://landing-page-porfolio-one.vercel.app/", "_blank") }
+            { id: 6, text: "MORE PORTFOLIO ↗", route: "https://landing-page-porfolio-one.vercel.app/", handler: () => window.open("https://landing-page-porfolio-one.vercel.app/", "_blank") }
         ];
 
         this.keyboardHandler = this.handleKeydown.bind(this);
