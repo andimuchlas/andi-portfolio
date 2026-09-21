@@ -6,15 +6,15 @@ class SectionProjects {
         this.activeIndex = 0;
         this.projects = [
             { id: 'A', name: 'RAJADEREK' },
-            { id: 'B', name: 'GENSET MANAGEMENT API' },
-            { id: 'C', name: 'CASANELA VILLA API' },
-            { id: 'D', name: 'LLM INTENT ROUTER' },
-            { id: 'E', name: 'DYNAMIC PDF ENGINE' },
-            { id: 'F', name: 'GEPHYRION' },
-            { id: 'G', name: 'DISASTER ROOM GAMIFICATION' },
-            { id: 'H', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'I', name: 'CHATVIBES' },
-            { id: 'J', name: 'AI AVATAR UNITY' },
+            { id: 'B', name: 'AI AVATAR UNITY' },
+            { id: 'C', name: 'LLM INTENT ROUTER' },
+            { id: 'D', name: 'GENSET MANAGEMENT API' },
+            { id: 'E', name: 'CASANELA VILLA API' },
+            { id: 'F', name: 'DYNAMIC PDF ENGINE' },
+            { id: 'G', name: 'GEPHYRION' },
+            { id: 'H', name: 'DISASTER ROOM GAMIFICATION' },
+            { id: 'I', name: 'THE SEARCH OF ELDORIA' },
+            { id: 'J', name: 'CHATVIBES' },
             { id: 'K', name: 'DIGITAL LEARN' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
@@ -65,15 +65,15 @@ class SectionProjects {
         window.Audio.playEnter();
 
         if (id === 'A') await this.drawRajaderek();
-        else if (id === 'B') await this.drawGenset();
-        else if (id === 'C') await this.drawCasanela();
-        else if (id === 'D') await this.drawLlmRouter();
-        else if (id === 'E') await this.drawPdfEngine();
-        else if (id === 'F') await this.drawGephyrion();
-        else if (id === 'G') await this.drawDisasterRoom();
-        else if (id === 'H') await this.drawEldoria();
-        else if (id === 'I') await this.drawChatvibes();
-        else if (id === 'J') await this.drawAiAvatar();
+        else if (id === 'B') await this.drawAiAvatar();
+        else if (id === 'C') await this.drawLlmRouter();
+        else if (id === 'D') await this.drawGenset();
+        else if (id === 'E') await this.drawCasanela();
+        else if (id === 'F') await this.drawPdfEngine();
+        else if (id === 'G') await this.drawGephyrion();
+        else if (id === 'H') await this.drawDisasterRoom();
+        else if (id === 'I') await this.drawEldoria();
+        else if (id === 'J') await this.drawChatvibes();
         else if (id === 'K') await this.drawDigitalLearn();
     }
 
@@ -129,15 +129,16 @@ class SectionProjects {
            └───────────┘             └───────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">CASANELA VILLA API — Reservation & Channel Backend</div>
-<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">CASANELA VILLA API — High-Throughput Reservation Engine</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
-    High-performance backend service for villa reservations, dynamic pricing engine (vouchers/add-ons), and real-time availability.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Background Workers:</span> BullMQ & Redis for async OTA sync (HotelMu), booking expiry, and transactional emails.<br>
-    • <span class="phosphor-amber">Security & Storage:</span> Granular RBAC, JWT / Firebase Auth, and S3 Presigned URLs for media assets.<br>
-    • <span class="phosphor-amber">Document Generation:</span> Automated PDF invoices (jsPDF) and Excel financial reports (ExcelJS).<div style="height: 0.8vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Bun, TypeScript, Hono.js, PostgreSQL 18, Drizzle ORM, Redis, BullMQ, AWS S3/MinIO, Docker.
+    High-performance reservation engine and dynamic channel manager for villa booking operations.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Sub-Millisecond Route Execution:</span> Built lightweight booking and pricing services on Bun + Hono.js delivering sub-millisecond route execution and high concurrent request capacity.<br>
+    • <span class="phosphor-amber">Automated OTA Sync & Direct Uploads:</span> Synchronized real-time OTA calendar availability (HotelMu) and automated booking timeouts via BullMQ, pairing with S3 Presigned URLs for direct client media storage.<br>
+    • <span class="phosphor-amber">Document Generation & Auth:</span> Automated PDF invoices (jsPDF) and Excel financial reports (ExcelJS) protected by granular RBAC & JWT/Firebase Auth.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Bun, TypeScript, Hono.js, PostgreSQL, Drizzle ORM, Redis, BullMQ, AWS S3, Docker.
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > CASANELA VILLA", contentHTML);
@@ -161,15 +162,16 @@ class SectionProjects {
            └───────────┘             └───────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">ENTERPRISE GENSET MANAGEMENT — Backend & Worker System</div>
-<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">ENTERPRISE GENSET MANAGEMENT — Clean Architecture & Distributed Pipeline</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
-    Enterprise rental and field maintenance system built with Clean/Hexagonal Architecture in an NX Monorepo.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Core Workflows:</span> Real-time order dispatch, delivery tracking, hour-meter/fuel logging, and digital BAST with e-signatures.<br>
-    • <span class="phosphor-amber">Distributed Workers:</span> BullMQ & Redis for decoupled FCM push alerts, email notifications, and automated reporting.<br>
-    • <span class="phosphor-amber">Type-Safe & Docs:</span> End-to-end validation with shared Zod schemas, Better-Auth RBAC, and OpenAPI/Scalar API docs.<div style="height: 0.8vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Node.js, TypeScript, Hono.js, Drizzle ORM, PostgreSQL, Redis, BullMQ, AWS S3, Better-Auth, NX.
+    Enterprise equipment rental and field maintenance platform built with Clean/Hexagonal Architecture in an NX Monorepo.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">End-to-End Type Safety & Dependency Injection:</span> Isolated domain business logic using Hexagonal Architecture and tsyringe DI within an NX Monorepo, sharing end-to-end type-safe Zod contracts between client and server.<br>
+    • <span class="phosphor-amber">Asynchronous Job Pipeline:</span> Decoupled PDF BAST generation (digital e-signatures), FCM push alerts, and XLSX financial exports using Redis and BullMQ queues to eliminate API latency bottlenecks.<br>
+    • <span class="phosphor-amber">Core Operations:</span> Real-time order dispatch, delivery tracking, hour-meter/fuel logging, Better-Auth RBAC, and OpenAPI/Scalar API docs.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Node.js, TypeScript, Hono.js, Drizzle ORM, PostgreSQL, Redis, BullMQ, AWS S3, NX, Better-Auth.
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > GENSET MANAGEMENT", contentHTML);
@@ -193,15 +195,16 @@ class SectionProjects {
                  └───────────────┘              └───────────────┘              └───────────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">LLM INTENT ROUTER — Intelligent Model Orchestration</div>
-<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">INTELLIGENT LLM INTENT & DIFFICULTY ROUTER — Model Orchestration Layer</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: ML Systems & Backend Architecture &nbsp;|&nbsp; Private Research</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
     Intelligent model orchestration layer balancing latency and inference cost through semantic intent classification.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Semantic Intent Classifier:</span> DistilBERT model classifying prompts across 5 dimensions with multilingual coverage.<br>
-    • <span class="phosphor-amber">Dynamic Cost Optimization:</span> Routes 68% to low-cost models, 22% mid-tier, and 10% frontier LLMs — slashing API spend by ~72%.<br>
-    • <span class="phosphor-amber">Fault Tolerance:</span> Automated fallback state machine guaranteeing high availability during upstream rate-limits or outages.<div style="height: 0.8vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Python, PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Redis.
+    • <span class="phosphor-amber">Multilingual Intent Classification:</span> Fine-tuned a multilingual DistilBERT model across 5 orthogonal dimensions (Task, Sub-task, Tool, Difficulty, Execution Mode).<br>
+    • <span class="phosphor-amber">Cost vs. Latency Balancing:</span> Implemented dynamic state-machine fallbacks and weighted soft-scoring to route routine tasks (68%) to lightweight models and reserve frontier LLMs (10%) for high-complexity queries, slashing overall API spend by ~72%.<br>
+    • <span class="phosphor-amber">Fault Tolerance & Reliability:</span> Automated fallback state machine guaranteeing zero downtime during upstream rate-limits or provider outages.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Python, PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Plotly.js, Redis.
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > LLM INTENT ROUTER", contentHTML);
@@ -329,15 +332,17 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
                   └──────────────┘                                        └──────────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1.5vmin;">AI AVATAR UNITY — Real-Time Voice Conversation & Lip-Sync</div>
-<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2.5vmin; opacity: 0.5;"></div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">AI AVATAR UNITY — End-to-End AI & Real-Time Interactive System</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Systems Architect & Full-Stack Engineer &nbsp;|&nbsp; Open Source / GitHub</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
-    Interactive 3D conversational AI avatar in Unity featuring real-time natural voice dialogue and accurate facial lip-syncing.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">End-to-End Voice Pipeline:</span> Mic Capture → STT (piper1-gpl) → DeepSeek LLM → TTS (faster-whisper-tiny) → Audio Playback.<br>
-    • <span class="phosphor-amber">Real-Time Facial Animation:</span> MetaPerson 3D avatar integrated with Meta Oculus Lipsync (viseme-based mouth tracking).<br>
-    • <span class="phosphor-amber">Decoupled Architecture:</span> Low-latency WebSocket streaming connecting Unity client with backend Dockerized inference services.<div style="height: 0.8vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Unity, C#, MetaPerson SDK, Oculus Lipsync, DeepSeek LLM, STT/TTS Docker Containers, WebSockets.<br>
+    Interactive 3D conversational AI avatar combining a Unity client with containerized voice-processing backend services.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">End-to-End System Architecture:</span> Built an interactive real-time AI avatar application combining a Unity client with containerized modular voice-processing backend services in Docker.<br>
+    • <span class="phosphor-amber">Conversational AI Voice Pipeline:</span> Implemented a low-latency voice pipeline chaining speech recognition (STT), LLM inference, and speech synthesis (TTS) for natural conversational interaction.<br>
+    • <span class="phosphor-amber">Facial Animation & Lip-Sync:</span> Integrated MetaPerson 3D avatar meshes and Oculus LipSync to translate synthesized speech audio into real-time facial and lip-sync animation.<br>
+    • <span class="phosphor-amber">Bidirectional WebSocket Streaming:</span> Connected the Unity client to backend AI services through bidirectional WebSocket-based real-time communication for low-latency audio and state streaming.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Unity (C#), Python, WebSocket, Docker, PyTorch, STT, LLM, TTS, Oculus LipSync, MetaPerson.<br>
     <span style="opacity: 0.7;">GitHub:</span> <a href="https://github.com/andimuchlas/AI-Avatar-Unity" target="_blank" style="color: #FFB000; text-decoration: underline;">github.com/andimuchlas/AI-Avatar-Unity ↗</a>
 </div>`;
 

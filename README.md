@@ -62,7 +62,7 @@ Then, open your browser and navigate to `http://localhost:8000`.
 
 ## About Me
 
-I am Andi Muchlas Ramadani, a Software Engineer with a Computer Science background. I have a strong focus on building scalable backend microservices (Go, gRPC, Redis, event-driven architectures) and developing spatial computations and real-time visualization systems (Unity, OSRM, PostGIS).
+I am Andi Muchlas Ramadani, a Software Engineer with 3+ years of experience building end-to-end systems across backend services, AI/ML pipelines, and real-time interactive applications. My core expertise spans Go and TypeScript backend architecture, PostGIS/OSRM spatial routing, PyTorch model orchestration, and Unity/C# simulations. Currently working as Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
 
 Connect with me:
 - [LinkedIn](https://linkedin.com/in/andimuchlas)

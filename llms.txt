@@ -1,17 +1,23 @@
 # Andi Muchlas Ramadani - Software Engineer Portfolio
 
-A retro terminal-themed portfolio showcasing expertise in backend development, spatial systems, distributed workflows, and real-time simulations.
+A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise across backend services, AI/ML pipelines, and real-time interactive systems.
 
 ## Technical Skills
-- Backend: Go (Golang), TypeScript, Bun, Hono.js, gRPC, Redis, BullMQ, NATS, PostgreSQL
-- Spatial: OSRM, PostGIS, Uber H3, Routing Engines
-- ML & Routing: PyTorch, DistilBERT, Model Orchestration
-- Visualization & Simulation: Unity (C#), LiDAR integration, Real-time Simulation systems
-- DevOps & Cloud: Docker, Kubernetes, AWS S3, Linux
-- UI/UX: Terminal User Interfaces (TUI), Retro CRT aesthetics
+- Software Engineering: Go, TypeScript, Python, C#, REST APIs, gRPC (Protobuf), WebSocket
+- Backend & Distributed Systems: PostgreSQL, PostGIS, Redis, NATS, BullMQ, Typesense, Docker, Kubernetes, AWS (S3)
+- AI / ML: PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Model Orchestration, STT/TTS Pipelines
+- Geospatial: OSRM (Open Source Routing Machine), Uber H3 Hexagonal Grid, PostGIS, Geospatial ETL
+- Real-Time & Interactive: Unity (C#), Oculus LipSync, MetaPerson Avatar SDK, LiDAR Sensor Integration, Projection Mapping
 
 ## Experience Summary
-Software engineer with 2+ years of experience in high-throughput backend microservices, spatial computing, and Unity simulations. Focuses on performance, spatial computation, and event-driven architectures.
+Software Engineer with 3+ years of hands-on experience building end-to-end systems across backend services, AI/ML pipelines, and real-time interactive applications. Experienced in Go and TypeScript backend architecture, PostgreSQL/PostGIS, distributed messaging, Kubernetes, and high-throughput geospatial systems, alongside Python/PyTorch model orchestration and Unity/C# real-time clients. Currently Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
+
+## Key Projects
+- Rajaderek: Real-time spatial routing and logistics system (Go, TypeScript, PostGIS, OSRM, Uber H3, Typesense, Kubernetes, NATS, Redis)
+- AI Avatar Unity: Real-time conversational AI avatar with voice pipeline & lip-sync (Unity, Python, Docker, PyTorch, Oculus LipSync, MetaPerson)
+- Intelligent LLM Intent Router: 5-dimension DistilBERT semantic model routing engine (Python, PyTorch, Transformers, FastAPI)
+- Enterprise Genset Management: Clean Architecture rental & maintenance backend (Node.js, TypeScript, Hono, Drizzle ORM, Redis, BullMQ)
+- Casanela Villa API: High-throughput villa reservation engine (Bun, TypeScript, Hono, PostgreSQL, BullMQ, S3)
 
 ## Links
 - Website: https://andi.is-a.dev/

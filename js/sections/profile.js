@@ -47,7 +47,7 @@ class SectionProfile {
         <!-- IDENTITY & PHILOSOPHY -->
         <div style="flex: 1; padding-top: 1vmin; z-index: 1; position: relative;">
             <div style="font-size: 1.7em; font-weight: bold; letter-spacing: 1px; margin-bottom: 0.2vmin;" class="phosphor-amber">ANDI MUCHLAS RAMADANI</div>
-            <div style="font-size: 1.1em; opacity: 0.9;">Backend Engineer / Unity Developer</div>
+            <div style="font-size: 1.1em; opacity: 0.9;">Software Engineer (Backend · AI/ML · Real-Time Systems)</div>
             <div style="font-size: 0.9em; opacity: 0.5; margin-bottom: 1.5vmin;">Bandung, Indonesia</div>
             
             <div style="font-style: italic; font-size: 1.05em; color: #FFB000; opacity: 0.8; line-height: 1.1; border-left: 2px solid rgba(255,176,0,0.3); padding-left: 1.5vmin;">
@@ -60,15 +60,15 @@ class SectionProfile {
     <div style="border-top: 1px solid rgba(255,176,0,0.2); border-bottom: 1px solid rgba(255,176,0,0.2); padding: 1.5vmin 0; opacity: 0.9; line-height: 1.1;">
         <div style="display: flex; margin-bottom: 1vmin;">
             <span style="color: #FFB000; margin-right: 1.5ch;">[>]</span>
-            <span>Specializes in <span class="phosphor-amber">spatial computation</span> and <span class="phosphor-amber">routing systems</span></span>
+            <span>Specializes in <span class="phosphor-amber">backend architecture</span>, <span class="phosphor-amber">spatial routing</span>, and <span class="phosphor-amber">AI/ML orchestration</span></span>
         </div>
         <div style="display: flex; margin-bottom: 1vmin;">
             <span style="color: #FFB000; margin-right: 1.5ch;">[>]</span>
-            <span>Builds from <span class="phosphor-amber">first principles</span> — minimal dependencies</span>
+            <span>Builds from <span class="phosphor-amber">first principles</span> — minimal dependencies & clean architecture</span>
         </div>
         <div style="display: flex; opacity: 0.8;">
             <span style="color: #FFB000; margin-right: 1.5ch;">[>]</span>
-            <span>Go · TS · PostGIS · OSRM · Docker · K8s · NATS · Redis · Unity · C#</span>
+            <span>Go · TS · Python · C# · PostGIS · OSRM · Uber H3 · K8s · Redis · NATS · PyTorch · Unity</span>
         </div>
     </div>
 
@@ -78,9 +78,9 @@ class SectionProfile {
             <img src="assets/img/logo/itenas-logo.png" alt="Itenas Logo" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
         </div>
         <div style="line-height: 1.3;">
-            <div style="font-size: 1.1em; font-weight: bold;" class="phosphor-amber">Bandung National Institute of Technology</div>
-            <div style="font-size: 1em; font-style: italic; opacity: 0.8;">Bachelor of Computer Science</div>
-            <div style="font-size: 0.95em; margin-top: 0.5vmin;">Current GPA: <span class="phosphor-amber">3.46</span></div>
+            <div style="font-size: 1.1em; font-weight: bold;" class="phosphor-amber">Bandung National Institute of Technology (ITENAS)</div>
+            <div style="font-size: 1em; font-style: italic; opacity: 0.8;">Bachelor of Computer Science (S.Kom.) · GPA: <span class="phosphor-amber">3.46</span></div>
+            <div style="font-size: 0.85em; opacity: 0.85; margin-top: 0.5vmin;">Teaching Assistant: Mentored 150+ students in Game Programming, OOP, and Database Programming labs.</div>
         </div>
     </div>
 
@@ -88,10 +88,10 @@ class SectionProfile {
     <div style="display: flex; flex-direction: row; gap: 8vmin; align-items: flex-start;">
         <!-- STATS -->
         <div style="border: 1px dashed #FFB000; padding: 1.5vmin; font-size: 0.9em; opacity: 0.7;">
-            <div style="margin-bottom: 0.5vmin;">Exp   : ~2 years</div>
+            <div style="margin-bottom: 0.5vmin;">Exp   : 3+ years</div>
             <div style="margin-bottom: 0.5vmin;">Loc   : Bandung</div>
-            <div style="margin-bottom: 0.5vmin;">Edu   : CS Degree</div>
-            <div>Company : PT LCC</div>
+            <div style="margin-bottom: 0.5vmin;">Edu   : CS (S.Kom.)</div>
+            <div>Company : PT LCC & Molca</div>
         </div>
 
         <!-- CONTACT -->

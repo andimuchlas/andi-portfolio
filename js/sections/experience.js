@@ -16,20 +16,20 @@ class SectionExperience {
     async draw() {
         const jobs = [
             {
-                id: 1, title: "PT LINTAS CAKRA CIPTA", role: "Backend Engineer · Sep 2025–Present", logo: "assets/img/logo/LCC.png",
-                desc: "Architect scalable backend services using Go and TypeScript.<br>Design spatial data workflows with PostGIS and OSRM.<br>Build distributed systems using Docker, NATS, and Redis."
+                id: 1, title: "PT LINTAS CAKRA CIPTA", role: "Backend Developer (Full-time) · Sep 2025–Present", logo: "assets/img/logo/LCC.png",
+                desc: "• Engineered high-performance modular monolith backend in Go & TypeScript with low-latency REST/gRPC interfaces.<br>• Architected & optimized custom map routing and spatial query services using PostGIS & PostgreSQL stored procedures (sub-second SLAs).<br>• Owned Kubernetes & Docker deployments; event-driven messaging with NATS and distributed caching via Redis.<br>• Refactored high-traffic PostgreSQL queries and GiST spatial indexes across multi-million record tables.<br>• Implemented automated background data ETL pipelines and tiered caching strategies.<br>• Profiled with Go pprof to isolate memory leaks and CPU hotspots under peak concurrent loads."
             },
             {
-                id: 2, title: "AUTOMATA VISUAL", role: "Unity Developer · Sep 2024–Feb 2025", logo: "assets/img/logo/automata-visual.png",
-                desc: "Developed interactive system using Unity and LiDAR integration<br>at the Disaster Room of Geological Museum in Bandung."
+                id: 2, title: "MOLCA TEKNOLOGI NUSANTARA", role: "Unity Developer (Freelance) · Jun 2026–Present", logo: "assets/img/logo/molca.png",
+                desc: "• Develop core gameplay mechanics, interactive features, and real-time simulation logic in Unity (C#).<br>• Implement modular, reusable code architecture and optimize rendering and memory footprint across target platforms.<br>• Coordinate remotely with technical leads and design teams to deliver milestones on schedule."
             },
             {
-                id: 3, title: "UVISUAL STUDIO", role: "R&D Freelancer · Aug 2023–Sep 2024", logo: "assets/img/logo/uvisual.png",
-                desc: "Developed Gephyrion, a Website connected to Unity with Restful API.<br>Responsible for installing hardware and software on Sky-G and Hallway Space."
+                id: 3, title: "AUTOMATA VISUAL", role: "Unity Developer (Contract) · Sep 2024–Feb 2025", logo: "assets/img/logo/automata-visual.png",
+                desc: "• Engineered an interactive museum gamification installation at the Disaster Room of Geological Museum in Bandung.<br>• Integrated hardware LiDAR sensors with Unity (C#) for real-time visitor touch detection & room-scale interactive mapping.<br>• Built custom calibration tools and automated recovery routines to ensure stable 60 FPS performance."
             },
             {
-                id: 4, title: "BANDUNG INST. OF TECHNOLOGY", role: "Lab Assistant · Oct 2023–Jul 2025", logo: "assets/img/logo/lab-assistant.png",
-                desc: "Game Programming (Jan 2025 - Jul 2025)<br>Object-Oriented Programming (Jan 2024 - Jul 2024)<br>Database Programming (Oct 2023 - Jan 2024)"
+                id: 4, title: "UVISUAL STUDIO", role: "R&D Freelancer · Aug 2023–Sep 2024", logo: "assets/img/logo/uvisual.png",
+                desc: "• Developed Gephyrion, a full-stack platform interfacing a web portal with Unity via RESTful APIs and WebSockets for dynamic character projection.<br>• Deployed multi-projector hardware and software mapping systems for immersive projection installations (Sky-G and Hallway Space)."
             }
         ];
 

@@ -5,41 +5,47 @@ class SectionSkills {
         window.MenuManager.state = 'section';
         
         const skillsData = [
-            { cat: "PROGRAMMING LANGUAGES", skills: [
-                { name: "Golang", pct: 85 },
-                { name: "TypeScript", pct: 85 },
-                { name: "C#", pct: 85 },
-                { name: "Python", pct: 75 }
+            { cat: "1. SOFTWARE ENGINEERING", skills: [
+                { name: "Go", pct: 88 },
+                { name: "TypeScript", pct: 88 },
+                { name: "Python", pct: 82 },
+                { name: "C# / CSharp", pct: 85 }
             ]},
-            { cat: "SPATIAL & ARCHITECTURE", skills: [
-                { name: "PostGIS", pct: 85 },
-                { name: "OSRM", pct: 85 },
-                { name: "Uber H3", pct: 80 },
-                { name: "Clean Arch", pct: 85 }
+            { cat: "2. BACKEND & DISTRIBUTED", skills: [
+                { name: "PostgreSQL", pct: 88 },
+                { name: "Redis & BullMQ", pct: 85 },
+                { name: "NATS & gRPC", pct: 84 },
+                { name: "Docker & K8s", pct: 82 }
             ]},
-            { cat: "BACKEND & DISTRIBUTED", skills: [
-                { name: "Hono / Bun", pct: 85 },
-                { name: "gRPC / NATS", pct: 80 },
-                { name: "PostgreSQL", pct: 85 },
-                { name: "Redis / BullMQ", pct: 85 }
+            { cat: "3. AI & ML ORCHESTRATION", skills: [
+                { name: "PyTorch", pct: 80 },
+                { name: "DistilBERT", pct: 82 },
+                { name: "Transformers", pct: 80 },
+                { name: "STT / TTS Voice", pct: 82 }
             ]},
-            { cat: "SIMULATION & CLOUD", skills: [
-                { name: "Unity", pct: 85 },
-                { name: "LiDAR / XR", pct: 80 },
-                { name: "Docker / K8s", pct: 80 },
-                { name: "PyTorch / ML", pct: 70 }
+            { cat: "4. GEOSPATIAL & ROUTING", skills: [
+                { name: "PostGIS", pct: 88 },
+                { name: "OSRM Routing", pct: 85 },
+                { name: "Uber H3 Grid", pct: 84 },
+                { name: "Typesense Geo", pct: 85 }
+            ]},
+            { cat: "5. REAL-TIME & INTERACTIVE", skills: [
+                { name: "Unity (C#)", pct: 88 },
+                { name: "Oculus LipSync", pct: 82 },
+                { name: "MetaPerson SDK", pct: 80 },
+                { name: "LiDAR Integration", pct: 82 }
             ]}
         ];
 
-        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 4vmin;">\n`;
+        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 2.5vmin;">\n`;
         
         skillsData.forEach(group => {
-            contentHTML += `<div style="font-size: 1.2em;">`;
-            contentHTML += `<div class="phosphor-highlight" style="margin-bottom: 1.5vmin;">${group.cat}</div>`;
+            contentHTML += `<div style="font-size: 1.15em;">`;
+            contentHTML += `<div class="phosphor-highlight" style="margin-bottom: 1vmin;">${group.cat}</div>`;
             group.skills.forEach(skill => {
                 const barStr = `[░░░░░░░░░░░░░░░░]   0%`;
                 contentHTML += `<div style="display:flex; margin-bottom: 0.5vmin;">`;
-                contentHTML += `<span style="width: 15ch;">${skill.name}</span>`;
+                contentHTML += `<span style="width: 20ch; display: inline-block;">${skill.name}</span>`;
                 contentHTML += `<span id="skill-${skill.name.replace(/[^a-zA-Z]/g, '')}">${barStr}</span>`;
                 contentHTML += `</div>`;
             });
