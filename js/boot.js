@@ -175,6 +175,7 @@ class BootSequenceManager {
             if (e) e.stopImmediatePropagation();
             document.removeEventListener('keydown', proceed);
             document.removeEventListener('click', proceed);
+            try { sessionStorage.setItem('amrsys_powered_on', 'true'); } catch(err) {}
             window.Audio.playEnter();
             window.MenuManager.showMenu();
         };

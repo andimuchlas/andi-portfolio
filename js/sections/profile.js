@@ -39,7 +39,7 @@ class SectionProfile {
         <div style="flex-shrink: 0; width: 20vmin;">
             <div style="font-size: 0.75em; opacity: 0.6; margin-bottom: 0.3vmin; text-align: center;">┌ PHOTO ┐</div>
             <div style="width: 100%; aspect-ratio: 1/1; border: 1px solid #FFB000; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;">
-                <img src="assets/img/profile-photos.png" alt="Profile" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
+                <img src="/assets/img/profile-photos.png" alt="Profile" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
             </div>
             <div style="font-size: 0.75em; opacity: 0.6; margin-top: 0.3vmin; text-align: center;">└───────┘</div>
         </div>
@@ -75,7 +75,7 @@ class SectionProfile {
     <!-- EDUCATION -->
     <div style="display: flex; flex-direction: row; gap: 3vmin; align-items: center; border: 1px solid rgba(255,176,0,0.15); padding: 1.5vmin; margin-top: 0.5vmin;">
         <div style="width: 10vmin; height: 10vmin; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/img/logo/itenas-logo.png" alt="Itenas Logo" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
+            <img src="/assets/img/logo/itenas-logo.png" alt="Itenas Logo" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
         </div>
         <div style="line-height: 1.3;">
             <div style="font-size: 1.1em; font-weight: bold;" class="phosphor-amber">Bandung National Institute of Technology (ITENAS)</div>

@@ -64,11 +64,11 @@ class Renderer {
         });
     }
 
-    createDOSBox(title, contentHTML, instructionsHTML = "ESC: Back") {
+    createDOSBox(title, contentHTML, instructionsHTML = "ESC: Home") {
         const isMobile = window.innerWidth < 768;
         const isSubsection = window.MenuManager && window.MenuManager.state === 'subsection';
-        const backAction = isSubsection ? "window.SectionProjects.drawList(true)" : "window.MenuManager.showMenu()";
-        const backLabel = isSubsection ? "◀ PROJECTS" : "◀ MENU";
+        const backAction = isSubsection ? "window.SectionProjects.drawList(true)" : "window.location.href='/'";
+        const backLabel = isSubsection ? "◀ PROJECTS" : "◀ HOME";
         
         // Touch-friendly responsive Back button always available
         const backBtn = `<button type="button" class="back-btn-dos" onclick="${backAction}; window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: ${isMobile ? '0.75em' : '0.85em'}; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">${backLabel}</button>`;

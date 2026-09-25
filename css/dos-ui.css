@@ -39,6 +39,101 @@
     box-sizing: border-box;
 }
 
+/* Dedicated Retro DOS Navigation Bar */
+.dos-navbar-container {
+    background-color: #FFB000;
+    color: #050505;
+    -webkit-text-fill-color: #050505;
+    text-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.4vmin 1vmin;
+    min-height: 3.8vmin;
+    box-sizing: border-box;
+    font-size: clamp(10px, 1.4vmin, 14.5px);
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+    margin-bottom: 1vmin;
+}
+
+.dos-navbar-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(3px, 0.65vmin, 10px);
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.dos-navbar-items::-webkit-scrollbar {
+    display: none;
+}
+
+.dos-nav-link {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    width: auto !important;
+    color: #050505 !important;
+    -webkit-text-fill-color: #050505 !important;
+    text-decoration: none !important;
+    padding: 0.15vmin 0.4vmin;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.2;
+    border-radius: 1px;
+    flex-shrink: 0;
+    transition: background-color 0.1s;
+}
+
+.dos-nav-link:hover, .dos-nav-link:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.dos-nav-link.active {
+    background-color: rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+}
+
+.dos-nav-link .selector {
+    display: inline-block;
+    width: 1.5ch;
+    color: #050505;
+    -webkit-text-fill-color: #050505;
+    margin-right: 0.25vmin;
+    text-align: center;
+    user-select: none;
+}
+
+.dos-nav-separator {
+    color: #050505;
+    -webkit-text-fill-color: #050505;
+    font-weight: bold;
+    opacity: 0.45;
+    user-select: none;
+    flex-shrink: 0;
+    padding: 0 0.1vmin;
+}
+
+.dos-nav-clock {
+    white-space: nowrap;
+    font-size: 1.05em;
+    font-family: inherit;
+    color: #050505;
+    -webkit-text-fill-color: #050505;
+    margin-left: 1.2vmin;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.5px;
+}
+
 .retro-footer {
     color: #FFB000;
     opacity: 0.7;
@@ -212,5 +307,21 @@
     .back-btn-dos {
         padding: 0.5vmin 2vmin !important;
         font-size: 0.85em !important;
+    }
+    .dos-navbar-container {
+        font-size: clamp(9px, 2.5vmin, 12px);
+        padding: 0.6vmin 1vmin;
+        min-height: auto;
+    }
+    .dos-navbar-items {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8vmin;
+    }
+    .dos-nav-separator {
+        display: none;
+    }
+    .dos-nav-clock {
+        display: none;
     }
 }

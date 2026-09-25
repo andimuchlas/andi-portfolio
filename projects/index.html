@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Projects & Architecture | Andi Muchlas (Andi Dev)</title>
+    <link rel="canonical" href="https://andi.is-a.dev/projects">
+    <meta name="google-site-verification" content="oA6vp4Z1dQgkfulUocs3tjHsFD3Jf-U3T1Q2BuzK4dA">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/monitor.css">
+    <link rel="stylesheet" href="/css/crt-hardware.css">
+    <link rel="stylesheet" href="/css/crt-phosphor.css">
+    <link rel="stylesheet" href="/css/dos-ui.css">
+    <link rel="icon" type="image/png" href="/assets/img/logo/web-logo.png">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <meta name="description" content="Technical portfolio and system architecture of projects by Andi Muchlas Ramadani: Rajaderek spatial routing, AI Avatar Unity, LLM Intent Router, Genset Management API, Casanela Villa API, Dynamic PDF Engine, Gephyrion, and more.">
+    <meta name="keywords" content="Rajaderek, Spatial Routing, OSRM, Uber H3, PostGIS, Typesense, AI Avatar, PyTorch, DistilBERT, Transformers, Hono Bun, Redis BullMQ, Unity C#, Gephyrion, Andi Dev Projects, Software Architecture">
+    <meta name="author" content="Andi Muchlas Ramadani">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andi.is-a.dev/projects">
+    <meta property="og:title" content="Software Engineering Projects & Architecture | Andi Muchlas (Andi Dev)">
+    <meta property="og:description" content="Detailed system architecture and technical benchmarks for 11 production projects engineered by Andi Muchlas Ramadani.">
+    <meta property="og:image" content="https://andi.is-a.dev/assets/img/logo/web-logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://andi.is-a.dev/projects">
+    <meta property="twitter:title" content="Software Engineering Projects & Architecture | Andi Muchlas (Andi Dev)">
+    <meta property="twitter:description" content="Detailed system architecture and technical benchmarks for 11 production projects engineered by Andi Muchlas Ramadani.">
+    <meta property="twitter:image" content="https://andi.is-a.dev/assets/img/logo/web-logo.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Software Engineering Projects - Andi Muchlas Ramadani",
+      "url": "https://andi.is-a.dev/projects",
+      "hasPart": [
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "RAJADEREK",
+          "programmingLanguage": ["Go", "TypeScript", "Python"],
+          "description": "Real-time spatial routing & dispatch platform with Typesense search, Uber H3 hexagonal indexing, and OSRM toll routing."
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "AI AVATAR UNITY",
+          "programmingLanguage": ["C#", "Python"],
+          "description": "Real-time conversational AI avatar with voice STT/TTS pipeline, Oculus LipSync, and MetaPerson SDK in Unity."
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "LLM INTENT ROUTER",
+          "programmingLanguage": ["Python"],
+          "description": "5-dimension semantic model intent router using DistilBERT, HuggingFace Transformers, and FastAPI."
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "GENSET MANAGEMENT API",
+          "programmingLanguage": ["TypeScript"],
+          "description": "Clean Architecture rental and maintenance backend using Hono, Drizzle ORM, Redis, BullMQ, and IoT telemetry."
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "CASANELA VILLA API",
+          "programmingLanguage": ["TypeScript"],
+          "description": "High-throughput reservation engine built on Bun & Hono with PostgreSQL, BullMQ, and AWS S3."
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="power-on">
+    <!-- Hidden Semantic SEO Content for Search Crawlers -->
+    <section style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">
+        <h1>Software Engineering Projects & System Architecture — Andi Muchlas Ramadani</h1>
+        <h2>Production Projects Across Backend, AI/ML Pipelines, and Real-Time Interactive Systems</h2>
+
+        <article>
+            <h3>1. RAJADEREK — Real-Time Spatial Routing & Logistics Platform</h3>
+            <p><strong>Role:</strong> Backend & Spatial Engineer | <strong>Stack:</strong> Go, TypeScript, Python (Scrapy), Typesense, OSRM, Uber H3, PostgreSQL/PostGIS, gRPC, Redis, NATS, Kubernetes.</p>
+            <p>Real-time vehicle towing and logistics dispatch platform. Decoupled into TypeScript Gateway (auth & aggregation) and a standalone Go Core Engine via gRPC to isolate heavy graph computations. Scaled POI datasets from ~1.5M to ~2.8M records and ~70K administrative boundaries. Reduced search autocomplete latency from 3–5s to &lt;200ms using Typesense with Go circuit breaker and PostGIS GiST fallback. Replaced slow polygon intersection with Uber H3 hexagonal indexing (O(1) lookup). Tuned OSRM with Multi-Level Dijkstra (MLD) for toll-road calculation.</p>
+        </article>
+
+        <article>
+            <h3>2. AI AVATAR UNITY — Real-Time Conversational AI Avatar Pipeline</h3>
+            <p><strong>Role:</strong> Unity & AI Engineer | <strong>Stack:</strong> Unity (C#), Python, FastAPI, Docker, PyTorch, Oculus LipSync, MetaPerson SDK.</p>
+            <p>Integrated real-time speech-to-text (STT), LLM inference streaming, text-to-speech (TTS), and audio-driven facial morph targets (Oculus LipSync) in Unity with 60 FPS performance.</p>
+        </article>
+
+        <article>
+            <h3>3. LLM INTENT ROUTER — 5-Dimension Intent Classification Engine</h3>
+            <p><strong>Role:</strong> Machine Learning & Backend Engineer | <strong>Stack:</strong> Python, PyTorch, DistilBERT, HuggingFace Transformers, FastAPI.</p>
+            <p>Engineered a multi-label DistilBERT model to classify and route user queries across 5 business domains with sub-50ms inference latency on CPU instances.</p>
+        </article>
+
+        <article>
+            <h3>4. ENTERPRISE GENSET MANAGEMENT API — Industrial IoT & Rental Backend</h3>
+            <p><strong>Role:</strong> Backend Architect | <strong>Stack:</strong> Node.js, TypeScript, Hono, Drizzle ORM, PostgreSQL, Redis, BullMQ.</p>
+            <p>Architected modular Clean Architecture for generator fleet rentals, automated maintenance schedules, and IoT telemetry ingestion with queued workers.</p>
+        </article>
+
+        <article>
+            <h3>5. CASANELA VILLA API — High-Concurrency Booking Engine</h3>
+            <p><strong>Role:</strong> Backend Developer | <strong>Stack:</strong> Bun, TypeScript, Hono, PostgreSQL, BullMQ, AWS S3.</p>
+            <p>High-speed booking engine managing real-time room inventories, automated expiration queues, and asynchronous webhook delivery.</p>
+        </article>
+
+        <article>
+            <h3>6. DYNAMIC PDF ENGINE — High-Throughput Document Generation Microservice</h3>
+            <p><strong>Role:</strong> Backend Engineer | <strong>Stack:</strong> Go, Chromium Headless, Docker, Redis.</p>
+            <p>Worker pool microservice rendering invoice, contract, and report PDFs from dynamic HTML/CSS templates under sub-second throughput.</p>
+        </article>
+
+        <article>
+            <h3>7. GEPHYRION — Real-Time Character Projection Installation</h3>
+            <p><strong>Role:</strong> R&D Freelancer | <strong>Stack:</strong> Unity (C#), WebSocket, REST API, Multi-Projector Hardware.</p>
+            <p>Interactive web portal interfacing with Unity projection systems across physical event spaces.</p>
+        </article>
+
+        <article>
+            <h3>8. DISASTER ROOM GAMIFICATION — Geological Museum Bandung</h3>
+            <p><strong>Role:</strong> Unity Developer | <strong>Stack:</strong> Unity (C#), LiDAR Hardware Sensors, Projection Mapping.</p>
+            <p>Interactive room-scale educational gamification system tracking multi-user physical wall touches via LiDAR sensors at 60 FPS.</p>
+        </article>
+
+        <article>
+            <h3>9. THE SEARCH OF ELDORIA — 2.5D Action RPG Game</h3>
+            <p><strong>Role:</strong> Game Developer | <strong>Stack:</strong> Unity (C#), Shader Graph, Cinemachine.</p>
+        </article>
+
+        <article>
+            <h3>10. CHATVIBES — Real-Time WebSocket Messaging System</h3>
+            <p><strong>Role:</strong> Full-Stack Developer | <strong>Stack:</strong> Go, WebSocket, Redis Pub/Sub, React.</p>
+        </article>
+
+        <article>
+            <h3>11. DIGITAL LEARN — Interactive Learning Management System</h3>
+            <p><strong>Role:</strong> Full-Stack Developer | <strong>Stack:</strong> Laravel, PHP, MySQL.</p>
+        </article>
+
+        <nav>
+            <a href="/">Home Menu</a> |
+            <a href="/profile">Profile</a> |
+            <a href="/experience">Work Experience</a> |
+            <a href="/projects">Projects</a> |
+            <a href="/skills">Skills</a> |
+            <a href="/certification">Certifications</a>
+        </nav>
+    </section>
+    
+    <div id="room">
+        <div id="monitor-assembly">
+            <div class="monitor-frame-overlay"></div>
+
+            <div class="screen-container">
+                <div class="screen-glass">
+                    <div class="screen-glow-to-bezel"></div>
+
+                    <div class="cristal"></div>
+                    <div class="scanline"></div>
+                    <div class="scanline1"></div>
+                    <div class="glitch-overlay">
+                        <div class="glitch-bar glitch-active"></div>
+                    </div>
+                    <div class="dirt-overlay"></div>
+
+                    <div id="wipe-transition-layer">
+                        <div id="terminal-content" class="phosphor-amber">
+                            <!-- Top Navigation Bar -->
+                            <nav class="dos-navbar-container phosphor-highlight-inverse">
+                                <div class="dos-navbar-items">
+                                    <a href="/profile" class="dos-nav-link" data-id="1"><span class="selector">&nbsp;</span>PROFILE</a>
+                                    <span class="dos-nav-separator">|</span>
+                                    <a href="/experience" class="dos-nav-link" data-id="2"><span class="selector">&nbsp;</span>EXPERIENCE</a>
+                                    <span class="dos-nav-separator">|</span>
+                                    <a href="/projects" class="dos-nav-link active menu-active-blink" data-id="3"><span class="selector">▶</span>PROJECTS</a>
+                                    <span class="dos-nav-separator">|</span>
+                                    <a href="/skills" class="dos-nav-link" data-id="4"><span class="selector">&nbsp;</span>SKILLS</a>
+                                    <span class="dos-nav-separator">|</span>
+                                    <a href="/certification" class="dos-nav-link" data-id="5"><span class="selector">&nbsp;</span>CERTIFICATION</a>
+                                    <span class="dos-nav-separator">|</span>
+                                    <a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener noreferrer" class="dos-nav-link" data-id="6"><span class="selector">&nbsp;</span>MORE PORTFOLIO ↗</a>
+                                </div>
+                                <div class="dos-nav-clock" id="real-time-clock">--:--:--</div>
+                            </nav>
+
+                            <!-- Projects Main DOS Box Container -->
+                            <div id="projects-view-container">
+                                <div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;">
+                                    <span id="projects-box-title" style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: 1em; overflow: hidden; text-overflow: ellipsis;">PROJECTS</span>
+                                    <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;">
+                                        <span class="dos-instructions" id="projects-instructions">↑/↓ or A-K: Select, ENTER: Open, ESC: Home</span>
+                                        <button type="button" id="projects-back-btn" class="back-btn-dos" onclick="window.location.href='/'; if(window.Audio) window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: 0.85em; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">◀ HOME</button>
+                                    </span>
+                                </div>
+
+                                <div id="projects-dynamic-content" style="font-size: 1.2em;">
+                                    <div style="font-size: 1.4em; margin-bottom: 2.5vmin;">SELECT PROJECT:</div>
+                                    <div style="display:flex; flex-direction:column; gap: 1.2vmin;">
+                                        <div class="menu-item phosphor-highlight" data-id="A" data-idx="0" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">▶ [ A ] RAJADEREK</div>
+                                        <div class="menu-item phosphor-amber" data-id="B" data-idx="1" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ B ] AI AVATAR UNITY</div>
+                                        <div class="menu-item phosphor-amber" data-id="C" data-idx="2" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ C ] LLM INTENT ROUTER</div>
+                                        <div class="menu-item phosphor-amber" data-id="D" data-idx="3" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ D ] GENSET MANAGEMENT API</div>
+                                        <div class="menu-item phosphor-amber" data-id="E" data-idx="4" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ E ] CASANELA VILLA API</div>
+                                        <div class="menu-item phosphor-amber" data-id="F" data-idx="5" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ F ] DYNAMIC PDF ENGINE</div>
+                                        <div class="menu-item phosphor-amber" data-id="G" data-idx="6" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ G ] GEPHYRION</div>
+                                        <div class="menu-item phosphor-amber" data-id="H" data-idx="7" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ H ] DISASTER ROOM GAMIFICATION</div>
+                                        <div class="menu-item phosphor-amber" data-id="I" data-idx="8" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ I ] THE SEARCH OF ELDORIA</div>
+                                        <div class="menu-item phosphor-amber" data-id="J" data-idx="9" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ J ] CHATVIBES</div>
+                                        <div class="menu-item phosphor-amber" data-id="K" data-idx="10" style="font-size: 1em; cursor:pointer; border-radius: 2px; padding: 0.3vmin 0.5vmin;">&nbsp; [ K ] DIGITAL LEARN</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Retro Footer -->
+                            <div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
+                                <span>[1-6] Select   [M] Mute   [ESC] Home</span>
+                                <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
+                                <span>Bandung, ID - 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hardware Buttons on Bezel -->
+            <div id="btn-mute-container" style="position: absolute; bottom: 5vmin; right: 8vmin; display: flex; flex-direction: column; align-items: center; gap: 1vmin; z-index: 1100;">
+                <span style="color: #444; font-size: 1.2vmin; font-family: monospace; font-weight: bold; letter-spacing: 0.2vmin; text-shadow: 0 1px 0 rgba(255,255,255,0.1);">MUTE</span>
+                <div id="btn-mute" 
+                     title="Mute/Unmute (M)"
+                     style="width: 5vmin; height: 5vmin; background: #222; border: 2px solid #444; border-radius: 50%; cursor: pointer; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transition: transform 0.1s;">
+                    <div style="width: 2vmin; height: 2vmin; background: #FFB000; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 8px #FFB000;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="text" id="keyboard-capture" autocomplete="off" spellcheck="false"
+        style="position: absolute; opacity: 0; top: -1000px;">
+
+    <script defer src="/js/audio.js"></script>
+    <script defer src="/js/renderer.js"></script>
+    <script defer src="/js/sections/projects.js"></script>
+    <script defer src="/js/menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if there is an id parameter or hash
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = (urlParams.get('id') || window.location.hash.replace('#', '')).toUpperCase();
+
+            // Set state in MenuManager
+            if (window.MenuManager) {
+                window.MenuManager.state = 'section';
+                window.MenuManager.activeIndex = 3;
+            }
+
+            // Setup projects instance
+            if (window.SectionProjects) {
+                window.SectionProjects.render();
+                if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'].includes(projectId)) {
+                    setTimeout(() => {
+                        window.SectionProjects.showDetail(projectId);
+                    }, 100);
+                }
+            }
+
+            document.body.addEventListener('click', () => {
+                if (window.innerWidth >= 768) {
+                    const kc = document.getElementById('keyboard-capture');
+                    if (kc) kc.focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

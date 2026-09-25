@@ -3,7 +3,7 @@
 class AudioManager {
     constructor() {
         this.ctx = null;
-        this.muted = false;
+        this.muted = localStorage.getItem('amrsys_muted') === '1';
         this.initialized = false;
         this.loadingPromise = null;
         this.buffers = {};
@@ -19,12 +19,13 @@ class AudioManager {
                 this.ctx = new AudioContext();
                 
                 this.masterGain = this.ctx.createGain();
+                this.masterGain.gain.setValueAtTime(this.muted ? 0 : 1, this.ctx.currentTime);
                 this.masterGain.connect(this.ctx.destination);
                 
-                // Preload sounds and wait for them
+                // Preload sounds with root-relative paths
                 await Promise.all([
-                    this.loadSound('click', 'assets/audio/click-sound.mp3'),
-                    this.loadSound('boot', 'assets/audio/old-desktop-pc-booting.mp3')
+                    this.loadSound('click', '/assets/audio/click-sound.mp3'),
+                    this.loadSound('boot', '/assets/audio/old-desktop-pc-booting.mp3')
                 ]);
                 
                 this.initialized = true;
@@ -82,7 +83,11 @@ class AudioManager {
 
     toggleMute() {
         this.muted = !this.muted;
-        if (this.masterGain) {
+        try {
+            localStorage.setItem('amrsys_muted', this.muted ? '1' : '0');
+        } catch (e) {}
+
+        if (this.masterGain && this.ctx) {
             // Smoothly fade in/out to avoid pops
             const targetGain = this.muted ? 0 : 1;
             this.masterGain.gain.setTargetAtTime(targetGain, this.ctx.currentTime, 0.05);

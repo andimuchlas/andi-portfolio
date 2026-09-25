@@ -7,12 +7,12 @@
     <title>Andi Muchlas (Andi Dev) | Software Developer Portfolio | AMRSYS 9400</title>
     <link rel="canonical" href="https://andi.is-a.dev/">
     <meta name="google-site-verification" content="oA6vp4Z1dQgkfulUocs3tjHsFD3Jf-U3T1Q2BuzK4dA">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/monitor.css">
-    <link rel="stylesheet" href="css/crt-hardware.css">
-    <link rel="stylesheet" href="css/crt-phosphor.css">
-    <link rel="stylesheet" href="css/dos-ui.css">
-    <link rel="icon" type="image/png" href="assets/img/logo/web-logo.png">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/monitor.css">
+    <link rel="stylesheet" href="/css/crt-hardware.css">
+    <link rel="stylesheet" href="/css/crt-phosphor.css">
+    <link rel="stylesheet" href="/css/dos-ui.css">
+    <link rel="icon" type="image/png" href="/assets/img/logo/web-logo.png">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <meta name="description" content="Official portfolio of Andi Muchlas Ramadani (Andi Dev / Andi Developer) - Software Engineer & Developer specializing in Go & TypeScript backend systems, AI/ML pipelines, and real-time interactive applications.">
     <meta name="keywords" content="Andi Muchlas, Andi Dev, Andi Developer, Andi Muchlas Ramadani, Software Engineer, Software Developer, Backend Engineer, AI ML, Real-Time Systems, Go, TypeScript, PostGIS, OSRM, Unity, Kubernetes, Redis, NATS, Typesense, Retro Portfolio, TUI">
@@ -74,10 +74,18 @@
         <h3>Professional Experience</h3>
         <p>Currently working as Backend Developer at PT Lintas Cakra Cipta (Go, PostGIS, Kubernetes, Redis, NATS) and Freelance Unity Developer at Molca Teknologi Nusantara. Previous roles include Unity Developer at Automata Visual (Geological Museum Disaster Room LiDAR installation) and R&D Freelancer at UVISUAL Studio (Gephyrion project), alongside teaching assistant mentorship at ITENAS.</p>
         
-        <h3>Links</h3>
-        <a href="https://linkedin.com/in/andimuchlas">LinkedIn Profile</a>
-        <a href="https://github.com/andimuchlas">GitHub Repositories</a>
-        <a href="https://landing-page-porfolio-one.vercel.app/">Modern Interactive Web Portfolio</a>
+        <h3>Links & Site Navigation</h3>
+        <nav>
+            <a href="/">Home Menu</a> |
+            <a href="/profile">Profile</a> |
+            <a href="/experience">Work Experience</a> |
+            <a href="/projects">Projects</a> |
+            <a href="/skills">Skills</a> |
+            <a href="/certification">Certifications</a> |
+            <a href="https://linkedin.com/in/andimuchlas">LinkedIn Profile</a> |
+            <a href="https://github.com/andimuchlas">GitHub Repositories</a> |
+            <a href="https://landing-page-porfolio-one.vercel.app/">Modern Interactive Web Portfolio</a>
+        </nav>
     </section>
     
     <div id="room">
@@ -151,44 +159,65 @@
     <input type="text" id="keyboard-capture" autocomplete="off" spellcheck="false"
         style="position: absolute; opacity: 0; top: -1000px;">
 
-    <script defer src="js/audio.js"></script>
-    <script defer src="js/renderer.js"></script>
-    <script defer src="js/sections/profile.js"></script>
-    <script defer src="js/sections/experience.js"></script>
-    <script defer src="js/sections/projects.js"></script>
-    <script defer src="js/sections/skills.js"></script>
-    <script defer src="js/sections/contact.js"></script>
-    <script defer src="js/menu.js"></script>
-    <script defer src="js/boot.js"></script>
+    <script defer src="/js/audio.js"></script>
+    <script defer src="/js/renderer.js"></script>
+    <script defer src="/js/sections/profile.js"></script>
+    <script defer src="/js/sections/experience.js"></script>
+    <script defer src="/js/sections/projects.js"></script>
+    <script defer src="/js/sections/skills.js"></script>
+    <script defer src="/js/sections/contact.js"></script>
+    <script defer src="/js/menu.js"></script>
+    <script defer src="/js/boot.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const powerBtn = document.getElementById('power-btn');
             const splash = document.getElementById('splash-screen');
             const mobileNotice = document.getElementById('mobile-notice');
             const continueBtn = document.getElementById('continue-btn');
+            const compactBtn = document.getElementById('compact-btn');
 
-            if (window.innerWidth < 768) {
+            const isMobile = window.innerWidth < 768;
+            const mobileAck = sessionStorage.getItem('amrsys_mobile_ack') === 'true';
+            const isPoweredOn = sessionStorage.getItem('amrsys_powered_on') === 'true';
+
+            if (isMobile && !mobileAck) {
                 mobileNotice.style.display = 'flex';
                 splash.style.display = 'none';
             }
 
-            continueBtn.addEventListener('click', () => {
+            const handleMobileDismiss = () => {
+                sessionStorage.setItem('amrsys_mobile_ack', 'true');
                 mobileNotice.style.display = 'none';
-                splash.style.display = 'flex';
-                window.Audio.init();
-                window.Audio.playClick();
-            });
+                if (isPoweredOn) {
+                    document.body.classList.add('power-on');
+                    window.MenuManager.showMenu(false);
+                } else {
+                    splash.style.display = 'flex';
+                }
+                if (window.Audio) {
+                    window.Audio.init();
+                    window.Audio.playClick();
+                }
+            };
 
-            document.getElementById('compact-btn').addEventListener('click', () => {
-                mobileNotice.style.display = 'none';
-                splash.style.display = 'flex';
-                window.Audio.init();
-                window.Audio.playClick();
-            });
+            continueBtn.addEventListener('click', handleMobileDismiss);
+            compactBtn.addEventListener('click', handleMobileDismiss);
+
+            if (isPoweredOn) {
+                splash.style.display = 'none';
+                document.body.classList.add('power-on');
+                // Give scripts time to defer load
+                setTimeout(() => {
+                    if (window.MenuManager) {
+                        window.MenuManager.showMenu(false);
+                    }
+                }, 50);
+            }
 
             powerBtn.addEventListener('click', async () => {
                 powerBtn.style.pointerEvents = 'none';
-                await window.Audio.init();
+                sessionStorage.setItem('amrsys_powered_on', 'true');
+                if (window.Audio) await window.Audio.init();
                 splash.style.display = 'none';
                 if (window.innerWidth >= 768) {
                     document.getElementById('keyboard-capture').focus();
@@ -198,37 +227,8 @@
 
             document.body.addEventListener('click', () => {
                 if (window.innerWidth >= 768) {
-                    document.getElementById('keyboard-capture').focus();
-                }
-            });
-
-            const btnMute = document.getElementById('btn-mute');
-            const muteIndicator = btnMute.querySelector('div');
-            
-            const updateMuteUI = (isMuted) => {
-                if (isMuted) {
-                    muteIndicator.style.background = '#ff0000';
-                    muteIndicator.style.boxShadow = '0 0 8px #ff0000';
-                } else {
-                    muteIndicator.style.background = '#FFB000';
-                    muteIndicator.style.boxShadow = '0 0 8px #FFB000';
-                }
-            };
-
-            btnMute.addEventListener('click', () => {
-                const muted = window.Audio.toggleMute();
-                updateMuteUI(muted);
-                btnMute.style.transform = "scale(0.9)";
-                setTimeout(() => btnMute.style.transform = "scale(1)", 100);
-                console.log("Audio Muted: " + muted);
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key.toLowerCase() === 'm') {
-                    // Check if focus is in an input to allow typing 'm' if needed
-                    if (document.activeElement.tagName !== 'INPUT' || document.activeElement.id === 'keyboard-capture') {
-                        btnMute.click();
-                    }
+                    const kc = document.getElementById('keyboard-capture');
+                    if (kc) kc.focus();
                 }
             });
         });

@@ -2,23 +2,43 @@
 
 class MainMenuManager {
     constructor() {
-        this.state = 'boot'; // boot, menu, section, subsection
-        this.activeIndex = 1; // 1 to 5
         this.menuItems = [
-            { id: 1, text: "PROFILE", route: "/profile", handler: () => window.SectionProfile.render() },
-            { id: 2, text: "EXPERIENCE", route: "/experience", handler: () => window.SectionExperience.render() },
-            { id: 3, text: "PROJECTS", route: "/projects", handler: () => window.SectionProjects.render() },
-            { id: 4, text: "SKILLS", route: "/skills", handler: () => window.SectionSkills.render() },
-            { id: 5, text: "CERTIFICATION", route: "/certification", handler: () => window.SectionCertification.render() },
-            { id: 6, text: "MORE PORTFOLIO ↗", route: "https://landing-page-porfolio-one.vercel.app/", handler: () => window.open("https://landing-page-porfolio-one.vercel.app/", "_blank") }
+            { id: 1, text: "PROFILE", route: "/profile" },
+            { id: 2, text: "EXPERIENCE", route: "/experience" },
+            { id: 3, text: "PROJECTS", route: "/projects" },
+            { id: 4, text: "SKILLS", route: "/skills" },
+            { id: 5, text: "CERTIFICATION", route: "/certification" },
+            { id: 6, text: "MORE PORTFOLIO ↗", route: "https://landing-page-porfolio-one.vercel.app/" }
         ];
+
+        const activeFromUrl = this.getActiveIdFromURL();
+        this.activeIndex = activeFromUrl > 0 ? activeFromUrl : 1;
+        this.state = activeFromUrl > 0 ? 'section' : 'menu';
 
         this.keyboardHandler = this.handleKeydown.bind(this);
         this.clockInterval = null;
     }
 
+    getActiveIdFromURL() {
+        const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+        if (path === '/profile') return 1;
+        if (path === '/experience') return 2;
+        if (path === '/projects') return 3;
+        if (path === '/skills') return 4;
+        if (path === '/certification') return 5;
+        return 0;
+    }
+
     init() {
         document.addEventListener('keydown', this.keyboardHandler);
+        this.startClock();
+        this.attachClickListeners();
+        this.initMuteButton();
+
+        if (window.innerWidth >= 768) {
+            const kc = document.getElementById('keyboard-capture');
+            if (kc) kc.focus();
+        }
     }
 
     trackPageView(path) {
@@ -26,6 +46,35 @@ class MainMenuManager {
             window.va('track', 'pageview', { url: path });
             console.log(`Analytics: Tracked pageview to ${path}`);
         }
+    }
+
+    generateNavbarHTML(activeId = null) {
+        if (activeId === null) {
+            activeId = this.getActiveIdFromURL();
+        }
+
+        let itemsHTML = '';
+        this.menuItems.forEach((item, index) => {
+            const isActive = activeId === item.id;
+            const selector = isActive ? '▶' : '&nbsp;';
+            const activeClass = isActive ? 'active menu-active-blink' : '';
+            const targetAttr = item.id === 6 ? 'target="_blank" rel="noopener noreferrer"' : '';
+            
+            itemsHTML += `<a href="${item.route}" ${targetAttr} class="dos-nav-link ${activeClass}" data-id="${item.id}">` +
+                         `<span class="selector">${selector}</span>${item.text}</a>`;
+            
+            if (index < this.menuItems.length - 1) {
+                itemsHTML += `<span class="dos-nav-separator">|</span>`;
+            }
+        });
+
+        return `
+<nav class="dos-navbar-container phosphor-highlight-inverse">
+    <div class="dos-navbar-items">
+        ${itemsHTML}
+    </div>
+    <div class="dos-nav-clock" id="real-time-clock">--:--:--</div>
+</nav>`;
     }
 
     async showMenu(playSound = true) {
@@ -44,25 +93,10 @@ class MainMenuManager {
 
     generateMenuHTML() {
         const isMobile = window.innerWidth < 768;
-        const itemsGap = isMobile ? '1vmin' : '1.5vmin';
-        const itemsFontSize = isMobile ? '0.7em' : '0.9em';
-        const asciiVisibility = isMobile ? 'display: none;' : '';
         const bioWidth = isMobile ? '90%' : '75%';
         const bioFontSize = isMobile ? '0.9em' : '1.05em';
         const bioGap = isMobile ? '2vmin' : '4vmin';
-
-        let itemsHTML = `<div style="display: flex; gap: ${itemsGap}; justify-content: center; align-items: center; width: 100%; overflow: hidden; ${isMobile ? 'flex-wrap: wrap; padding: 1vmin 0;' : ''}">\n`;
-        this.menuItems.forEach((item, index) => {
-            const isActive = this.activeIndex === item.id;
-            const selector = isActive ? '▶' : ' ';
-            const activeClass = isActive ? 'menu-active-blink' : '';
-            const fg = '#050505';
-            itemsHTML += `<div class="menu-item ${activeClass}" data-id="${item.id}" style="font-size: ${itemsFontSize}; cursor: default; color: ${fg}; padding: 0.2vmin 0.5vmin; display: inline-flex; align-items: center; white-space: nowrap;"><span class="selector" style="color: ${fg}; margin-right: 0.5vmin;">${selector}</span>${item.text}</div>\n`;
-            if (index < this.menuItems.length - 1 && !isMobile) {
-                itemsHTML += `<span style="color: ${fg}; font-weight: bold;">|</span>\n`;
-            }
-        });
-        itemsHTML += '</div>';
+        const navBarHTML = this.generateNavbarHTML(this.state === 'menu' ? this.activeIndex : 0);
 
         const asciiAMR = `
   ░█████╗░███╗░░░███╗██████╗░
@@ -175,10 +209,7 @@ class MainMenuManager {
 
 
         return `
-<div class="phosphor-highlight-inverse" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5vmin 1vmin; min-height: 4vmin;">
-    ${itemsHTML}
-    <span id="real-time-clock" style="white-space: nowrap; font-size: 1.1em; font-weight: normal; margin-left: 2vmin; ${isMobile ? 'display: none;' : ''}">--:--:--</span>
-</div>
+${navBarHTML}
 
 <div style="position: relative; width: 100%; min-height: 75vmin; overflow: hidden; padding: 2vmin;">
     <!-- SCATTERED ASCII ART -->
@@ -201,28 +232,23 @@ Software engineer with a Computer Science background and 3+ years experience bui
 </div>
 
 <div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
-    <span>[1-6] Select   [M] Mute   [ESC] Back</span>
-    <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
+    <span>[1-6] Select   [M] Mute   [ESC] Home</span>
+    <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
     <span>Bandung, ID - 2026</span>
 </div>`;
     }
 
     updateMenuRender() {
-        if (this.state !== 'menu') return;
         this.menuItems.forEach(item => {
-            const el = document.querySelector(`.menu-item[data-id="${item.id}"]`);
+            const el = document.querySelector(`.dos-nav-link[data-id="${item.id}"]`);
             if (el) {
                 const selectorEl = el.querySelector('.selector');
                 if (this.activeIndex === item.id) {
-                    el.classList.add('menu-active-blink');
-                    if (selectorEl) {
-                        selectorEl.innerText = '▶';
-                    }
+                    el.classList.add('active', 'menu-active-blink');
+                    if (selectorEl) selectorEl.innerText = '▶';
                 } else {
-                    el.classList.remove('menu-active-blink');
-                    if (selectorEl) {
-                        selectorEl.innerText = ' ';
-                    }
+                    el.classList.remove('active', 'menu-active-blink');
+                    if (selectorEl) selectorEl.innerHTML = '&nbsp;';
                 }
             }
         });
@@ -250,79 +276,144 @@ Software engineer with a Computer Science background and 3+ years experience bui
         this.clockInterval = setInterval(updateClock, 1000);
     }
 
+    initMuteButton() {
+        const btnMute = document.getElementById('btn-mute');
+        if (!btnMute) return;
+        const muteIndicator = btnMute.querySelector('div');
+        
+        const updateMuteUI = (isMuted) => {
+            if (!muteIndicator) return;
+            if (isMuted) {
+                muteIndicator.style.background = '#ff0000';
+                muteIndicator.style.boxShadow = '0 0 8px #ff0000';
+            } else {
+                muteIndicator.style.background = '#FFB000';
+                muteIndicator.style.boxShadow = '0 0 8px #FFB000';
+            }
+        };
+
+        if (window.Audio) {
+            updateMuteUI(window.Audio.muted);
+        }
+
+        btnMute.addEventListener('click', () => {
+            if (!window.Audio) return;
+            const muted = window.Audio.toggleMute();
+            updateMuteUI(muted);
+            btnMute.style.transform = "scale(0.9)";
+            setTimeout(() => btnMute.style.transform = "scale(1)", 100);
+        });
+    }
+
     navigateToSection(id) {
         const item = this.menuItems.find(m => m.id === id);
         if (item) {
+            this.trackPageView(item.route);
             if (id === 6) {
-                // External link: keep menu state active
-                this.trackPageView(item.route);
-                item.handler();
+                window.open(item.route, "_blank");
                 return;
             }
-            this.state = 'section';
-            this.trackPageView(item.route);
-            item.handler();
+            window.location.href = item.route;
         }
     }
 
     handleKeydown(e) {
-        window.Audio.init();
+        if (window.Audio && !window.Audio.initialized) {
+            window.Audio.init();
+        }
 
+        // Mute shortcut
+        if (e.key && e.key.toLowerCase() === 'm') {
+            if (document.activeElement.tagName !== 'INPUT' || document.activeElement.id === 'keyboard-capture') {
+                const btnMute = document.getElementById('btn-mute');
+                if (btnMute) btnMute.click();
+                return;
+            }
+        }
+
+        // Subsection escape handling (e.g. project detail)
+        if (this.state === 'subsection') {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                if (window.Audio) window.Audio.playKeystroke();
+                if (window.SectionProjects) {
+                    window.SectionProjects.drawList(true);
+                    this.state = 'section';
+                }
+                return;
+            }
+        }
+
+        // Quick number selection 1-6
+        if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
+            if (document.activeElement.tagName === 'INPUT' && document.activeElement.id !== 'keyboard-capture') {
+                return;
+            }
+            e.preventDefault();
+            const id = parseInt(e.key);
+            this.activeIndex = id;
+            if (window.Audio) window.Audio.playKeystroke();
+            this.updateMenuRender();
+            setTimeout(() => {
+                if (window.Audio) window.Audio.playEnter();
+                this.navigateToSection(id);
+            }, 80);
+            return;
+        }
+
+        // ESC navigation back to Home
+        if (e.key === 'Escape') {
+            const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+            if (path !== '' && path !== '/') {
+                e.preventDefault();
+                if (window.Audio) window.Audio.playKeystroke();
+                window.location.href = '/';
+                return;
+            }
+        }
+
+        // Arrow keys on main menu (/)
         if (this.state === 'menu') {
             const maxItems = this.menuItems.length;
             if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
                 e.preventDefault();
                 this.activeIndex = this.activeIndex < maxItems ? this.activeIndex + 1 : 1;
-                window.Audio.playKeystroke();
+                if (window.Audio) window.Audio.playKeystroke();
                 this.updateMenuRender();
             } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
                 e.preventDefault();
                 this.activeIndex = this.activeIndex > 1 ? this.activeIndex - 1 : maxItems;
-                window.Audio.playKeystroke();
+                if (window.Audio) window.Audio.playKeystroke();
                 this.updateMenuRender();
             } else if (e.key === 'Enter') {
                 e.preventDefault();
-                window.Audio.playEnter();
+                if (window.Audio) window.Audio.playEnter();
                 setTimeout(() => {
                     this.navigateToSection(this.activeIndex);
-                }, 120);
-            } else if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
-                e.preventDefault();
-                this.activeIndex = parseInt(e.key);
-                window.Audio.playKeystroke();
-                this.updateMenuRender();
-                setTimeout(() => {
-                    window.Audio.playEnter();
-                    setTimeout(() => {
-                        this.navigateToSection(this.activeIndex);
-                    }, 120);
                 }, 80);
-            }
-        } else if (this.state === 'section') {
-            if (e.key === 'Escape') {
-                e.preventDefault();
-                window.Audio.playKeystroke();
-                this.showMenu();
-            }
-        } else if (this.state === 'subsection') {
-            if (e.key === 'Escape') {
-                e.preventDefault();
-                window.Audio.playKeystroke();
             }
         }
     }
 
     attachClickListeners() {
-        document.querySelectorAll('.menu-item').forEach(el => {
+        document.querySelectorAll('.dos-nav-link').forEach(el => {
             el.addEventListener('click', (e) => {
                 const id = parseInt(e.currentTarget.getAttribute('data-id'));
-                this.activeIndex = id;
-                window.Audio.playKeystroke();
-                this.updateMenuRender();
-                setTimeout(() => {
-                    window.Audio.playEnter();
-                    this.navigateToSection(this.activeIndex);
-                }, 100);
+                const item = this.menuItems.find(m => m.id === id);
+                if (item) {
+                    if (item.id === 6) {
+                        if (window.Audio) window.Audio.playKeystroke();
+                        return; // Let native link open external URL in new tab
+                    }
+                    e.preventDefault();
+                    this.activeIndex = id;
+                    if (window.Audio) window.Audio.playKeystroke();
+                    this.updateMenuRender();
+                    setTimeout(() => {
+                        if (window.Audio) window.Audio.playEnter();
+                        window.location.href = item.route;
+                    }, 80);
+                }
             });
         });
     }
