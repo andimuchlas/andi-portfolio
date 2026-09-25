@@ -37,14 +37,14 @@ class SectionSkills {
             ]}
         ];
 
-        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 2.5vmin;">\n`;
+        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 1.8vmin; margin-top: 1vmin;">`;
         
         skillsData.forEach(group => {
             contentHTML += `<div style="font-size: 1.15em;">`;
-            contentHTML += `<div class="phosphor-highlight" style="margin-bottom: 1vmin;">${group.cat}</div>`;
+            contentHTML += `<div class="phosphor-highlight" style="margin-bottom: 0.8vmin;">${group.cat}</div>`;
             group.skills.forEach(skill => {
                 const barStr = `[░░░░░░░░░░░░░░░░]   0%`;
-                contentHTML += `<div style="display:flex; margin-bottom: 0.5vmin;">`;
+                contentHTML += `<div style="display:flex; margin-bottom: 0.4vmin;">`;
                 contentHTML += `<span style="width: 20ch; display: inline-block;">${skill.name}</span>`;
                 contentHTML += `<span id="skill-${skill.name.replace(/[^a-zA-Z]/g, '')}">${barStr}</span>`;
                 contentHTML += `</div>`;

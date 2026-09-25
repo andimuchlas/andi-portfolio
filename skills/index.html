@@ -132,130 +132,8 @@
 
                     <div id="wipe-transition-layer">
                         <div id="terminal-content" class="phosphor-amber">
-                            <!-- Skills Content DOS Box -->
-                            <div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;">
-                                <span style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: 1em; overflow: hidden; text-overflow: ellipsis;">SKILLS</span>
-                                <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;">
-                                    <span class="dos-instructions">ESC: Home</span>
-                                    <button type="button" class="back-btn-dos" onclick="window.location.href='/'; if(window.Audio) window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: 0.85em; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">◀ HOME</button>
-                                </span>
-                            </div>
-
-                            <div style="font-size: 1.2em;">
-                                <div style="display:flex; flex-direction:column; gap: 2.5vmin;">
-                                    <!-- Category 1 -->
-                                    <div style="font-size: 1.15em;">
-                                        <div class="phosphor-highlight" style="margin-bottom: 1vmin;">1. SOFTWARE ENGINEERING</div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Go</span>
-                                            <span id="skill-Go">[██████████████░░]  88%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">TypeScript</span>
-                                            <span id="skill-TypeScript">[██████████████░░]  88%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Python</span>
-                                            <span id="skill-Python">[█████████████░░░]  82%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">C# / CSharp</span>
-                                            <span id="skill-CSharp">[█████████████░░░]  85%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 2 -->
-                                    <div style="font-size: 1.15em;">
-                                        <div class="phosphor-highlight" style="margin-bottom: 1vmin;">2. BACKEND &amp; DISTRIBUTED</div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">PostgreSQL</span>
-                                            <span id="skill-PostgreSQL">[██████████████░░]  88%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Redis &amp; BullMQ</span>
-                                            <span id="skill-RedisBullMQ">[█████████████░░░]  85%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">NATS &amp; gRPC</span>
-                                            <span id="skill-NATSgRPC">[█████████████░░░]  84%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Docker &amp; K8s</span>
-                                            <span id="skill-DockerK8s">[█████████████░░░]  82%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 3 -->
-                                    <div style="font-size: 1.15em;">
-                                        <div class="phosphor-highlight" style="margin-bottom: 1vmin;">3. AI &amp; ML ORCHESTRATION</div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">PyTorch</span>
-                                            <span id="skill-PyTorch">[████████████░░░░]  80%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">DistilBERT</span>
-                                            <span id="skill-DistilBERT">[█████████████░░░]  82%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Transformers</span>
-                                            <span id="skill-Transformers">[████████████░░░░]  80%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">STT / TTS Voice</span>
-                                            <span id="skill-STTTTSVoice">[█████████████░░░]  82%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 4 -->
-                                    <div style="font-size: 1.15em;">
-                                        <div class="phosphor-highlight" style="margin-bottom: 1vmin;">4. GEOSPATIAL &amp; ROUTING</div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">PostGIS</span>
-                                            <span id="skill-PostGIS">[██████████████░░]  88%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">OSRM Routing</span>
-                                            <span id="skill-OSRMRouting">[█████████████░░░]  85%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Uber H3 Grid</span>
-                                            <span id="skill-UberH3Grid">[█████████████░░░]  84%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Typesense Geo</span>
-                                            <span id="skill-TypesenseGeo">[█████████████░░░]  85%</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Category 5 -->
-                                    <div style="font-size: 1.15em;">
-                                        <div class="phosphor-highlight" style="margin-bottom: 1vmin;">5. REAL-TIME &amp; INTERACTIVE</div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Unity (C#)</span>
-                                            <span id="skill-UnityC">[██████████████░░]  88%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">Oculus LipSync</span>
-                                            <span id="skill-OculusLipSync">[█████████████░░░]  82%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">MetaPerson SDK</span>
-                                            <span id="skill-MetaPersonSDK">[████████████░░░░]  80%</span>
-                                        </div>
-                                        <div style="display:flex; margin-bottom: 0.5vmin;">
-                                            <span style="width: 20ch; display: inline-block;">LiDAR Integration</span>
-                                            <span id="skill-LiDARIntegration">[█████████████░░░]  82%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Retro Footer -->
-                            <div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
-                                <span>[1-6] Select   [M] Mute   [ESC] Home</span>
-                                <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
-                                <span>Bandung, ID - 2026</span>
-                            </div>
+                            <!-- Skills Content DOS Box Slot -->
+                            <div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;"><span style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: 1em; overflow: hidden; text-overflow: ellipsis;">SKILLS</span><span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;"><span class="dos-instructions">ESC: Home</span><button type="button" class="back-btn-dos" onclick="window.location.href='/'; if(window.Audio) window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: 0.85em; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">◀ HOME</button></span></div><div id="skills-container-slot" style="font-size: 1.2em;"></div>
                         </div>
                     </div>
                 </div>
@@ -281,44 +159,13 @@
     <script defer src="/js/menu.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const skillsData = [
-                { cat: "1. SOFTWARE ENGINEERING", skills: [
-                    { name: "Go", pct: 88 },
-                    { name: "TypeScript", pct: 88 },
-                    { name: "Python", pct: 82 },
-                    { name: "C# / CSharp", pct: 85 }
-                ]},
-                { cat: "2. BACKEND & DISTRIBUTED", skills: [
-                    { name: "PostgreSQL", pct: 88 },
-                    { name: "Redis & BullMQ", pct: 85 },
-                    { name: "NATS & gRPC", pct: 84 },
-                    { name: "Docker & K8s", pct: 82 }
-                ]},
-                { cat: "3. AI & ML ORCHESTRATION", skills: [
-                    { name: "PyTorch", pct: 80 },
-                    { name: "DistilBERT", pct: 82 },
-                    { name: "Transformers", pct: 80 },
-                    { name: "STT / TTS Voice", pct: 82 }
-                ]},
-                { cat: "4. GEOSPATIAL & ROUTING", skills: [
-                    { name: "PostGIS", pct: 88 },
-                    { name: "OSRM Routing", pct: 85 },
-                    { name: "Uber H3 Grid", pct: 84 },
-                    { name: "Typesense Geo", pct: 85 }
-                ]},
-                { cat: "5. REAL-TIME & INTERACTIVE", skills: [
-                    { name: "Unity (C#)", pct: 88 },
-                    { name: "Oculus LipSync", pct: 82 },
-                    { name: "MetaPerson SDK", pct: 80 },
-                    { name: "LiDAR Integration", pct: 82 }
-                ]}
-            ];
+            if (window.MenuManager) {
+                window.MenuManager.state = 'section';
+                window.MenuManager.activeIndex = 4;
+            }
 
-            // Animate progress bars on load
             if (window.SectionSkills) {
-                setTimeout(() => {
-                    window.SectionSkills.animateBars(skillsData);
-                }, 150);
+                window.SectionSkills.render();
             }
 
             document.body.addEventListener('click', () => {
