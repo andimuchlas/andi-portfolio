@@ -253,11 +253,6 @@ Software engineer with a Computer Science background and 3+ years experience bui
             }
         });
 
-        const glass = document.querySelector('.screen-glass');
-        if (glass) {
-            glass.style.filter = 'brightness(0.8)';
-            setTimeout(() => { glass.style.filter = ''; }, 60);
-        }
     }
 
     startClock() {
@@ -344,20 +339,20 @@ Software engineer with a Computer Science background and 3+ years experience bui
             }
         }
 
-        // Quick number selection 1-6
-        if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
+        // Quick number selection 1-6 (on main menu)
+        if (this.state === 'menu' && ['1', '2', '3', '4', '5', '6'].includes(e.key)) {
             if (document.activeElement.tagName === 'INPUT' && document.activeElement.id !== 'keyboard-capture') {
                 return;
             }
             e.preventDefault();
             const id = parseInt(e.key);
             this.activeIndex = id;
-            if (window.Audio) window.Audio.playKeystroke();
+            if (window.Audio) {
+                window.Audio.playKeystroke();
+                window.Audio.playEnter();
+            }
             this.updateMenuRender();
-            setTimeout(() => {
-                if (window.Audio) window.Audio.playEnter();
-                this.navigateToSection(id);
-            }, 80);
+            this.navigateToSection(id);
             return;
         }
 
@@ -388,9 +383,7 @@ Software engineer with a Computer Science background and 3+ years experience bui
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 if (window.Audio) window.Audio.playEnter();
-                setTimeout(() => {
-                    this.navigateToSection(this.activeIndex);
-                }, 80);
+                this.navigateToSection(this.activeIndex);
             }
         }
     }
@@ -407,12 +400,12 @@ Software engineer with a Computer Science background and 3+ years experience bui
                     }
                     e.preventDefault();
                     this.activeIndex = id;
-                    if (window.Audio) window.Audio.playKeystroke();
+                    if (window.Audio) {
+                        window.Audio.playKeystroke();
+                        window.Audio.playEnter();
+                    }
                     this.updateMenuRender();
-                    setTimeout(() => {
-                        if (window.Audio) window.Audio.playEnter();
-                        window.location.href = item.route;
-                    }, 80);
+                    window.location.href = item.route;
                 }
             });
         });

@@ -49,21 +49,21 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.4vmin 1vmin;
-    min-height: 3.8vmin;
+    padding: 0.6vmin 1.5vmin;
+    min-height: 4.2vmin;
     box-sizing: border-box;
-    font-size: clamp(10px, 1.4vmin, 14.5px);
+    font-size: clamp(13px, 1.8vmin, 22px);
     overflow: hidden;
     position: relative;
     z-index: 20;
-    margin-bottom: 1vmin;
+    margin-bottom: 1.5vmin;
 }
 
 .dos-navbar-items {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: clamp(3px, 0.65vmin, 10px);
+    justify-content: space-evenly;
+    gap: clamp(8px, 1.4vmin, 24px);
     flex: 1;
     min-width: 0;
     overflow-x: auto;
@@ -82,7 +82,7 @@
     color: #050505 !important;
     -webkit-text-fill-color: #050505 !important;
     text-decoration: none !important;
-    padding: 0.15vmin 0.4vmin;
+    padding: 0.25vmin 0.6vmin;
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
@@ -107,7 +107,7 @@
     width: 1.5ch;
     color: #050505;
     -webkit-text-fill-color: #050505;
-    margin-right: 0.25vmin;
+    margin-right: 0.4vmin;
     text-align: center;
     user-select: none;
 }
@@ -119,7 +119,7 @@
     opacity: 0.45;
     user-select: none;
     flex-shrink: 0;
-    padding: 0 0.1vmin;
+    padding: 0 0.2vmin;
 }
 
 .dos-nav-clock {
@@ -128,7 +128,7 @@
     font-family: inherit;
     color: #050505;
     -webkit-text-fill-color: #050505;
-    margin-left: 1.2vmin;
+    margin-left: 2vmin;
     flex-shrink: 0;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.5px;
@@ -309,14 +309,14 @@
         font-size: 0.85em !important;
     }
     .dos-navbar-container {
-        font-size: clamp(9px, 2.5vmin, 12px);
+        font-size: clamp(11px, 2.8vmin, 14px);
         padding: 0.6vmin 1vmin;
         min-height: auto;
     }
     .dos-navbar-items {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8vmin;
+        gap: 1vmin;
     }
     .dos-nav-separator {
         display: none;

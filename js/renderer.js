@@ -44,24 +44,10 @@ class Renderer {
         this.isTyping = false;
     }
 
-    async screenWipe(newHTML, playSound = true) {
-        return new Promise((resolve) => {
-            if (playSound) window.Audio.playSectionWhoosh();
-
-            this.wipeLayer.classList.remove('screen-wipe-enter');
-            this.wipeLayer.classList.add('screen-wipe-exit');
-
-            setTimeout(() => {
-                this.setContent(newHTML);
-                this.wipeLayer.classList.remove('screen-wipe-exit');
-                this.wipeLayer.classList.add('screen-wipe-enter');
-
-                setTimeout(() => {
-                    this.wipeLayer.classList.remove('screen-wipe-enter');
-                    resolve();
-                }, 150);
-            }, 150);
-        });
+    async screenWipe(newHTML, playSound = false) {
+        if (playSound && window.Audio) window.Audio.playSectionWhoosh();
+        this.setContent(newHTML);
+        return Promise.resolve();
     }
 
     createDOSBox(title, contentHTML, instructionsHTML = "ESC: Home") {

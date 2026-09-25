@@ -22,6 +22,7 @@
 
 body.power-on .screen-glass::before {
     opacity: 1;
+    transition: none !important;
 }
 
 @keyframes flicker {
@@ -157,9 +158,14 @@ body.power-on .screen-glass::before {
     98% { transform: perspective(800px) rotateX(1.5deg) scale(0.98) translate(0); filter: none; }
 }
 
-/* Startup animation */
-body.power-on #wipe-transition-layer {
+/* Startup animation only during initial cold boot */
+body.cold-booting #wipe-transition-layer {
     animation: startup 1.5s ease-out forwards;
+}
+
+body.power-on #wipe-transition-layer {
+    transform: perspective(800px) rotateX(1.5deg) scale(0.98);
+    opacity: 1;
 }
 
 @keyframes startup {

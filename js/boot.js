@@ -63,7 +63,7 @@ class BootSequenceManager {
         this.started = true;
 
         const container = document.getElementById('terminal-content');
-        document.body.classList.add('power-on');
+        document.body.classList.add('power-on', 'cold-booting');
 
         // Initial darkness
         container.innerHTML = '';
@@ -175,6 +175,7 @@ class BootSequenceManager {
             if (e) e.stopImmediatePropagation();
             document.removeEventListener('keydown', proceed);
             document.removeEventListener('click', proceed);
+            document.body.classList.remove('cold-booting');
             try { sessionStorage.setItem('amrsys_powered_on', 'true'); } catch(err) {}
             window.Audio.playEnter();
             window.MenuManager.showMenu();
