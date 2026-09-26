@@ -5,11 +5,11 @@ class SectionSkills {
         window.MenuManager.state = 'section';
         
         const skillsData = [
-            { cat: "1. SOFTWARE ENGINEERING", skills: [
-                { name: "Go", pct: 88 },
+            { cat: "1. CORE SOFTWARE & FULL-STACK", skills: [
+                { name: "Go (Backend)", pct: 88 },
                 { name: "TypeScript", pct: 88 },
-                { name: "Python", pct: 82 },
-                { name: "C# / CSharp", pct: 85 }
+                { name: "React & Next.js", pct: 84 },
+                { name: "Python", pct: 82 }
             ]},
             { cat: "2. BACKEND & DISTRIBUTED", skills: [
                 { name: "PostgreSQL", pct: 88 },

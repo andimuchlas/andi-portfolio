@@ -14,7 +14,7 @@ class SectionProjects {
             { id: 'G', name: 'GEPHYRION' },
             { id: 'H', name: 'DISASTER ROOM GAMIFICATION' },
             { id: 'I', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'J', name: 'CHATVIBES' },
+            { id: 'J', name: 'RADAR HARGA' },
             { id: 'K', name: 'DIGITAL LEARN' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
@@ -73,7 +73,7 @@ class SectionProjects {
         else if (id === 'G') await this.drawGephyrion();
         else if (id === 'H') await this.drawDisasterRoom();
         else if (id === 'I') await this.drawEldoria();
-        else if (id === 'J') await this.drawChatvibes();
+        else if (id === 'J') await this.drawRadarHarga();
         else if (id === 'K') await this.drawDigitalLearn();
     }
 
@@ -296,23 +296,59 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
         await window.Renderer.screenWipe(fullHTML, false);
     }
 
-    async drawChatvibes() {
-        const contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.8em; margin-bottom: 2vmin;">CHATVIBES</div>
-<div style="padding: 1vmin 0; margin-top: 1vmin; margin-bottom: 2vmin;">
-    <div style="font-size: 1.1em; max-width: 90%; line-height: 1.5; margin-bottom: 1vmin; text-align: left;" class="phosphor-green-primary">
-        A group chat mobile app allowing users to register, sign in, join or create chat groups, and interact in real time. Designed intuitive user flows and state management to deliver a smooth responsive chatting experience.
-        <div style="height: 1vmin;"></div>
-        <span class="phosphor-amber">Tech Stack:</span> Flutter, Firebase
-    </div>
-</div>
-<div style="margin-top: 2vmin; display: flex; gap: 2vmin; overflow-x: auto; padding-bottom: 1vmin;">
-    <img src="assets/img/chat-vibes/login.png" style="height: 40vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
-    <img src="assets/img/chat-vibes/main-menu.png" style="height: 40vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
-    <img src="assets/img/chat-vibes/profile.png" style="height: 40vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
+    async drawRadarHarga() {
+        const diagram = `
+<span class="ascii-node" title="Dual-Portal Browser Client (B2C &amp; B2B)">┌─────────────────────────────────────────────────────────────────────────────┐
+│                           CLIENT TIER (Browser)                             │
+│  ┌──────────────────────────────────┐ ┌──────────────────────────────────┐  │
+│  │ Consumer Price Radar (Route: /)  │ │ Merchant Portal (Route: /seller) │  │
+│  │ • Live Multi-Marketplace Grid    │ │ • Zero-Latency In-Browser Calc   │  │
+│  │ • Best Deal &amp; Discount Highlight │ │ • Whole IDR Margin Engine (&lt;5ms) │  │
+│  │ • Outbound Monetized Click Beacon│ │ • Fee Anatomy &amp; BEP Barometer    │  │
+│  └─────────────────┬────────────────┘ └────────────────┬─────────────────┘  │
+└────────────────────┼───────────────────────────────────┼────────────────────┘</span>
+                     │ (Fetch Search / Beacon)           │ (Pre-rendered SSG)  
+                     ▼                                   ▼                     
+<span class="ascii-node" title="Next.js 14 App Router SSR &amp; Edge API Engine">┌─────────────────────────────────────────────────────────────────────────────┐
+│                     EDGE &amp; SERVERLESS TIER (Next.js 14)                     │
+│  ┌───────────────────────────────┐     ┌─────────────────────────────────┐  │
+│  │ App Router Server Components  │     │ Edge API Engine                 │  │
+│  │ • Streaming SSR &amp; Static Gen  │     │ • Sliding-Window Rate Limiter   │  │
+│  │ • 15 Pre-rendered Intent URLs │     │ • Bot / Scraper Detection Filter│  │
+│  │ • JSON-LD Rich Schemas Inject │     │ • Secure 302 Attribution Redir  │  │
+│  └───────────────┬───────────────┘     └────────────────┬────────────────┘  │
+└──────────────────┼──────────────────────────────────────┼───────────────────┘</span>
+                   │                                      │                    
+                   ▼                                      ▼                    
+<span class="ascii-node" title="Neon Serverless PostgreSQL with Drizzle ORM">┌─────────────────────────────────────────────────────────────────────────────┐
+│                           DATA &amp; PERSISTENCE TIER                           │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │ Drizzle ORM + PostgreSQL (Neon Serverless DB)                         │  │
+│  │ • affiliate_clicks (Bot-filtered attribution log)                     │  │
+│  │ • dynamic_promotions (Curated active campaign feeds)                  │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────┘</span>`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">RADAR HARGA — E-Commerce Price Intelligence &amp; Merchant Financial Platform</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack Software Engineer &nbsp;|&nbsp; Production / Public Platform</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.7em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
+<div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
+    Independent price intelligence and e-commerce financial utility platform for Shopee, Tokopedia, TikTok Shop, and Lazada. Adopts a Dual-Portal architecture serving bargain-seeking consumers (B2C Price Radar) and merchants requiring precise profit margin simulations (B2B Merchant Hub).<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Client-Side Zero-Latency Math Engine (&lt; 5ms):</span> Engineered in-browser marketplace fee computation using Whole-IDR integer arithmetic with step rounding, completely eliminating JavaScript IEEE 754 floating-point errors on merchant payout balance.<br>
+    • <span class="phosphor-amber">Dual-Portal &amp; Persona Decoupling:</span> Separated application flows into two independent domains—consumer bargain portal and seller fee calculator—supported by adaptive responsive navigation (compact mobile dropdown and desktop active-line tabs).<br>
+    • <span class="phosphor-amber">Resilient Click Attribution Pipeline:</span> Built an analytics tracking redirect route (/api/radar/click) equipped with regex automated scraper/crawler detection and X-Robots-Tag: noindex header, protecting Neon PostgreSQL from bot pollutions.<br>
+    • <span class="phosphor-amber">SEO-First Engineering &amp; Google Indexing:</span> Implemented 15 structured search routes with JSON-LD schemas (Product, FAQPage, BreadcrumbList), multi-resolution favicons, and fallback routing (/robot.txt to /robots.txt), achieving a 94%+ Seobility SEO audit score and fast Google Search Console indexing.<br>
+    • <span class="phosphor-amber">Automated Testing &amp; Code Reliability:</span> Maintained rigorous code quality with automated Vitest suites (28/28 passing unit tests), isolating financial engines, Rupiah formatting logic, and sliding-window rate limiters independently from the React DOM.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Framer Motion, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel.<br>
+    <span style="opacity: 0.7;">Live Website:</span> <a href="https://www.radarharga.shop" target="_blank" style="color: #FFB000; text-decoration: underline;">radarharga.shop ↗</a> &nbsp;|&nbsp; 
+    <span style="opacity: 0.7;">GitHub:</span> <a href="https://github.com/andimuchlas/marketplace-intelegence" target="_blank" style="color: #FFB000; text-decoration: underline;">github.com/andimuchlas/marketplace-intelegence ↗</a>
 </div>`;
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS > CHATVIBES", contentHTML);
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > RADAR HARGA", contentHTML);
         await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
     }
 
     async drawAiAvatar() {

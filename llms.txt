@@ -1,16 +1,16 @@
-# Andi Muchlas Ramadani - Software Engineer Portfolio
+# Andi Muchlas Ramadani - Full-Stack Engineer (Backend-Heavy) Portfolio
 
-A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise across backend services, AI/ML pipelines, and real-time interactive systems.
+A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise across distributed backend services, full-stack web platforms, AI/ML pipelines, and real-time interactive systems.
 
 ## Technical Skills
-- Software Engineering: Go, TypeScript, Python, C#, REST APIs, gRPC (Protobuf), WebSocket
+- Software Engineering & Full-Stack: Go, TypeScript, React, Next.js, Python, C#, REST APIs, gRPC (Protobuf), WebSocket
 - Backend & Distributed Systems: PostgreSQL, PostGIS, Redis, NATS, BullMQ, Typesense, Docker, Kubernetes, AWS (S3)
 - AI / ML: PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Model Orchestration, STT/TTS Pipelines
 - Geospatial: OSRM (Open Source Routing Machine), Uber H3 Hexagonal Grid, PostGIS, Geospatial ETL
 - Real-Time & Interactive: Unity (C#), Oculus LipSync, MetaPerson Avatar SDK, LiDAR Sensor Integration, Projection Mapping
 
 ## Experience Summary
-Software Engineer with 3+ years of hands-on experience building end-to-end systems across backend services, AI/ML pipelines, and real-time interactive applications. Experienced in Go and TypeScript backend architecture, PostgreSQL/PostGIS, distributed messaging, Kubernetes, and high-throughput geospatial systems, alongside Python/PyTorch model orchestration and Unity/C# real-time clients. Currently Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
+Full-Stack Software Engineer with 3+ years of hands-on experience building end-to-end applications with a strong emphasis on backend architecture, distributed systems, and AI/ML pipelines. Proficient in delivering responsive frontends (Next.js, React, Tailwind CSS) backed by robust Go and TypeScript services, PostgreSQL/PostGIS, distributed messaging (NATS, Redis, BullMQ), Kubernetes, and high-throughput geospatial algorithms, alongside Python/PyTorch model orchestration and Unity/C# clients. Currently Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
 
 ## Key Projects
 - Rajaderek: Real-time spatial routing and logistics system (Go, TypeScript, PostGIS, OSRM, Uber H3, Typesense, Kubernetes, NATS, Redis)
@@ -18,6 +18,7 @@ Software Engineer with 3+ years of hands-on experience building end-to-end syste
 - Intelligent LLM Intent Router: 5-dimension DistilBERT semantic model routing engine (Python, PyTorch, Transformers, FastAPI)
 - Enterprise Genset Management: Clean Architecture rental & maintenance backend (Node.js, TypeScript, Hono, Drizzle ORM, Redis, BullMQ)
 - Casanela Villa API: High-throughput villa reservation engine (Bun, TypeScript, Hono, PostgreSQL, BullMQ, S3)
+- Radar Harga: E-commerce price intelligence & merchant profit engine (Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel)
 
 ## Links
 - Website: https://andi.is-a.dev/

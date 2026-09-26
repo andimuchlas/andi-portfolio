@@ -224,7 +224,7 @@ ${navBarHTML}
         <pre class="phosphor-glow-bright" style="font-size: ${isMobile ? '1.8vmin' : '1.4vmin'}; line-height: 1; color: #FFB000; margin-bottom: 4vmin; opacity: 0.9; max-width: 100%; overflow: hidden;">${asciiAMR.trim()}</pre>
         
         <div style="font-size: ${bioFontSize}; line-height: 1.4; max-width: ${isMobile ? '90%' : '65ch'}; opacity: 0.9; text-align: justify; margin: 0 auto;">
-Software engineer with a Computer Science background and 3+ years experience building backend services, AI/ML pipelines, and real-time interactive systems. I architect scalable services using <span class="phosphor-amber">Go, TypeScript, PostGIS, and OSRM</span>, orchestrate models with <span class="phosphor-amber">PyTorch & Transformers</span>, and develop real-time simulations in <span class="phosphor-amber">Unity (C#)</span>. Experienced with <span class="phosphor-amber">Kubernetes, gRPC, NATS, and Redis</span>, focusing on performance, efficiency, and first-principles design.
+Full-stack software engineer with a strong backend focus and 3+ years experience building high-throughput systems, modern web platforms, and AI/ML pipelines. While engineering robust frontends with <span class="phosphor-amber">React, Next.js, and TypeScript</span>, my core strength lies in distributed backend architecture: designing scalable services with <span class="phosphor-amber">Go, Bun/Node.js, PostgreSQL/PostGIS, and OSRM</span>, distributed messaging via <span class="phosphor-amber">Kubernetes, Redis, and NATS</span>, and real-time/AI systems with <span class="phosphor-amber">Unity & PyTorch</span>.
         </div>
 
         <div style="border-bottom: 1px solid #FFB000; opacity: 0.2; margin-top: ${bioGap}; width: ${bioWidth};"></div>
