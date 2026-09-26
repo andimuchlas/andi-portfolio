@@ -1,27 +1,35 @@
-# Andi Muchlas Ramadani - Full-Stack Engineer (Backend-Heavy) Portfolio
+# Andi Muchlas Ramadani - Full-Stack & Geospatial Software Engineer Portfolio
 
-A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise across distributed backend services, full-stack web platforms, AI/ML pipelines, and real-time interactive systems.
+A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise across full-stack web platforms, geospatial routing engines, high-throughput backend services, and real-time interactive systems.
 
 ## Technical Skills
-- Software Engineering & Full-Stack: Go, TypeScript, React, Next.js, Python, C#, REST APIs, gRPC (Protobuf), WebSocket
-- Backend & Distributed Systems: PostgreSQL, PostGIS, Redis, NATS, BullMQ, Typesense, Docker, Kubernetes, AWS (S3)
-- AI / ML: PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Model Orchestration, STT/TTS Pipelines
-- Geospatial: OSRM (Open Source Routing Machine), Uber H3 Hexagonal Grid, PostGIS, Geospatial ETL
-- Real-Time & Interactive: Unity (C#), Oculus LipSync, MetaPerson Avatar SDK, LiDAR Sensor Integration, Projection Mapping
+- Languages: TypeScript, JavaScript, Go, PHP, Python, SQL, C#
+- Frontend & Web: React, Next.js (App Router), Tailwind CSS, Three.js, Leaflet, D3.js, WebSockets
+- Backend & Geospatial: PostgreSQL, PostGIS, Spatial SQL, Uber H3 Hexagonal Grid, OSRM, Redis, NATS, Hono.js, gRPC (Protobuf), Scrapy ETL
+- Real-Time & Interactive: Unity (C#), LiDAR Sensor Telemetry, WebSocket Streaming, Oculus LipSync
+- Cloud & DevOps: Docker, Kubernetes, AWS (S3, IAM), Vercel, CI/CD, Linux
+- Testing & Methods: Vitest (Automated Unit Testing), Client-Side Math Engines, SEO (JSON-LD)
+- Spoken Languages: Indonesian (Native), English (Professional Working Proficiency)
 
 ## Experience Summary
-Full-Stack Software Engineer with 3+ years of hands-on experience building end-to-end applications with a strong emphasis on backend architecture, distributed systems, and AI/ML pipelines. Proficient in delivering responsive frontends (Next.js, React, Tailwind CSS) backed by robust Go and TypeScript services, PostgreSQL/PostGIS, distributed messaging (NATS, Redis, BullMQ), Kubernetes, and high-throughput geospatial algorithms, alongside Python/PyTorch model orchestration and Unity/C# clients. Currently Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
+Full-Stack & Geospatial Software Engineer with 3+ years of experience delivering end-to-end applications. Proficient in crafting responsive, high-performance web frontends (TypeScript, React, Next.js, Three.js, Leaflet) backed by resilient distributed engines (Go, Node.js/Bun, PHP, PostgreSQL/PostGIS, Redis, NATS, Kubernetes, gRPC Protobuf) and real-time interactive runtimes (Unity C#, LiDAR IoT sensors, WebSockets).
+- PT Lintas Cakra Cipta — Software Engineer (Backend & Web Systems)
+- Molca Teknologi Nusantara — Interactive Software Engineer
+- Automata Visual — Software Engineer (IoT & Interactive Systems)
+- UVISUAL Studio — Software Engineer (Web & Interactive Systems)
 
 ## Key Projects
-- Rajaderek: Real-time spatial routing and logistics system (Go, TypeScript, PostGIS, OSRM, Uber H3, Typesense, Kubernetes, NATS, Redis)
-- AI Avatar Unity: Real-time conversational AI avatar with voice pipeline & lip-sync (Unity, Python, Docker, PyTorch, Oculus LipSync, MetaPerson)
-- Intelligent LLM Intent Router: 5-dimension DistilBERT semantic model routing engine (Python, PyTorch, Transformers, FastAPI)
+- Rajaderek: Real-time spatial routing and dispatch logistics system (Go, TypeScript, Leaflet, PostGIS, OSRM, Uber H3, Typesense, gRPC Protobuf, Kubernetes, NATS, Redis)
+- Radar Harga: Full-stack e-commerce price intelligence & merchant profit engine (Next.js 14, React, TypeScript, Tailwind CSS, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel)
+- Creative 3D Landing Page: Cinematic WebGL 3D portfolio & motion experience (Next.js 16, React 19, Three.js, React Three Fiber, GSAP, Lenis, Tailwind CSS v4)
+- AI Avatar Unity: Real-time conversational AI avatar with voice pipeline & lip-sync (Unity C#, Python, WebSocket, Docker, PyTorch, Oculus LipSync, MetaPerson)
+- Gephyrion: Full-stack real-time interactive platform (PHP, MySQL, Unity C#, WebSockets, Projection Mapping)
+- Casanela Villa API: High-concurrency reservation & booking engine (Bun, TypeScript, Hono, PostgreSQL, Drizzle ORM, BullMQ, AWS S3)
 - Enterprise Genset Management: Clean Architecture rental & maintenance backend (Node.js, TypeScript, Hono, Drizzle ORM, Redis, BullMQ)
-- Casanela Villa API: High-throughput villa reservation engine (Bun, TypeScript, Hono, PostgreSQL, BullMQ, S3)
-- Radar Harga: E-commerce price intelligence & merchant profit engine (Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel)
+- Intelligent LLM Intent Router: 5-dimension DistilBERT semantic model routing engine (Python, PyTorch, Transformers, FastAPI)
 
 ## Links
-- Website: https://andi.is-a.dev/
-- Modern UI: https://landing-page-porfolio-one.vercel.app/
+- Retro Terminal Portfolio: https://andi.is-a.dev/
+- Creative 3D Portfolio: https://landing-page-porfolio-one.vercel.app/
 - LinkedIn: https://linkedin.com/in/andimuchlas
 - GitHub: https://github.com/andimuchlas

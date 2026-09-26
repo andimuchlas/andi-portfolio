@@ -6,16 +6,17 @@ class SectionProjects {
         this.activeIndex = 0;
         this.projects = [
             { id: 'A', name: 'RAJADEREK' },
-            { id: 'B', name: 'AI AVATAR UNITY' },
-            { id: 'C', name: 'LLM INTENT ROUTER' },
-            { id: 'D', name: 'GENSET MANAGEMENT API' },
-            { id: 'E', name: 'CASANELA VILLA API' },
-            { id: 'F', name: 'DYNAMIC PDF ENGINE' },
-            { id: 'G', name: 'GEPHYRION' },
-            { id: 'H', name: 'DISASTER ROOM GAMIFICATION' },
-            { id: 'I', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'J', name: 'RADAR HARGA' },
-            { id: 'K', name: 'DIGITAL LEARN' }
+            { id: 'B', name: 'RADAR HARGA' },
+            { id: 'C', name: 'CREATIVE 3D LANDING PAGE' },
+            { id: 'D', name: 'AI AVATAR UNITY' },
+            { id: 'E', name: 'GEPHYRION' },
+            { id: 'F', name: 'DISASTER ROOM GAMIFICATION' },
+            { id: 'G', name: 'CASANELA VILLA API' },
+            { id: 'H', name: 'GENSET MANAGEMENT API' },
+            { id: 'I', name: 'DYNAMIC PDF ENGINE' },
+            { id: 'J', name: 'LLM INTENT ROUTER' },
+            { id: 'K', name: 'THE SEARCH OF ELDORIA' },
+            { id: 'L', name: 'DIGITAL LEARN' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
     }
@@ -40,7 +41,7 @@ class SectionProjects {
         });
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-K: Select, ENTER: Open, ESC: Back");
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-L: Select, ENTER: Open, ESC: Back");
 
         if (forceWipe) {
             await window.Renderer.screenWipe(fullHTML);
@@ -65,23 +66,24 @@ class SectionProjects {
         window.Audio.playEnter();
 
         if (id === 'A') await this.drawRajaderek();
-        else if (id === 'B') await this.drawAiAvatar();
-        else if (id === 'C') await this.drawLlmRouter();
-        else if (id === 'D') await this.drawGenset();
-        else if (id === 'E') await this.drawCasanela();
-        else if (id === 'F') await this.drawPdfEngine();
-        else if (id === 'G') await this.drawGephyrion();
-        else if (id === 'H') await this.drawDisasterRoom();
-        else if (id === 'I') await this.drawEldoria();
-        else if (id === 'J') await this.drawRadarHarga();
-        else if (id === 'K') await this.drawDigitalLearn();
+        else if (id === 'B') await this.drawRadarHarga();
+        else if (id === 'C') await this.drawLandingPage();
+        else if (id === 'D') await this.drawAiAvatar();
+        else if (id === 'E') await this.drawGephyrion();
+        else if (id === 'F') await this.drawDisasterRoom();
+        else if (id === 'G') await this.drawCasanela();
+        else if (id === 'H') await this.drawGenset();
+        else if (id === 'I') await this.drawPdfEngine();
+        else if (id === 'J') await this.drawLlmRouter();
+        else if (id === 'K') await this.drawEldoria();
+        else if (id === 'L') await this.drawDigitalLearn();
     }
 
     async drawRajaderek() {
         const diagram = `
-<span class="ascii-node" title="Web / Mobile Clients">CLIENT APPS</span>        <span class="ascii-node" title="TypeScript Gateway (Auth & Aggregation)">API GATEWAY (TS)</span>      <span class="ascii-node" title="Go Map & Core Engine (High-throughput)">CORE ENGINE (Go)</span>      <span class="ascii-node" title="Automated Data Ingestion">SCRAPY ETL</span>
+<span class="ascii-node" title="Leaflet Web / Mobile Clients">LEAFLET MAP UI</span>        <span class="ascii-node" title="TypeScript Gateway (Auth & Aggregation)">API GATEWAY (TS)</span>      <span class="ascii-node" title="Go Map & Core Engine (Protobuf gRPC)">CORE ENGINE (Go)</span>      <span class="ascii-node" title="Automated Data Ingestion">SCRAPY ETL</span>
 ┌────────────┐       ┌──────────────┐      ┌──────────────┐      ┌────────────┐
-│ Web / App  │──HTTP▶│  TypeScript  │─gRPC▶│ Go Engine    │◀───-─│ ~2.8M POIs │
+│ Web Map UI │──HTTP▶│  TypeScript  │─gRPC▶│ Go Engine    │◀───-─│ ~2.8M POIs │
 │  Dispatch  │◀─JSON─│  Auth/Aggreg │◀gRPC─│ Heavy Graph  │      │ Overture/  │
 └────────────┘       └──────────────┘      └──────┬───────┘      │ OSM / BIG  │
                                                   │              └────────────┘
@@ -94,18 +96,19 @@ class SectionProjects {
    └───────────┘       └───────────┘        └───────────┘       └───────────┘`;
 
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">RAJADEREK — Real-Time Spatial Routing & Logistics</div>
-<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend & Spatial Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">RAJADEREK — Real-Time Spatial Routing &amp; Dispatch Logistics</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend &amp; Spatial Systems Engineer &nbsp;|&nbsp; Private / Production System</div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.7em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
 <div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
     Real-time dispatching and routing platform managing on-demand vehicle towing operations.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Service Decomposition:</span> Decoupled into a TypeScript Gateway (auth & aggregation) and a standalone Go Core Engine via gRPC to isolate heavy graph computations from business logic.<br>
+    • <span class="phosphor-amber">Spatial Search &amp; Leaflet Mapping:</span> Built interactive operator map interfaces using Leaflet for dispatch and route inspection, supported by spatial search across ~2.8M POIs and ~70K boundaries via PostGIS, H3, and Typesense.<br>
     • <span class="phosphor-amber">Data Ingestion (~2.8M Records):</span> Built automated Scrapy ETL pipelines scaling POI datasets from ~1.5M to ~2.8M records and ~70K administrative boundaries (Overture Maps, Overpass/OSM, BIG, Pertamina).<br>
-    • <span class="phosphor-amber">Low-Latency Search & Autocomplete (Typesense):</span> Migrated bottlenecked spatial SQL queries (degraded from ~1s to 3–5s as data doubled) to Typesense, slashing latency to &lt;200ms (p95) using tiered multi-search queries (45 km geofenced local priority, typo tolerance), protected by a Go-native circuit breaker with PostGIS GiST fallback.<br>
+    • <span class="phosphor-amber">High-Throughput Core Decomposition:</span> Decoupled into a TypeScript Gateway (auth &amp; aggregation) and a standalone Go Core Engine via gRPC (Protobuf) to isolate heavy graph computations from business logic.<br>
+    • <span class="phosphor-amber">Low-Latency Search &amp; Autocomplete (Typesense):</span> Migrated bottlenecked spatial SQL queries to Typesense, slashing latency to &lt;200ms (p95) using tiered multi-search queries (45 km geofenced local priority, typo tolerance), protected by a Go-native circuit breaker with PostGIS GiST fallback.<br>
     • <span class="phosphor-amber">Proximity Indexing (Uber H3):</span> Replaced slow polygon intersection queries with Uber H3 hexagonal indexing (O(1) cell lookup) for instant driver-to-job proximity matching.<br>
-    • <span class="phosphor-amber">Dynamic Routing & GC Tuning:</span> Configured OSRM with Multi-Level Dijkstra (MLD) for dynamic toll-road weighting; reused memory buffers to minimize Go GC pressure under high dispatch throughput.<div style="height: 0.8vmin;"></div>
-    <span style="opacity: 0.7;">Tech Stack:</span> Go, TypeScript, Python (Scrapy), Typesense, OSRM, Uber H3, PostgreSQL/PostGIS, gRPC, Redis, NATS, Kubernetes.
+    • <span class="phosphor-amber">Dynamic Routing &amp; GC Tuning:</span> Configured OSRM with Multi-Level Dijkstra (MLD) for dynamic toll-road weighting; reused memory buffers to minimize Go GC pressure under high dispatch throughput.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Go, TypeScript, Leaflet, Python (Scrapy), Typesense, OSRM, Uber H3, PostgreSQL/PostGIS, gRPC (Protobuf), Redis, NATS, Kubernetes.
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > RAJADEREK", contentHTML);
@@ -246,11 +249,15 @@ class SectionProjects {
 
     async drawGephyrion() {
         const contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.8em; margin-bottom: 2vmin;">GEPHYRION</div>
-<div style="font-size: 1.1em; max-width: 90%; line-height: 1.5; text-align: left;">
-Gephyrion is an immersive room installation where a web-based interface connects with a Unity-powered projection system. Users interact with a website to make specific choices, which are transmitted in real time to display a character projection inside a physical room.<div style="height: 1vmin;"></div>
-Developed collaboratively. Responsible for designing and developing the website interface, backend logic, and handling the Unity-side development that visualizes user inputs in real time.<div style="height: 1vmin;"></div>
-<span style="opacity: 0.7;">Tech Stack:</span> Unity, C#, Laravel, PHP, MySQL, WebSocket
+<div class="phosphor-highlight" style="font-size: 1.8em; margin-bottom: 1vmin;">GEPHYRION</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Software Engineer (Web &amp; Interactive Systems) &nbsp;|&nbsp; Interactive Installation</div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 1.05em; max-width: 90%; line-height: 1.5; text-align: left;">
+Gephyrion is an immersive room installation where a web-based interface connects with a Unity-powered projection system for real-time character visualization in physical space.<div style="height: 0.8vmin;"></div>
+• <span class="phosphor-amber">Full-Stack Real-Time Pipeline:</span> Engineered a web application in PHP &amp; MySQL communicating via bidirectional WebSockets with Unity display runtimes to transmit visitor interaction choices into live projection updates.<br>
+• <span class="phosphor-amber">Database &amp; Event Architecture:</span> Designed relational schemas and event-driven API endpoints in PHP to handle real-time character states, user sessions, and hardware triggering events with sub-100ms response times.<br>
+• <span class="phosphor-amber">Multi-Projector Calibration:</span> Deployed multi-projector hardware and network communication pipelines, ensuring reliable 60 FPS performance during live exhibitions.<div style="height: 0.8vmin;"></div>
+<span style="opacity: 0.7;">Tech Stack:</span> PHP, MySQL, Unity, C#, WebSocket, Multi-Projector Calibration
 </div>
 <div style="margin-top: 3vmin; display: flex; gap: 2vmin; overflow-x: auto; padding-bottom: 1vmin;">
     <img src="assets/img/gephyrion/prediction.png" style="height: 25vmin; border: 1px solid #FFB000; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(2) brightness(0.9);">
@@ -347,6 +354,40 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
 </div>`;
 
         const fullHTML = window.Renderer.createDOSBox("PROJECTS > RADAR HARGA", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+        this.attachTooltips();
+    }
+
+    async drawLandingPage() {
+        const diagram = `
+<span class="ascii-node" title="Next.js 16 + React 19 Frontend">CLIENT TIER</span>        <span class="ascii-node" title="Lenis Smooth Scroll + GSAP ScrollTrigger">MOTION CHOREOGRAPHY</span>   <span class="ascii-node" title="Three.js + React Three Fiber 3D Viewport">WEBGL 3D WORLD</span>
+┌──────────────┐       ┌──────────────────────┐       ┌────────────────────┐
+│ Next.js 16   │──Evt─▶│ Lenis Smooth Scroll  │──Sync▶│ Three.js / R3F     │
+│ React 19 App │◀─DOM──│ GSAP ScrollTrigger   │       │ GameWorld Traversal│
+└──────────────┘       └──────────────────────┘       └─────────┬──────────┘
+                                                                │
+                                   ┌────────────────────────────┴───────────────────────────┐
+                                   ▼                            ▼                           ▼
+                            ┌───────────────┐            ┌───────────────┐           ┌──────────────┐
+                            │MachineAssembly│            │ServicesObjects│           │WorkParticles │
+                            │3D Mesh Models │            │Dynamic Shaders│           │Post-Process  │
+                            └───────────────┘            └───────────────┘           └──────────────┘`;
+
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">CREATIVE 3D LANDING PAGE — WebGL &amp; Motion Architecture</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack &amp; Creative Frontend Engineer &nbsp;|&nbsp; <a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" style="color: #FFB000; text-decoration: underline;">Live Website ↗</a></div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
+<div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
+    Cinematic interactive 3D web experience demonstrating advanced WebGL graphics, scroll-driven camera choreography, and modern creative web performance.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Scroll-Choreographed 3D WebGL Viewport:</span> Implemented real-time 3D scenes using Three.js and React Three Fiber (@react-three/fiber), loading custom mesh assemblies, materials, and particle clouds.<br>
+    • <span class="phosphor-amber">Cinematic Camera Traversal:</span> Paired Lenis smooth inertia scrolling with GSAP ScrollTrigger timelines, guiding an interactive camera along scene paths synchronized with user scroll progress.<br>
+    • <span class="phosphor-amber">Creative UI Polish &amp; Post-Processing:</span> Engineered with Tailwind CSS v4, custom film grain shaders, dynamic scroll progress indicators, and responsive mobile-first layouts.<div style="height: 0.8vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Next.js 16, React 19, Three.js, React Three Fiber, Drei, GSAP, Lenis, Tailwind CSS v4, Vercel.<br>
+    <span style="opacity: 0.7;">Live Demo:</span> <a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" style="color: #FFB000; text-decoration: underline;">landing-page-porfolio-one.vercel.app ↗</a>
+</div>`;
+
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > 3D LANDING PAGE", contentHTML);
         await window.Renderer.screenWipe(fullHTML, false);
         this.attachTooltips();
     }
@@ -478,7 +519,7 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 this.showDetail(this.projects[this.activeIndex].id);
-            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'].includes(e.key)) {
+            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'].includes(e.key)) {
                 e.preventDefault();
                 const key = e.key.toUpperCase();
                 this.activeIndex = this.projects.findIndex(p => p.id === key);

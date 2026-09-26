@@ -1,6 +1,6 @@
 # AMRSYS 9400 - Retro Terminal Portfolio
 
-Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as a retro, CRT-based Terminal User Interface (TUI) / DOS-like environment. This project aims to showcase my background as a Full-Stack Software Engineer with a deep backend focus across distributed systems, Go, TypeScript, React, and Unity.
+Welcome to **AMRSYS 9400**, my personal software engineering portfolio styled as a retro, CRT-based Terminal User Interface (TUI) / DOS-like environment. This project showcases my background as a Full-Stack & Geospatial Software Engineer across modern web frontends (Next.js, React, Three.js, Leaflet), spatial routing engines (Go, PostGIS, Uber H3, OSRM), and real-time interactive systems (Unity, C#).
 
 ## Features
 
@@ -62,7 +62,7 @@ Then, open your browser and navigate to `http://localhost:8000`.
 
 ## About Me
 
-I am Andi Muchlas Ramadani, a Full-Stack Software Engineer with a deep backend focus and 3+ years of experience building end-to-end systems. My core expertise spans distributed Go and TypeScript backend architecture, Next.js/React web platforms, PostGIS/OSRM spatial routing, PyTorch model orchestration, and Unity/C# simulations. Currently working as Backend Developer at PT Lintas Cakra Cipta and Freelance Unity Developer at Molca Teknologi Nusantara.
+I am Andi Muchlas Ramadani, a Full-Stack & Geospatial Software Engineer with 3+ years of experience delivering end-to-end applications. My core expertise spans TypeScript/React/Next.js and Three.js web frontends, distributed Go and PostGIS geospatial routing backends, and Unity/C# interactive IoT systems. Currently working as Software Engineer (Backend & Web Systems) at PT Lintas Cakra Cipta and Interactive Software Engineer at Molca Teknologi Nusantara.
 
 Connect with me:
 - [LinkedIn](https://linkedin.com/in/andimuchlas)

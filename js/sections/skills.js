@@ -5,35 +5,35 @@ class SectionSkills {
         window.MenuManager.state = 'section';
         
         const skillsData = [
-            { cat: "1. CORE SOFTWARE & FULL-STACK", skills: [
-                { name: "Go (Backend)", pct: 88 },
-                { name: "TypeScript", pct: 88 },
-                { name: "React & Next.js", pct: 84 },
-                { name: "Python", pct: 82 }
+            { cat: "1. LANGUAGES & WEB", skills: [
+                { name: "TypeScript & JS", pct: 90 },
+                { name: "React & Next.js", pct: 88 },
+                { name: "Three.js & Leaflet", pct: 85 },
+                { name: "Go & C#", pct: 86 }
             ]},
-            { cat: "2. BACKEND & DISTRIBUTED", skills: [
-                { name: "PostgreSQL", pct: 88 },
-                { name: "Redis & BullMQ", pct: 85 },
-                { name: "NATS & gRPC", pct: 84 },
-                { name: "Docker & K8s", pct: 82 }
+            { cat: "2. BACKEND & GEOSPATIAL", skills: [
+                { name: "PostgreSQL & PostGIS", pct: 88 },
+                { name: "Uber H3 & OSRM", pct: 85 },
+                { name: "Redis & NATS", pct: 85 },
+                { name: "gRPC & Hono.js", pct: 84 }
             ]},
-            { cat: "3. AI & ML ORCHESTRATION", skills: [
-                { name: "PyTorch", pct: 80 },
-                { name: "DistilBERT", pct: 82 },
-                { name: "Transformers", pct: 80 },
-                { name: "STT / TTS Voice", pct: 82 }
-            ]},
-            { cat: "4. GEOSPATIAL & ROUTING", skills: [
-                { name: "PostGIS", pct: 88 },
-                { name: "OSRM Routing", pct: 85 },
-                { name: "Uber H3 Grid", pct: 84 },
-                { name: "Typesense Geo", pct: 85 }
-            ]},
-            { cat: "5. REAL-TIME & INTERACTIVE", skills: [
+            { cat: "3. REAL-TIME & INTERACTIVE", skills: [
                 { name: "Unity (C#)", pct: 88 },
-                { name: "Oculus LipSync", pct: 82 },
-                { name: "MetaPerson SDK", pct: 80 },
-                { name: "LiDAR Integration", pct: 82 }
+                { name: "LiDAR Sensor IoT", pct: 84 },
+                { name: "WebSocket Stream", pct: 86 },
+                { name: "Oculus LipSync", pct: 82 }
+            ]},
+            { cat: "4. CLOUD & DEVOPS", skills: [
+                { name: "Docker & K8s", pct: 84 },
+                { name: "AWS & Vercel", pct: 82 },
+                { name: "Vitest & Testing", pct: 85 },
+                { name: "Scrapy ETL", pct: 86 }
+            ]},
+            { cat: "5. SPOKEN & PROTOTYPING", skills: [
+                { name: "English (Proficient)", pct: 85 },
+                { name: "Indonesian (Native)", pct: 100 },
+                { name: "Rapid Prototyping", pct: 88 },
+                { name: "Figma UI Design", pct: 80 }
             ]}
         ];
 

@@ -18,20 +18,20 @@ class SectionExperience {
     async draw() {
         const jobs = [
             {
-                id: 1, title: "PT LINTAS CAKRA CIPTA", role: "Backend Developer (Full-time) · Sep 2025–Present", logo: "/assets/img/logo/LCC.png",
-                desc: "• Engineered high-performance modular monolith backend in Go & TypeScript with low-latency REST/gRPC interfaces.<br>• Architected & optimized custom map routing and spatial query services using PostGIS & PostgreSQL stored procedures (sub-second SLAs).<br>• Owned Kubernetes & Docker deployments; event-driven messaging with NATS and distributed caching via Redis.<br>• Refactored high-traffic PostgreSQL queries and GiST spatial indexes across multi-million record tables.<br>• Implemented automated background data ETL pipelines and tiered caching strategies.<br>• Profiled with Go pprof to isolate memory leaks and CPU hotspots under peak concurrent loads."
+                id: 1, title: "PT LINTAS CAKRA CIPTA", role: "Software Engineer (Backend & Web Systems) · Sep 2025–Present", logo: "/assets/img/logo/LCC.png",
+                desc: "• Engineered high-performance backend services and API gateways in Go & TypeScript, connecting low-latency REST/gRPC interfaces with interactive mapping web apps.<br>• Optimized custom map routing and spatial query pipelines using PostgreSQL/PostGIS and stored procedures (sub-second execution SLAs).<br>• Owned service deployment and container orchestration across Kubernetes & Docker, integrating Redis caching and NATS distributed messaging.<br>• Refactored high-traffic spatial SQL queries and GiST spatial indexes across multi-million record datasets.<br>• Profiled with Go pprof to isolate memory leaks and CPU hotspots, significantly boosting service throughput under peak concurrent loads."
             },
             {
-                id: 2, title: "MOLCA TEKNOLOGI NUSANTARA", role: "Unity Developer (Freelance) · Jun 2026–Present", logo: "/assets/img/logo/molca.png",
-                desc: "• Develop core gameplay mechanics, interactive features, and real-time simulation logic in Unity (C#).<br>• Implement modular, reusable code architecture and optimize rendering and memory footprint across target platforms.<br>• Coordinate remotely with technical leads and design teams to deliver milestones on schedule."
+                id: 2, title: "MOLCA TEKNOLOGI NUSANTARA", role: "Interactive Software Engineer (Remote) · Jun 2026–Present", logo: "/assets/img/logo/molca.png",
+                desc: "• Engineered interactive simulation systems and modular client-side features in C# (Unity), adhering to decoupled software architecture patterns.<br>• Optimized runtime memory allocation and rendering loops, reducing frame drops and ensuring stable performance across hardware configurations.<br>• Collaborated asynchronously with technical leads and product teams to deliver complex interactive milestones on schedule."
             },
             {
-                id: 3, title: "AUTOMATA VISUAL", role: "Unity Developer (Contract) · Sep 2024–Feb 2025", logo: "/assets/img/logo/automata-visual.png",
-                desc: "• Engineered an interactive museum gamification installation at the Disaster Room of Geological Museum in Bandung.<br>• Integrated hardware LiDAR sensors with Unity (C#) for real-time visitor touch detection & room-scale interactive mapping.<br>• Built custom calibration tools and automated recovery routines to ensure stable 60 FPS performance."
+                id: 3, title: "AUTOMATA VISUAL", role: "Software Engineer (IoT & Interactive Systems) · Sep 2024–Feb 2025", logo: "/assets/img/logo/automata-visual.png",
+                desc: "• Engineered an IoT interactive display at the Disaster Room of Geological Museum Bandung, integrating hardware LiDAR sensors with C# client visualization runtimes.<br>• Developed real-time spatial touch-detection pipelines, transforming raw LiDAR telemetry into low-latency multi-user interaction events.<br>• Built automated watchdog recovery routines and calibration utilities, sustaining continuous zero-crash uptime and stable 60 FPS display rendering."
             },
             {
-                id: 4, title: "UVISUAL STUDIO", role: "R&D Freelancer · Aug 2023–Sep 2024", logo: "/assets/img/logo/uvisual.png",
-                desc: "• Developed Gephyrion, a full-stack platform interfacing a web portal with Unity via RESTful APIs and WebSockets for dynamic character projection.<br>• Deployed multi-projector hardware and software mapping systems for immersive projection installations (Sky-G and Hallway Space)."
+                id: 4, title: "UVISUAL STUDIO", role: "Software Engineer (Web & Interactive Systems) · Aug 2023–Sep 2024", logo: "/assets/img/logo/uvisual.png",
+                desc: "• Engineered Gephyrion, a full-stack real-time interactive platform featuring a PHP and MySQL web application integrated via bidirectional WebSockets with interactive displays for live character projection.<br>• Architected relational database schemas and event-driven API endpoints in PHP to manage real-time character states, user sessions, and hardware triggering events.<br>• Deployed multi-projector hardware and network communication pipelines, ensuring reliable sub-100ms latency and 60 FPS performance during live exhibitions."
             }
         ];
 
