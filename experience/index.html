@@ -167,91 +167,8 @@
 
                     <div id="wipe-transition-layer">
                         <div id="terminal-content" class="phosphor-amber">
-                            <!-- Experience Content DOS Box -->
-                            <div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;">
-                                <span style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: 1em; overflow: hidden; text-overflow: ellipsis;">EXPERIENCE</span>
-                                <span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;">
-                                    <span class="dos-instructions">1-4: Expand, ESC: Home</span>
-                                    <button type="button" class="back-btn-dos" onclick="window.location.href='/'; if(window.Audio) window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: 0.85em; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">◀ HOME</button>
-                                </span>
-                            </div>
-
-                            <div style="font-size: 1.2em;">
-                                <div id="experience-list-container" style="display:flex; flex-direction:column; gap: 1.5vmin; margin-top: 1.5vmin; width: 100%;">
-                                    <!-- Job 1 -->
-                                    <div class="exp-item" data-id="1" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start; width: 100%; overflow: hidden;">
-                                        <div style="width: 8vmin; min-width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
-                                            <img src="/assets/img/logo/LCC.png" alt="PT LINTAS CAKRA CIPTA logo" style="max-width: 100%; max-height: 8vmin; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5) brightness(0.8);" />
-                                        </div>
-                                        <div style="flex: 1; display:flex; flex-direction:column; min-width: 0;">
-                                            <div class="job-title-el phosphor-highlight" style="font-size: 1.1em; display: block; padding-right: 1vmin; word-break: keep-all; line-height: 1.2;">▼ PT LINTAS CAKRA CIPTA</div>
-                                            <div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin; line-height: 1.2;">Backend Developer (Full-time) · Sep 2025–Present</div>
-                                            <div class="job-desc-el phosphor-fade-in" style="margin-left: 2vmin; margin-top: 1vmin; border-left: 2px solid #FFB000; padding-left: 1.5vmin; font-size: 0.85em; line-height: 1.4;">
-                                                • Engineered high-performance modular monolith backend in Go & TypeScript with low-latency REST/gRPC interfaces.<br>
-                                                • Architected & optimized custom map routing and spatial query services using PostGIS & PostgreSQL stored procedures (sub-second SLAs).<br>
-                                                • Owned Kubernetes & Docker deployments; event-driven messaging with NATS and distributed caching via Redis.<br>
-                                                • Refactored high-traffic PostgreSQL queries and GiST spatial indexes across multi-million record tables.<br>
-                                                • Implemented automated background data ETL pipelines and tiered caching strategies.<br>
-                                                • Profiled with Go pprof to isolate memory leaks and CPU hotspots under peak concurrent loads.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Job 2 -->
-                                    <div class="exp-item" data-id="2" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start; width: 100%; overflow: hidden;">
-                                        <div style="width: 8vmin; min-width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
-                                            <img src="/assets/img/logo/molca.png" alt="MOLCA TEKNOLOGI NUSANTARA logo" style="max-width: 100%; max-height: 8vmin; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5) brightness(0.8);" />
-                                        </div>
-                                        <div style="flex: 1; display:flex; flex-direction:column; min-width: 0;">
-                                            <div class="job-title-el phosphor-amber" style="font-size: 1.1em; display: block; padding-right: 1vmin; word-break: keep-all; line-height: 1.2;">▶ MOLCA TEKNOLOGI NUSANTARA</div>
-                                            <div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin; line-height: 1.2;">Unity Developer (Freelance) · Jun 2026–Present</div>
-                                            <div class="job-desc-el phosphor-fade-in" style="display:none; margin-left: 2vmin; margin-top: 1vmin; border-left: 2px solid #FFB000; padding-left: 1.5vmin; font-size: 0.85em; line-height: 1.4;">
-                                                • Develop core gameplay mechanics, interactive features, and real-time simulation logic in Unity (C#).<br>
-                                                • Implement modular, reusable code architecture and optimize rendering and memory footprint across target platforms.<br>
-                                                • Coordinate remotely with technical leads and design teams to deliver milestones on schedule.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Job 3 -->
-                                    <div class="exp-item" data-id="3" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start; width: 100%; overflow: hidden;">
-                                        <div style="width: 8vmin; min-width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
-                                            <img src="/assets/img/logo/automata-visual.png" alt="AUTOMATA VISUAL logo" style="max-width: 100%; max-height: 8vmin; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5) brightness(0.8);" />
-                                        </div>
-                                        <div style="flex: 1; display:flex; flex-direction:column; min-width: 0;">
-                                            <div class="job-title-el phosphor-amber" style="font-size: 1.1em; display: block; padding-right: 1vmin; word-break: keep-all; line-height: 1.2;">▶ AUTOMATA VISUAL</div>
-                                            <div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin; line-height: 1.2;">Unity Developer (Contract) · Sep 2024–Feb 2025</div>
-                                            <div class="job-desc-el phosphor-fade-in" style="display:none; margin-left: 2vmin; margin-top: 1vmin; border-left: 2px solid #FFB000; padding-left: 1.5vmin; font-size: 0.85em; line-height: 1.4;">
-                                                • Engineered an interactive museum gamification installation at the Disaster Room of Geological Museum in Bandung.<br>
-                                                • Integrated hardware LiDAR sensors with Unity (C#) for real-time visitor touch detection & room-scale interactive mapping.<br>
-                                                • Built custom calibration tools and automated recovery routines to ensure stable 60 FPS performance.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Job 4 -->
-                                    <div class="exp-item" data-id="4" style="cursor:pointer; display:flex; flex-direction:row; align-items: flex-start; width: 100%; overflow: hidden;">
-                                        <div style="width: 8vmin; min-width: 8vmin; margin-right: 2vmin; margin-top: 0.5vmin; display: flex; justify-content: center; align-items: flex-start;">
-                                            <img src="/assets/img/logo/uvisual.png" alt="UVISUAL STUDIO logo" style="max-width: 100%; max-height: 8vmin; object-fit: contain; filter: grayscale(1) sepia(1) hue-rotate(60deg) saturate(5) brightness(0.8);" />
-                                        </div>
-                                        <div style="flex: 1; display:flex; flex-direction:column; min-width: 0;">
-                                            <div class="job-title-el phosphor-amber" style="font-size: 1.1em; display: block; padding-right: 1vmin; word-break: keep-all; line-height: 1.2;">▶ UVISUAL STUDIO</div>
-                                            <div style="opacity: 0.8; margin-left: 2vmin; font-size: 0.85em; margin-top: 0.5vmin; line-height: 1.2;">R&D Freelancer · Aug 2023–Sep 2024</div>
-                                            <div class="job-desc-el phosphor-fade-in" style="display:none; margin-left: 2vmin; margin-top: 1vmin; border-left: 2px solid #FFB000; padding-left: 1.5vmin; font-size: 0.85em; line-height: 1.4;">
-                                                • Developed Gephyrion, a full-stack platform interfacing a web portal with Unity via RESTful APIs and WebSockets for dynamic character projection.<br>
-                                                • Deployed multi-projector hardware and software mapping systems for immersive projection installations (Sky-G and Hallway Space).
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Retro Footer -->
-                            <div class="retro-footer" style="margin-top: 2vmin; display: flex; justify-content: space-between; padding: 0 4vmin; font-size: 0.75em; opacity: 0.5;">
-                                <span>[1-6] Select   [M] Mute   [ESC] Home</span>
-                                <span><a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #FFB000; text-decoration: none; border-bottom: 1px dashed #FFB000;">[ VIEW MODERN UI ↗ ]</a></span>
-                                <span>Bandung, ID - 2026</span>
-                            </div>
+                            <!-- Experience Content DOS Box Slot -->
+                            <div class="phosphor-highlight-inverse" style="display:flex; justify-content:space-between; align-items: center; margin-bottom: 0.5vmin; padding: 0.3vmin 1vmin; min-height: 3.5vmin;"><span style="font-weight:bold; letter-spacing: 1px; white-space: nowrap; margin-right: 1vmin; font-size: 1em; overflow: hidden; text-overflow: ellipsis;">EXPERIENCE</span><span style="display: flex; align-items: center; text-align: right; font-size: 0.85em; white-space: nowrap;"><span class="dos-instructions">1-4: Expand, ESC: Home</span><button type="button" class="back-btn-dos" onclick="window.location.href='/'; if(window.Audio) window.Audio.playKeystroke();" style="cursor: pointer; border: 1px solid #050505; background: rgba(0,0,0,0.15); color: #050505; font-family: inherit; font-size: 0.85em; font-weight: bold; padding: 0.2vmin 1.2vmin; margin-left: 1.5vmin; letter-spacing: 0.1vmin; transition: transform 0.1s; display: inline-flex; align-items: center; justify-content: center;">◀ HOME</button></span></div><div id="experience-container-slot" style="font-size: 1.2em;"></div>
                         </div>
                     </div>
                 </div>
@@ -277,53 +194,14 @@
     <script defer src="/js/menu.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            let expandedId = 1;
+            if (window.MenuManager) {
+                window.MenuManager.state = 'section';
+                window.MenuManager.activeIndex = 2;
+            }
 
-            const toggleJob = (id) => {
-                if (expandedId === id) {
-                    expandedId = null;
-                } else {
-                    expandedId = id;
-                }
-
-                document.querySelectorAll('.exp-item').forEach(el => {
-                    const itemId = parseInt(el.getAttribute('data-id'));
-                    const titleEl = el.querySelector('.job-title-el');
-                    const descEl = el.querySelector('.job-desc-el');
-                    const rawTitle = titleEl.innerText.replace(/^[▶▼]\s*/, '');
-
-                    if (itemId === expandedId) {
-                        titleEl.innerText = `▼ ${rawTitle}`;
-                        titleEl.className = 'job-title-el phosphor-highlight';
-                        descEl.style.display = 'block';
-                    } else {
-                        titleEl.innerText = `▶ ${rawTitle}`;
-                        titleEl.className = 'job-title-el phosphor-amber';
-                        descEl.style.display = 'none';
-                    }
-                });
-
-                if (window.Audio) window.Audio.playEnter();
-            };
-
-            document.querySelectorAll('.exp-item').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    const id = parseInt(e.currentTarget.getAttribute('data-id'));
-                    toggleJob(id);
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (['1', '2', '3', '4'].includes(e.key)) {
-                    // Check if focus is in an input field (other than keyboard capture)
-                    if (document.activeElement.tagName === 'INPUT' && document.activeElement.id !== 'keyboard-capture') {
-                        return;
-                    }
-                    // Alt key or modifier shouldn't trigger
-                    if (e.altKey || e.ctrlKey || e.metaKey) return;
-                    toggleJob(parseInt(e.key));
-                }
-            });
+            if (window.SectionExperience) {
+                window.SectionExperience.render();
+            }
 
             document.body.addEventListener('click', () => {
                 if (window.innerWidth >= 768) {

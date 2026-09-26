@@ -2,14 +2,16 @@
 
 class SectionExperience {
     constructor() {
-        this.expandedId = null;
+        this.expandedId = 1;
+        this.isInitialized = false;
         this.keydownHandler = this.handleKeydown.bind(this);
     }
 
     async render() {
         window.MenuManager.state = 'section';
         document.addEventListener('keydown', this.keydownHandler);
-        this.expandedId = null;
+        this.expandedId = 1;
+        this.isInitialized = false;
         await this.draw();
     }
 
@@ -33,7 +35,7 @@ class SectionExperience {
             }
         ];
 
-        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 1.5vmin; margin-top: 1.5vmin; width: 100%;">\n`;
+        let contentHTML = `<div style="display:flex; flex-direction:column; gap: 1.5vmin; margin-top: 1vmin; width: 100%;">`;
 
         jobs.forEach(job => {
             const isExpanded = this.expandedId === job.id;
@@ -59,13 +61,14 @@ class SectionExperience {
 
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "1-4: Expand, ESC: Back");
+        const fullHTML = window.Renderer.createDOSBox("EXPERIENCE", contentHTML, "1-4: Expand, ESC: Home");
 
-        if (!this.expandedId) {
+        if (!this.isInitialized) {
             await window.Renderer.screenWipe(fullHTML);
+            this.isInitialized = true;
         } else {
             window.Renderer.setContent(fullHTML);
-            window.Audio.playEnter();
+            if (window.Audio) window.Audio.playEnter();
         }
 
         setTimeout(() => {
@@ -76,12 +79,16 @@ class SectionExperience {
                     this.draw();
                 });
             });
-        }, 100);
+        }, 50);
     }
 
     handleKeydown(e) {
         if (window.MenuManager.state !== 'section' || window.MenuManager.activeIndex !== 2) return;
         if (['1', '2', '3', '4'].includes(e.key)) {
+            if (document.activeElement.tagName === 'INPUT' && document.activeElement.id !== 'keyboard-capture') {
+                return;
+            }
+            if (e.altKey || e.ctrlKey || e.metaKey) return;
             const id = parseInt(e.key);
             this.expandedId = (this.expandedId === id) ? null : id;
             this.draw();
