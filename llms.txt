@@ -8,7 +8,7 @@ A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise
 - Backend & Geospatial: PostgreSQL, PostGIS, Spatial SQL, Uber H3 Hexagonal Grid, OSRM, Redis, NATS, Hono.js, gRPC (Protobuf), Scrapy ETL
 - Real-Time & Interactive: Unity (C#), LiDAR Sensor Telemetry, WebSocket Streaming, Oculus LipSync
 - Cloud & DevOps: Docker, Kubernetes, AWS (S3, IAM), Vercel, CI/CD, Linux
-- Testing & Methods: Vitest (Automated Unit Testing), Client-Side Math Engines, SEO (JSON-LD)
+- Testing & Methods: Vitest (Automated Unit Testing), TDD, SEO (JSON-LD), REST & gRPC API Design
 - Spoken Languages: Indonesian (Native), English (Professional Working Proficiency)
 
 ## Experience Summary

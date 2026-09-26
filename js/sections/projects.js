@@ -92,7 +92,7 @@ class SectionProjects {
    ┌───────────┐       ┌───────────┐        ┌───────────┐       ┌───────────┐
    │ Typesense │       │  Uber H3  │        │   OSRM    │       │ PostGIS / │
    │ Search/Geo│       │ Hex Index │        │ MLD Tolls │       │ Redis/NATS│
-   │  &lt;200ms   │       │ O(1) Match│        │ GC Tuned  │       │ Fallback  │
+   │  &lt;200ms   │       │ Sub-Sec   │        │ Mem Pool  │       │ Fallback  │
    └───────────┘       └───────────┘        └───────────┘       └───────────┘`;
 
         let contentHTML = `
@@ -104,10 +104,10 @@ class SectionProjects {
     Real-time dispatching and routing platform managing on-demand vehicle towing operations.<div style="height: 0.8vmin;"></div>
     • <span class="phosphor-amber">Spatial Search &amp; Leaflet Mapping:</span> Built interactive operator map interfaces using Leaflet for dispatch and route inspection, supported by spatial search across ~2.8M POIs and ~70K boundaries via PostGIS, H3, and Typesense.<br>
     • <span class="phosphor-amber">Data Ingestion (~2.8M Records):</span> Built automated Scrapy ETL pipelines scaling POI datasets from ~1.5M to ~2.8M records and ~70K administrative boundaries (Overture Maps, Overpass/OSM, BIG, Pertamina).<br>
-    • <span class="phosphor-amber">High-Throughput Core Decomposition:</span> Decoupled into a TypeScript Gateway (auth &amp; aggregation) and a standalone Go Core Engine via gRPC (Protobuf) to isolate heavy graph computations from business logic.<br>
+    • <span class="phosphor-amber">Decoupled Gateway &amp; Routing Core:</span> Decoupled into a TypeScript Gateway (auth &amp; aggregation) and a standalone Go Core Engine via gRPC (Protobuf) to isolate heavy graph computations from business logic.<br>
     • <span class="phosphor-amber">Low-Latency Search &amp; Autocomplete (Typesense):</span> Migrated bottlenecked spatial SQL queries to Typesense, slashing latency to &lt;200ms (p95) using tiered multi-search queries (45 km geofenced local priority, typo tolerance), protected by a Go-native circuit breaker with PostGIS GiST fallback.<br>
-    • <span class="phosphor-amber">Proximity Indexing (Uber H3):</span> Replaced slow polygon intersection queries with Uber H3 hexagonal indexing (O(1) cell lookup) for instant driver-to-job proximity matching.<br>
-    • <span class="phosphor-amber">Dynamic Routing &amp; GC Tuning:</span> Configured OSRM with Multi-Level Dijkstra (MLD) for dynamic toll-road weighting; reused memory buffers to minimize Go GC pressure under high dispatch throughput.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Proximity Indexing (Uber H3):</span> Replaced spatial table scans with Uber H3 hexagonal indexing for sub-second driver-to-job proximity lookups.<br>
+    • <span class="phosphor-amber">Dynamic Routing &amp; Memory Pooling:</span> Configured OSRM with Multi-Level Dijkstra (MLD) for dynamic toll-road weighting; implemented buffer pooling (sync.Pool) to minimize heap allocations under high dispatch throughput.<div style="height: 0.8vmin;"></div>
     <span style="opacity: 0.7;">Tech Stack:</span> Go, TypeScript, Leaflet, Python (Scrapy), Typesense, OSRM, Uber H3, PostgreSQL/PostGIS, gRPC (Protobuf), Redis, NATS, Kubernetes.
 </div>`;
 
@@ -204,8 +204,8 @@ class SectionProjects {
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
     Intelligent model orchestration layer balancing latency and inference cost through semantic intent classification.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Multilingual Intent Classification:</span> Fine-tuned a multilingual DistilBERT model across 5 orthogonal dimensions (Task, Sub-task, Tool, Difficulty, Execution Mode).<br>
-    • <span class="phosphor-amber">Cost vs. Latency Balancing:</span> Implemented dynamic state-machine fallbacks and weighted soft-scoring to route routine tasks (68%) to lightweight models and reserve frontier LLMs (10%) for high-complexity queries, slashing overall API spend by ~72%.<br>
+    • <span class="phosphor-amber">Multilingual Intent Classification:</span> Fine-tuned a multilingual DistilBERT model across 5 classification targets (Task, Sub-task, Tool, Difficulty, Execution Mode).<br>
+    • <span class="phosphor-amber">Cost vs. Latency Balancing:</span> Implemented dynamic fallback rules and confidence thresholds to route routine tasks (68%) to lightweight models and reserve frontier LLMs (10%) for high-complexity queries, slashing overall API spend by ~72%.<br>
     • <span class="phosphor-amber">Fault Tolerance & Reliability:</span> Automated fallback state machine guaranteeing zero downtime during upstream rate-limits or provider outages.<div style="height: 0.8vmin;"></div>
     <span style="opacity: 0.7;">Tech Stack:</span> Python, PyTorch, DistilBERT, HuggingFace Transformers, FastAPI, Plotly.js, Redis.
 </div>`;
@@ -309,8 +309,8 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
 │                           CLIENT TIER (Browser)                             │
 │  ┌──────────────────────────────────┐ ┌──────────────────────────────────┐  │
 │  │ Consumer Price Radar (Route: /)  │ │ Merchant Portal (Route: /seller) │  │
-│  │ • Live Multi-Marketplace Grid    │ │ • Zero-Latency In-Browser Calc   │  │
-│  │ • Best Deal &amp; Discount Highlight │ │ • Whole IDR Margin Engine (&lt;5ms) │  │
+│  │ • Live Multi-Marketplace Grid    │ │ • In-Browser Margin Calculator   │  │
+│  │ • Best Deal &amp; Discount Highlight │ │ • Stepwise Rounding &amp; Fee Engine │  │
 │  │ • Outbound Monetized Click Beacon│ │ • Fee Anatomy &amp; BEP Barometer    │  │
 │  └─────────────────┬────────────────┘ └────────────────┬─────────────────┘  │
 └────────────────────┼───────────────────────────────────┼────────────────────┘</span>
@@ -343,11 +343,11 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
 <div style="font-size: 0.7em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
 <div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
     Independent price intelligence and e-commerce financial utility platform for Shopee, Tokopedia, TikTok Shop, and Lazada. Adopts a Dual-Portal architecture serving bargain-seeking consumers (B2C Price Radar) and merchants requiring precise profit margin simulations (B2B Merchant Hub).<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Client-Side Zero-Latency Math Engine (&lt; 5ms):</span> Engineered in-browser marketplace fee computation using Whole-IDR integer arithmetic with step rounding, completely eliminating JavaScript IEEE 754 floating-point errors on merchant payout balance.<br>
-    • <span class="phosphor-amber">Dual-Portal &amp; Persona Decoupling:</span> Separated application flows into two independent domains—consumer bargain portal and seller fee calculator—supported by adaptive responsive navigation (compact mobile dropdown and desktop active-line tabs).<br>
+    • <span class="phosphor-amber">In-Browser Margin &amp; Fee Calculator:</span> Engineered in-browser marketplace fee computation using integer arithmetic and stepwise rounding, preventing JavaScript floating-point rounding errors in seller disbursement calculations.<br>
+    • <span class="phosphor-amber">B2C &amp; B2B Dual-Interface Design:</span> Designed responsive dual-interface navigation separating the B2C price-comparison radar from the B2B merchant margin calculator with adaptive layouts (mobile dropdown vs. desktop tabs).<br>
     • <span class="phosphor-amber">Resilient Click Attribution Pipeline:</span> Built an analytics tracking redirect route (/api/radar/click) equipped with regex automated scraper/crawler detection and X-Robots-Tag: noindex header, protecting Neon PostgreSQL from bot pollutions.<br>
     • <span class="phosphor-amber">SEO-First Engineering &amp; Google Indexing:</span> Implemented 15 structured search routes with JSON-LD schemas (Product, FAQPage, BreadcrumbList), multi-resolution favicons, and fallback routing (/robot.txt to /robots.txt), achieving a 94%+ Seobility SEO audit score and fast Google Search Console indexing.<br>
-    • <span class="phosphor-amber">Automated Testing &amp; Code Reliability:</span> Maintained rigorous code quality with automated Vitest suites (28/28 passing unit tests), isolating financial engines, Rupiah formatting logic, and sliding-window rate limiters independently from the React DOM.<div style="height: 0.8vmin;"></div>
+    • <span class="phosphor-amber">Automated Testing &amp; Code Reliability:</span> Maintained rigorous code quality with automated Vitest suites (28/28 passing unit tests), isolating financial calculation logic, Rupiah formatting, and sliding-window rate limiters independently from the React DOM.<div style="height: 0.8vmin;"></div>
     <span style="opacity: 0.7;">Tech Stack:</span> Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Framer Motion, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel.<br>
     <span style="opacity: 0.7;">Live Website:</span> <a href="https://www.radarharga.shop" target="_blank" style="color: #FFB000; text-decoration: underline;">radarharga.shop ↗</a> &nbsp;|&nbsp; 
     <span style="opacity: 0.7;">GitHub:</span> <a href="https://github.com/andimuchlas/marketplace-intelegence" target="_blank" style="color: #FFB000; text-decoration: underline;">github.com/andimuchlas/marketplace-intelegence ↗</a>
