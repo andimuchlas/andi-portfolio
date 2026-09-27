@@ -138,7 +138,7 @@ class SectionProjects {
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
     High-performance reservation engine and dynamic channel manager for villa booking operations.<div style="height: 0.8vmin;"></div>
-    • <span class="phosphor-amber">Sub-Millisecond Route Execution:</span> Built lightweight booking and pricing services on Bun + Hono.js delivering sub-millisecond route execution and high concurrent request capacity.<br>
+    • <span class="phosphor-amber">High-Throughput Booking &amp; Pricing Services:</span> Built lightweight booking and pricing services on Bun + Hono.js, achieving minimal routing overhead and high concurrent request capacity.<br>
     • <span class="phosphor-amber">Automated OTA Sync & Direct Uploads:</span> Synchronized real-time OTA calendar availability (HotelMu) and automated booking timeouts via BullMQ, pairing with S3 Presigned URLs for direct client media storage.<br>
     • <span class="phosphor-amber">Document Generation & Auth:</span> Automated PDF invoices (jsPDF) and Excel financial reports (ExcelJS) protected by granular RBAC & JWT/Firebase Auth.<div style="height: 0.8vmin;"></div>
     <span style="opacity: 0.7;">Tech Stack:</span> Bun, TypeScript, Hono.js, PostgreSQL, Drizzle ORM, Redis, BullMQ, AWS S3, Docker.
@@ -345,7 +345,7 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
     Independent price intelligence and e-commerce financial utility platform for Shopee, Tokopedia, TikTok Shop, and Lazada. Adopts a Dual-Portal architecture serving bargain-seeking consumers (B2C Price Radar) and merchants requiring precise profit margin simulations (B2B Merchant Hub).<div style="height: 0.8vmin;"></div>
     • <span class="phosphor-amber">In-Browser Margin &amp; Fee Calculator:</span> Engineered in-browser marketplace fee computation using integer arithmetic and stepwise rounding, preventing JavaScript floating-point rounding errors in seller disbursement calculations.<br>
     • <span class="phosphor-amber">B2C &amp; B2B Dual-Interface Design:</span> Designed responsive dual-interface navigation separating the B2C price-comparison radar from the B2B merchant margin calculator with adaptive layouts (mobile dropdown vs. desktop tabs).<br>
-    • <span class="phosphor-amber">Resilient Click Attribution Pipeline:</span> Built an analytics tracking redirect route (/api/radar/click) equipped with regex automated scraper/crawler detection and X-Robots-Tag: noindex header, protecting Neon PostgreSQL from bot pollutions.<br>
+    • <span class="phosphor-amber">Affiliate Redirect &amp; Bot Protection:</span> Built an analytics tracking redirect route (/api/radar/click) equipped with regex automated scraper/crawler detection and X-Robots-Tag: noindex header, protecting Neon PostgreSQL from crawler traffic pollution.<br>
     • <span class="phosphor-amber">SEO-First Engineering &amp; Google Indexing:</span> Implemented 15 structured search routes with JSON-LD schemas (Product, FAQPage, BreadcrumbList), multi-resolution favicons, and fallback routing (/robot.txt to /robots.txt), achieving a 94%+ Seobility SEO audit score and fast Google Search Console indexing.<br>
     • <span class="phosphor-amber">Automated Testing &amp; Code Reliability:</span> Maintained rigorous code quality with automated Vitest suites (28/28 passing unit tests), isolating financial calculation logic, Rupiah formatting, and sliding-window rate limiters independently from the React DOM.<div style="height: 0.8vmin;"></div>
     <span style="opacity: 0.7;">Tech Stack:</span> Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Framer Motion, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel.<br>
@@ -410,7 +410,7 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
 
         let contentHTML = `
 <div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">AI AVATAR UNITY — End-to-End AI & Real-Time Interactive System</div>
-<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Systems Architect & Full-Stack Engineer &nbsp;|&nbsp; Open Source / GitHub</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack & Systems Engineer &nbsp;|&nbsp; Open Source / GitHub</div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
