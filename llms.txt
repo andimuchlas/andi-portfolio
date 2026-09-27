@@ -9,6 +9,7 @@ A retro terminal-themed portfolio (AMRSYS 9400) showcasing engineering expertise
 - Real-Time & Interactive: Unity (C#), LiDAR Sensor Telemetry, WebSocket Streaming, Oculus LipSync
 - Cloud & DevOps: Docker, Kubernetes, AWS (S3, IAM), Vercel, CI/CD, Linux
 - Testing & Methods: Vitest (Automated Unit Testing), TDD, SEO (JSON-LD), REST & gRPC API Design
+- AI & Automation: LLM Orchestration, Agentic Tool-Calling, n8n Workflow Automation, Webhook Integrations, DistilBERT
 - Spoken Languages: Indonesian (Native), English (Professional Working Proficiency)
 
 ## Experience Summary
@@ -31,5 +32,5 @@ Full-Stack & Geospatial Software Engineer with 3+ years of experience delivering
 ## Links
 - Retro Terminal Portfolio: https://andi.is-a.dev/
 - Creative 3D Portfolio: https://landing-page-porfolio-one.vercel.app/
-- LinkedIn: https://linkedin.com/in/andimuchlas
-- GitHub: https://github.com/andimuchlas
+- LinkedIn: https://www.linkedin.com/in/andimuchlas/
+- GitHub: https://github.com/andimuchlas/

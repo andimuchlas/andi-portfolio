@@ -29,7 +29,13 @@ class SectionSkills {
                 { name: "Vitest & Testing", pct: 85 },
                 { name: "Scrapy ETL", pct: 86 }
             ]},
-            { cat: "5. SPOKEN & PROTOTYPING", skills: [
+            { cat: "5. AI & AUTOMATION", skills: [
+                { name: "LLM Orchestration", pct: 86 },
+                { name: "Agentic Tool-Call", pct: 85 },
+                { name: "n8n Automation", pct: 88 },
+                { name: "Webhooks & APIs", pct: 88 }
+            ]},
+            { cat: "6. SPOKEN & PROTOTYPING", skills: [
                 { name: "English (Proficient)", pct: 85 },
                 { name: "Indonesian (Native)", pct: 100 },
                 { name: "Rapid Prototyping", pct: 88 },

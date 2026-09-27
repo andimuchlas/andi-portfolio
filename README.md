@@ -65,5 +65,5 @@ Then, open your browser and navigate to `http://localhost:8000`.
 I am Andi Muchlas Ramadani, a Full-Stack & Geospatial Software Engineer with 3+ years of experience delivering end-to-end applications. My core expertise spans TypeScript/React/Next.js and Three.js web frontends, distributed Go and PostGIS geospatial routing backends, and Unity/C# interactive IoT systems. Currently working as Software Engineer (Backend & Web Systems) at PT Lintas Cakra Cipta and Interactive Software Engineer at Molca Teknologi Nusantara.
 
 Connect with me:
-- [LinkedIn](https://linkedin.com/in/andimuchlas)
+- [LinkedIn](https://www.linkedin.com/in/andimuchlas/)
 - [GitHub](https://github.com/andimuchlas)
