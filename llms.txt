@@ -22,7 +22,7 @@ Full-Stack & Geospatial Software Engineer with 3+ years of experience delivering
 
 ## Key Projects
 - GoAgri (luwesagri.com): Map-based plantation management platform across web, backend, and Flutter mobile (Next.js, NestJS/Fastify, PostGIS, Flutter, AI assistant)
-- Luwes Station (station.luwesinovasimandiri.com): Flood early-warning and watershed monitoring system across web, backend, and Flutter mobile (Next.js, NestJS, TimescaleDB/PostGIS, Flutter)
+- Luwes Station (station.luwesinovasimandiri.com): Weather station and flood early-warning monitoring system across web, backend, and Flutter mobile (Next.js, NestJS, TimescaleDB/PostGIS, Flutter)
 - Rajaderek: Real-time spatial routing and dispatch logistics system (Go, TypeScript, Leaflet, PostGIS, OSRM, Uber H3, Typesense, gRPC Protobuf, Kubernetes, NATS, Redis)
 - Radar Harga: Full-stack e-commerce price intelligence & merchant profit engine (Next.js 14, React, TypeScript, Tailwind CSS, Neon PostgreSQL, Drizzle ORM, Vitest, Vercel)
 - Creative 3D Landing Page: Cinematic WebGL 3D portfolio & motion experience (Next.js 16, React 19, Three.js, React Three Fiber, GSAP, Lenis, Tailwind CSS v4)

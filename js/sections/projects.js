@@ -101,11 +101,11 @@ class SectionProjects {
 
     async drawLuwesStation() {
         let contentHTML = `
-<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">LUWES STATION — Flood Early Warning &amp; Watershed Monitoring</div>
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">LUWES STATION — Weather Station &amp; Flood Early Warning</div>
 <div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack &amp; Mobile Engineer &nbsp;|&nbsp; Private / Production &nbsp;|&nbsp; <a href="https://station.luwesinovasimandiri.com/" target="_blank" rel="noopener" style="color: #FFB000; text-decoration: underline;">station.luwesinovasimandiri.com ↗</a></div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.95em; line-height: 1.5; opacity: 0.95; text-align: left;">
-    Early-warning monitoring platform for hydrological stations, threshold alarms, and watershed mapping across web, backend, and mobile.<div style="height: 1vmin;"></div>
+    Weather station and early-warning monitoring platform for hydrological/weather stations, threshold alarms, and watershed mapping across web, backend, and mobile.<div style="height: 1vmin;"></div>
     • <span class="phosphor-amber">Flutter Mobile App:</span> Built the mobile application from scratch with smooth 120Hz performance, native camera/GPS workflows, and fast cached maps.<br>
     • <span class="phosphor-amber">Web &amp; API Features:</span> Delivered weather catalog, CSV data export, station pinpointing, email broadcasts, password reset, and PWA support.<br>
     • <span class="phosphor-amber">UI/UX &amp; Optimization:</span> Refined mobile/desktop views, map tile caching, and API error handling across services.<div style="height: 1vmin;"></div>

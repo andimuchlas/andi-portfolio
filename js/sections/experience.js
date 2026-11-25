@@ -19,7 +19,7 @@ class SectionExperience {
         const jobs = [
             {
                 id: 1, title: "PT LUWES INOVASI MANDIRI", role: "Full-Stack Engineer (Web & Mobile) · Oct 2026–Present", logo: "/assets/img/logo/luwes.png",
-                desc: "• Building two location-based products end-to-end across web, backend, and Flutter mobile: a plantation management platform (GoAgri) and a flood early-warning system (Luwes Station).<br>• Delivered new modules including an AI farmer assistant, discussion forum, notifications/broadcasts, field tracking, weather catalog, CSV export, and station pinpointing.<br>• Built the Flutter mobile apps with smooth 120Hz performance, native camera/GPS workflows, and fast cached maps.<br>• Led UI/UX overhauls, bug fixes, and performance optimizations across web and mobile."
+                desc: "• Building two location-based products end-to-end across web, backend, and Flutter mobile: a plantation management platform (GoAgri) and a weather station & flood early-warning system (Luwes Station).<br>• Delivered new modules including an AI farmer assistant, discussion forum, notifications/broadcasts, field tracking, weather catalog, CSV export, and station pinpointing.<br>• Built the Flutter mobile apps with smooth 120Hz performance, native camera/GPS workflows, and fast cached maps.<br>• Led UI/UX overhauls, bug fixes, and performance optimizations across web and mobile."
             },
             {
                 id: 2, title: "MOLCA TEKNOLOGI NUSANTARA", role: "Interactive Software Engineer (Remote) · Jun 2026–Sep 2026", logo: "/assets/img/logo/molca.png",
