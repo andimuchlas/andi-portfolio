@@ -187,9 +187,21 @@
                 }
             };
 
-            // Always show splash screen ([ FAST BOOT ] / [ POWER ON ]) on fresh load of "/"
-            // (do not auto-jump from stale sessionStorage)
-            void isPoweredOn;
+            // Returning to "/" via in-site navigation (e.g., clicking Home/Menu from another section)
+            // skips the splash screen; fresh visits and manual reloads always show [ FAST BOOT ] / [ POWER ON ].
+            const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+            const isReload = navEntry && navEntry.type === 'reload';
+            const fromSameOrigin = document.referrer && document.referrer.startsWith(window.location.origin);
+
+            if (isPoweredOn && fromSameOrigin && !isReload) {
+                splash.style.display = 'none';
+                document.body.classList.add('power-on');
+                setTimeout(() => {
+                    if (window.MenuManager) {
+                        window.MenuManager.showMenu(false);
+                    }
+                }, 50);
+            }
 
             if (fastBootBtn) {
                 fastBootBtn.addEventListener('click', async (e) => {
