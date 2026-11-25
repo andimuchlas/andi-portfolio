@@ -298,30 +298,97 @@
 
 @media (max-width: 768px) {
     #terminal-content {
-        font-size: 3.8vmin;
-        padding: 6vmin 6vmin 8vmin 6vmin;
+        font-size: clamp(14px, 3.6vw, 16px);
+        padding: 4vmin 4vmin 6vmin 4vmin;
+        overflow-x: hidden;
     }
     .dos-instructions {
         display: none !important;
     }
     .back-btn-dos {
-        padding: 0.5vmin 2vmin !important;
-        font-size: 0.85em !important;
+        padding: 10px 16px !important;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.9em !important;
+    }
+    .menu-item, .exp-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 8px 10px !important;
     }
     .dos-navbar-container {
-        font-size: clamp(11px, 2.8vmin, 14px);
-        padding: 0.6vmin 1vmin;
-        min-height: auto;
+        font-size: clamp(12px, 3vw, 14px);
+        padding: 8px 6px;
+        min-height: 44px;
     }
     .dos-navbar-items {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1vmin;
+        gap: 6px;
+    }
+    .dos-nav-item {
+        min-height: 40px;
+        padding: 6px 10px;
+        display: inline-flex;
+        align-items: center;
     }
     .dos-nav-separator {
         display: none;
     }
     .dos-nav-clock {
         display: none;
+    }
+}
+
+/* Full-screen clean terminal on small mobile viewports (<640px) */
+@media (max-width: 640px) {
+    #room, #monitor-assembly {
+        width: 100vw !important;
+        height: 100dvh !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+    }
+    .monitor-frame-overlay,
+    .screen-glow-to-bezel,
+    .cristal,
+    .glitch-overlay,
+    .dirt-overlay,
+    #btn-mute-container {
+        display: none !important;
+    }
+    .screen-container, .screen-glass {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    .scanline, .scanline1 {
+        opacity: 0.15 !important;
+        animation: none !important;
+    }
+    #continue-btn, #compact-btn, #power-btn {
+        min-height: 48px !important;
+        width: min(88vw, 320px) !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .anim-amr, .anim-eyes, .anim-star, .retro-blink,
+    .scanline, .scanline1, .glitch-bar {
+        animation: none !important;
+    }
+    .glitch-overlay {
+        display: none !important;
     }
 }

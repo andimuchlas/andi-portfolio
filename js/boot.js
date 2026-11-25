@@ -56,18 +56,67 @@ class BootSequenceManager {
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         ];
         this.started = false;
+        this.skipped = false;
+    }
+
+    skipToMenu() {
+        if (this.skipped) return;
+        this.skipped = true;
+        document.body.classList.remove('cold-booting');
+        const kb = document.getElementById('keyboard-capture');
+        if (kb) { kb.disabled = false; kb.focus(); }
+        try {
+            sessionStorage.setItem('amrsys_powered_on', 'true');
+            localStorage.setItem('amrsys_booted', '1');
+        } catch (err) {}
+        if (window.MenuManager) window.MenuManager.showMenu();
     }
 
     async start() {
         if (this.started) return;
         this.started = true;
+        this.skipped = false;
 
         const container = document.getElementById('terminal-content');
         document.body.classList.add('power-on', 'cold-booting');
 
+        // Skip boot automatically for returning visitors or reduced-motion preference
+        const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let hasBooted = false;
+        try { hasBooted = localStorage.getItem('amrsys_booted') === '1'; } catch (err) {}
+        if (reducedMotion || hasBooted) {
+            container.style.opacity = '1';
+            this.skipToMenu();
+            return;
+        }
+
         // Initial darkness
         container.innerHTML = '';
         container.style.opacity = '0';
+
+        // Skip boot button
+        const skipBtn = document.createElement('button');
+        skipBtn.type = 'button';
+        skipBtn.innerText = '[ SKIP BOOT ]';
+        skipBtn.style.cssText = `
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 200;
+            background: rgba(0,0,0,0.85);
+            color: #FFB000;
+            border: 1px solid #FFB000;
+            padding: 8px 14px;
+            min-height: 44px;
+            font-family: inherit;
+            font-size: 13px;
+            cursor: pointer;
+        `;
+        skipBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.skipToMenu();
+        });
+        container.appendChild(skipBtn);
 
         // Create Logo Container
         const logoDiv = document.createElement('div');
@@ -99,11 +148,13 @@ class BootSequenceManager {
         logoDiv.style.opacity = '1';
 
         await new Promise(r => setTimeout(r, 5000));
+        if (this.skipped) return;
 
         // Disable keyboard capture during boot
         document.getElementById('keyboard-capture').disabled = true;
 
         for (let i = 0; i < this.bootText.length; i++) {
+            if (this.skipped) return;
             const line = this.bootText[i];
             const div = document.createElement('div');
             container.appendChild(div);
@@ -176,7 +227,10 @@ class BootSequenceManager {
             document.removeEventListener('keydown', proceed);
             document.removeEventListener('click', proceed);
             document.body.classList.remove('cold-booting');
-            try { sessionStorage.setItem('amrsys_powered_on', 'true'); } catch(err) {}
+            try {
+                sessionStorage.setItem('amrsys_powered_on', 'true');
+                localStorage.setItem('amrsys_booted', '1');
+            } catch(err) {}
             window.Audio.playEnter();
             window.MenuManager.showMenu();
         };

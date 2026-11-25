@@ -5,18 +5,20 @@ class SectionProjects {
         this.state = 'list';
         this.activeIndex = 0;
         this.projects = [
-            { id: 'A', name: 'RAJADEREK' },
-            { id: 'B', name: 'RADAR HARGA' },
-            { id: 'C', name: 'CREATIVE 3D LANDING PAGE' },
-            { id: 'D', name: 'AI AVATAR UNITY' },
-            { id: 'E', name: 'GEPHYRION' },
-            { id: 'F', name: 'DISASTER ROOM GAMIFICATION' },
-            { id: 'G', name: 'CASANELA VILLA API' },
-            { id: 'H', name: 'GENSET MANAGEMENT API' },
-            { id: 'I', name: 'DYNAMIC PDF ENGINE' },
-            { id: 'J', name: 'LLM INTENT ROUTER' },
-            { id: 'K', name: 'THE SEARCH OF ELDORIA' },
-            { id: 'L', name: 'DIGITAL LEARN' }
+            { id: 'A', name: 'GOAGRI (LUWESAGRI)' },
+            { id: 'B', name: 'LUWES STATION (EWS)' },
+            { id: 'C', name: 'RAJADEREK' },
+            { id: 'D', name: 'RADAR HARGA' },
+            { id: 'E', name: 'CREATIVE 3D LANDING PAGE' },
+            { id: 'F', name: 'AI AVATAR UNITY' },
+            { id: 'G', name: 'GEPHYRION' },
+            { id: 'H', name: 'DISASTER ROOM GAMIFICATION' },
+            { id: 'I', name: 'CASANELA VILLA API' },
+            { id: 'J', name: 'GENSET MANAGEMENT API' },
+            { id: 'K', name: 'DYNAMIC PDF ENGINE' },
+            { id: 'L', name: 'LLM INTENT ROUTER' },
+            { id: 'M', name: 'THE SEARCH OF ELDORIA' },
+            { id: 'N', name: 'DIGITAL LEARN' }
         ];
         this.keydownHandler = this.handleKeydown.bind(this);
     }
@@ -41,7 +43,7 @@ class SectionProjects {
         });
         contentHTML += `</div>`;
 
-        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-L: Select, ENTER: Open, ESC: Back");
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS", contentHTML, "↑/↓ or A-N: Select, ENTER: Open, ESC: Back");
 
         if (forceWipe) {
             await window.Renderer.screenWipe(fullHTML);
@@ -65,18 +67,52 @@ class SectionProjects {
         window.MenuManager.state = 'subsection';
         window.Audio.playEnter();
 
-        if (id === 'A') await this.drawRajaderek();
-        else if (id === 'B') await this.drawRadarHarga();
-        else if (id === 'C') await this.drawLandingPage();
-        else if (id === 'D') await this.drawAiAvatar();
-        else if (id === 'E') await this.drawGephyrion();
-        else if (id === 'F') await this.drawDisasterRoom();
-        else if (id === 'G') await this.drawCasanela();
-        else if (id === 'H') await this.drawGenset();
-        else if (id === 'I') await this.drawPdfEngine();
-        else if (id === 'J') await this.drawLlmRouter();
-        else if (id === 'K') await this.drawEldoria();
-        else if (id === 'L') await this.drawDigitalLearn();
+        if (id === 'A') await this.drawGoAgri();
+        else if (id === 'B') await this.drawLuwesStation();
+        else if (id === 'C') await this.drawRajaderek();
+        else if (id === 'D') await this.drawRadarHarga();
+        else if (id === 'E') await this.drawLandingPage();
+        else if (id === 'F') await this.drawAiAvatar();
+        else if (id === 'G') await this.drawGephyrion();
+        else if (id === 'H') await this.drawDisasterRoom();
+        else if (id === 'I') await this.drawCasanela();
+        else if (id === 'J') await this.drawGenset();
+        else if (id === 'K') await this.drawPdfEngine();
+        else if (id === 'L') await this.drawLlmRouter();
+        else if (id === 'M') await this.drawEldoria();
+        else if (id === 'N') await this.drawDigitalLearn();
+    }
+
+    async drawGoAgri() {
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">GOAGRI — Precision Agriculture &amp; Plantation Platform</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack &amp; Mobile Engineer &nbsp;|&nbsp; Private / Production &nbsp;|&nbsp; <a href="https://luwesagri.com/" target="_blank" rel="noopener" style="color: #FFB000; text-decoration: underline;">luwesagri.com ↗</a></div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.95em; line-height: 1.5; opacity: 0.95; text-align: left;">
+    Map-based plantation management platform spanning web, backend, and Android mobile (Flutter).<div style="height: 1vmin;"></div>
+    • <span class="phosphor-amber">New Core Modules:</span> Built the AI assistant for farmers (streaming chat + RAG knowledge base), discussion forum, broadcast notifications, field tracking, and block-level scheduling.<br>
+    • <span class="phosphor-amber">Mobile &amp; Field UX:</span> Delivered Flutter mobile features including native photo watermarking, map views, and smoother daily field workflows.<br>
+    • <span class="phosphor-amber">UI/UX &amp; Reliability:</span> Overhauled web and mobile interfaces for consistency, responsiveness, and faster error/save feedback.<div style="height: 1vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Next.js 16 (BFF), NestJS (Fastify), PostgreSQL/PostGIS, Kysely, Redis, Flutter/Dart.
+</div>`;
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > GOAGRI", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
+    }
+
+    async drawLuwesStation() {
+        let contentHTML = `
+<div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">LUWES STATION — Flood Early Warning &amp; Watershed Monitoring</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack &amp; Mobile Engineer &nbsp;|&nbsp; Private / Production &nbsp;|&nbsp; <a href="https://station.luwesinovasimandiri.com/" target="_blank" rel="noopener" style="color: #FFB000; text-decoration: underline;">station.luwesinovasimandiri.com ↗</a></div>
+<div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
+<div style="font-size: 0.95em; line-height: 1.5; opacity: 0.95; text-align: left;">
+    Early-warning monitoring platform for hydrological stations, threshold alarms, and watershed mapping across web, backend, and mobile.<div style="height: 1vmin;"></div>
+    • <span class="phosphor-amber">Flutter Mobile App:</span> Built the mobile application from scratch with smooth 120Hz performance, native camera/GPS workflows, and fast cached maps.<br>
+    • <span class="phosphor-amber">Web &amp; API Features:</span> Delivered weather catalog, CSV data export, station pinpointing, email broadcasts, password reset, and PWA support.<br>
+    • <span class="phosphor-amber">UI/UX &amp; Optimization:</span> Refined mobile/desktop views, map tile caching, and API error handling across services.<div style="height: 1vmin;"></div>
+    <span style="opacity: 0.7;">Tech Stack:</span> Next.js 16, NestJS, PostgreSQL/TimescaleDB, Flutter/Dart, Leaflet/Flutter Map.
+</div>`;
+        const fullHTML = window.Renderer.createDOSBox("PROJECTS > LUWES STATION", contentHTML);
+        await window.Renderer.screenWipe(fullHTML, false);
     }
 
     async drawRajaderek() {
@@ -97,7 +133,7 @@ class SectionProjects {
 
         let contentHTML = `
 <div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">RAJADEREK — Real-Time Spatial Routing &amp; Dispatch Logistics</div>
-<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend &amp; Spatial Systems Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend &amp; Spatial Systems Engineer &nbsp;|&nbsp; Private Ops &nbsp;|&nbsp; <a href="https://www.rajaderek.com/" target="_blank" rel="noopener" style="color: #FFB000; text-decoration: underline;">rajaderek.com ↗</a></div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.7em; white-space: pre; margin-bottom: 2vmin; overflow-x: auto;">${diagram}</div>
 <div style="font-size: 0.95em; line-height: 1.4; opacity: 0.95; text-align: left;">
@@ -133,7 +169,7 @@ class SectionProjects {
 
         let contentHTML = `
 <div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">CASANELA VILLA API — High-Throughput Reservation Engine</div>
-<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend Engineer &nbsp;|&nbsp; Private / Production System</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Backend Engineer &nbsp;|&nbsp; Production &nbsp;|&nbsp; <a href="https://casanelavilla.com/" target="_blank" rel="noopener" style="color: #FFB000; text-decoration: underline;">casanelavilla.com ↗</a></div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
@@ -410,7 +446,7 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
 
         let contentHTML = `
 <div class="phosphor-highlight" style="font-size: 1.4em; margin-bottom: 1vmin;">AI AVATAR UNITY — End-to-End AI & Real-Time Interactive System</div>
-<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack & Systems Engineer &nbsp;|&nbsp; Open Source / GitHub</div>
+<div style="font-size: 0.85em; opacity: 0.75; margin-bottom: 1.5vmin;">Role: Full-Stack & Systems Engineer &nbsp;|&nbsp; GitHub</div>
 <div style="border-bottom: 2px solid #FFB000; margin-bottom: 2vmin; opacity: 0.5;"></div>
 <div style="font-size: 0.75em; white-space: pre; margin-bottom: 2vmin;">${diagram}</div>
 <div style="font-size: 1em; line-height: 1.4; opacity: 0.9; text-align: left;">
@@ -519,7 +555,7 @@ A 2D top-down action-adventure game developed as a final project for Game Progra
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 this.showDetail(this.projects[this.activeIndex].id);
-            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'].includes(e.key)) {
+            } else if (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'].includes(e.key)) {
                 e.preventDefault();
                 const key = e.key.toUpperCase();
                 this.activeIndex = this.projects.findIndex(p => p.id === key);

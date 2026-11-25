@@ -5,14 +5,16 @@ class SectionSkills {
         window.MenuManager.state = 'section';
         
         const skillsData = [
-            { cat: "1. LANGUAGES & WEB", skills: [
+            { cat: "1. LANGUAGES & WEB/MOBILE", skills: [
                 { name: "TypeScript & JS", pct: 90 },
                 { name: "React & Next.js", pct: 88 },
+                { name: "Flutter & Dart", pct: 86 },
                 { name: "Three.js & Leaflet", pct: 85 },
                 { name: "Go & C#", pct: 86 }
             ]},
             { cat: "2. BACKEND & GEOSPATIAL", skills: [
                 { name: "PostgreSQL & PostGIS", pct: 88 },
+                { name: "NestJS & Fastify", pct: 86 },
                 { name: "Uber H3 & OSRM", pct: 85 },
                 { name: "Redis & NATS", pct: 85 },
                 { name: "gRPC & Hono.js", pct: 84 }
