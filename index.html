@@ -194,15 +194,9 @@
                 }
             };
 
-            if (isPoweredOn) {
-                splash.style.display = 'none';
-                document.body.classList.add('power-on');
-                setTimeout(() => {
-                    if (window.MenuManager) {
-                        window.MenuManager.showMenu(false);
-                    }
-                }, 50);
-            }
+            // Always show splash screen ([ FAST BOOT ] / [ POWER ON ]) on fresh load of "/"
+            // (do not auto-jump from stale sessionStorage)
+            void isPoweredOn;
 
             if (fastBootBtn) {
                 fastBootBtn.addEventListener('click', async (e) => {
