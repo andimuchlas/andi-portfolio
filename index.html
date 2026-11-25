@@ -119,26 +119,19 @@
                     <div id="wipe-transition-layer">
                         <div id="terminal-content" class="phosphor-amber">
                             <!-- Splash Screen (Desktop & Mobile — no warning wall) -->
-                            <div id="splash-screen"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 2.5vmin; background: #000; padding: 2vmin;">
-                                <img src="assets/img/logo/web-logo.png" alt="Logo"
-                                    style="width: 30vmin; height: auto; opacity: 0.9; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(3) brightness(1.2);">
-                                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.8vmin; width: 64vmin; max-width: 90%;">
-                                    <button type="button" id="fast-boot-btn"
-                                        style="width: 100%; padding: 1.2vmin 4vmin; border: 3px solid #FFB000; cursor: pointer; font-family: inherit; font-size: 2.4vmin; background: rgba(255,176,0,0.12); color: #FFB000; text-align: center; transition: all 0.2s;">
-                                        [ FAST BOOT ]
-                                        <span style="display: block; font-size: 1.2vmin; opacity: 0.78; margin-top: 0.4vmin;">Skip animation · Open terminal menu immediately</span>
+                            <div id="splash-screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; gap: 3vmin; background: #000; padding: 2vmin; white-space: normal; text-align: center;">
+                                <img src="assets/img/logo/web-logo.png" alt="Logo" style="width: 28vmin; height: auto; opacity: 0.92; filter: grayscale(1) sepia(1) hue-rotate(15deg) saturate(3) brightness(1.2);">
+                                <div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 2vmin; width: 100%; max-width: 68vmin;">
+                                    <button type="button" id="fast-boot-btn" style="flex: 1 1 24vmin; min-width: 22vmin; padding: 1.4vmin 2.4vmin; border: 2px solid #FFB000; cursor: pointer; font-family: inherit; background: rgba(255,176,0,0.12); color: #FFB000; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5vmin;">
+                                        <span style="font-size: 2vmin; font-weight: bold; letter-spacing: 0.08em;">[ FAST BOOT ]</span>
+                                        <span style="font-size: 1.15vmin; opacity: 0.78;">Skip intro · Open menu</span>
                                     </button>
-                                    <button type="button" id="power-btn"
-                                        style="width: 100%; padding: 1.1vmin 4vmin; border: 2px solid rgba(255,176,0,0.65); cursor: pointer; font-family: inherit; font-size: 2vmin; background: rgba(0,0,0,0.9); color: #FFB000; text-align: center; transition: all 0.2s;">
-                                        [ POWER ON ]
-                                        <span style="display: block; font-size: 1.2vmin; opacity: 0.7; margin-top: 0.4vmin;">Full cold-boot sequence with retro audio</span>
+                                    <button type="button" id="power-btn" style="flex: 1 1 24vmin; min-width: 22vmin; padding: 1.4vmin 2.4vmin; border: 2px solid rgba(255,176,0,0.55); cursor: pointer; font-family: inherit; background: rgba(0,0,0,0.9); color: #FFB000; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5vmin;">
+                                        <span style="font-size: 2vmin; font-weight: bold; letter-spacing: 0.08em;">[ POWER ON ]</span>
+                                        <span style="font-size: 1.15vmin; opacity: 0.7;">Cold boot + audio</span>
                                     </button>
-                                    <a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener"
-                                        style="padding: 0.8vmin 2vmin; color: #FFB000; font-family: inherit; font-size: 1.3vmin; opacity: 0.75; text-decoration: underline; margin-top: 0.4vmin;">
-                                        Prefer scrollable modern view? Open 3D Portfolio ↗
-                                    </a>
                                 </div>
+                                <a href="https://landing-page-porfolio-one.vercel.app/" target="_blank" rel="noopener" style="color: #FFB000; font-family: inherit; font-size: 1.25vmin; opacity: 0.72; text-decoration: underline; text-underline-offset: 4px;">Prefer scrollable modern view? Open 3D Portfolio ↗</a>
                             </div>
                         </div>
                     </div>
